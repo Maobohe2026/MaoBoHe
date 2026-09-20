@@ -1,8 +1,9 @@
 # 猫薄荷
  异环自动化的按键精灵脚本
  
- Q频道https://pd.qq.com/s/dd2776fao?b=9  
-
+ Q频道https://pd.qq.com/s/dd2776fao?b=9 
+ 
+ B站https://space.bilibili.com/6354078
  
  代码都是能运行就行
  
