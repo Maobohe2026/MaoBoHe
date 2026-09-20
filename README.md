@@ -4,6 +4,8 @@
  Q频道https://pd.qq.com/s/dd2776fao?b=9 
  
  B站https://space.bilibili.com/6354078
+
+ 使用说明https://docs.qq.com/doc/DTkNUTG5tY0ZacUZB
  
  代码都是能运行就行
  
