@@ -1,0 +1,193 @@
+Sub 躲猫猫
+    Form1.ListBox1.AddItem "躲猫猫"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "请在活动匹配界面开始"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Rem 重开
+    Delay 1000
+    Rem 开始躲猫猫
+    For 4
+        XY=Plugin.Color.FindMultiColor(W+1405,H+429,W+1531,H+563,"6361F7","-23|3|6361EF,22|17|6361F7,20|44|635DE7,-4|51|6361F7,4|51|6361F7",0.8)//猎人红框
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            主页1
+            Delay 1000
+            KeyPress "M", 1
+            Delay 1000
+            For 30
+                XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    Exit For
+                Else 
+                    Delay 200
+                End If
+            Next
+            MoveTo W + 120, H + 970
+            Delay 100
+            LeftClick 1
+            Delay 1000
+            For 30
+                XY=Plugin.Color.FindMultiColor(W+1254,H+126,W+1356,H+192,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    Exit For
+                Else 
+                    Delay 200
+                End If
+            Next
+            MoveTo W + 508, H + 771
+            Delay 100
+            For 9
+                Delay 50
+                MouseWheel -6
+            Next
+            Delay 500
+            XY=Plugin.Color.FindMultiColor(W+225,H+127,W+1671,H+1013,"566A9F","46|3|B6B8D2,9|28|4D5C8B,41|38|B0B2CF,-7|43|636A87,54|43|4D3C48",0.9)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                MoveTo X, Y
+                Delay 100
+            End If
+            LeftClick 2
+            Delay 200
+            For 30
+                XY=Plugin.Color.FindMultiColor(W+1405,H+429,W+1531,H+563,"6361F7","-23|3|6361EF,22|17|6361F7,20|44|635DE7,-4|51|6361F7,4|51|6361F7",0.8)//猎人红框
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    Exit For
+                Else 
+                    Delay 200
+                End If
+            Next
+        End If
+    Next
+    For 5
+        XY=Plugin.Color.FindMultiColor(W+1405,H+429,W+1531,H+563,"6361F7","-23|3|6361EF,22|17|6361F7,20|44|635DE7,-4|51|6361F7,4|51|6361F7",0.8)//猎人红框
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Form1.ListBox1.AddItem "点击匹配"
+            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+            MoveTo W + 1695, H +1015
+            Delay 100
+            LeftClick 2
+            Delay 500
+        Else 
+            Exit For
+        End If
+    Next
+    TracePrint "开始"
+    Delay 10000
+    For 60
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+1767,H+20 ,W+1851,H+119,"E8E8E5","26|1|E8E8E5,22|13|E8E8E5,-3|19|E8E8E5,9|19|E8E8E5,29|19|E8E8E5,22|24|E8E8E5,26|36|E8E8E5,1|38|E8E8E5",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        End If
+    Next
+    TracePrint "进入场景 等待结束"
+    i = Plugin.Plug365New.RndStart(0, 1)
+    If i = 0 Then 
+        KeyDown "W", 1
+        Delay 100
+        KeyDown "D", 1
+        Delay 8000
+        KeyUp "D", 1
+        Delay 100
+        KeyUp "W", 1
+        Delay 100
+    Else 
+        KeyDown "W", 1
+        Delay 100
+        KeyDown "A", 1
+        Delay 7000
+        KeyUp "A", 1
+        Delay 100
+        KeyUp "W", 1
+        Delay 100
+    End If
+    KeyPress"R",2
+    i = 0
+    For 220
+        i = i + 1
+        Form1.ListBox1.AddItem "等待比赛结束"&i
+        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+        TracePrint i
+        Form1.ListBox1.RemoveItem Form1.ListBox1.ListIndex  
+        XY=Plugin.Color.FindMultiColor(W+50,H+100,W+1424,H+968,"C04C29","14|2|C04B29,5|5|C04C29,3|8|C04B29,9|9|C04C29,6|12|C04C29,1|13|C04C29,13|14|C04C29",0.9)//蓝色
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        End If
+        XY=Plugin.Color.FindMultiColor(W+7,H+404,W+219,H+581,"207FFA","2|0|207FFA,1|1|207FFA,0|2|207FFA,2|2|207FFA",1)//猎人
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            RightClick 1
+            Delay 500
+            LeftClick 3
+            Delay 200
+            LeftClick 3
+        Else 
+            Delay 1000
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1405,H+429,W+1531,H+563,"6361F7","-23|3|6361EF,22|17|6361F7,20|44|635DE7,-4|51|6361F7,4|51|6361F7",0.8)//猎人红框
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            MoveTo W + 1695, H +1015
+            Delay 100
+            LeftClick 2
+            Delay 500
+        End If
+    Next
+    TracePrint "结束"
+    Form1.ListBox1.AddItem "比赛结束"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Delay 1500
+    For 5
+        XY=Plugin.Color.FindMultiColor(W+50,H+100,W+1424,H+968,"C04C29","14|2|C04B29,5|5|C04C29,3|8|C04B29,9|9|C04C29,6|12|C04C29,1|13|C04C29,13|14|C04C29",0.9)//蓝色
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            MoveTo W + 960, H +1015
+            Delay 100
+            LeftClick 2
+            Delay 500
+        Else
+            Exit For
+        End If
+    Next
+    Delay 6000
+    For 60
+        XY=Plugin.Color.FindMultiColor(W+1405,H+429,W+1531,H+563,"6361F7","-23|3|6361EF,22|17|6361F7,20|44|635DE7,-4|51|6361F7,4|51|6361F7",0.8)//猎人红框
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 1000
+        End If
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 1000
+        End If
+            
+    Next
+    Goto 开始躲猫猫
+End Sub

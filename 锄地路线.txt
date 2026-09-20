@@ -1,0 +1,4363 @@
+
+Sub 工地混混传送点夜间
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    call 传送点(948,325) 
+    MiddleClick 1
+    Delay 2000
+    设置时间
+    KeyDown "D", 1
+    Delay 4830
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 4400
+    KeyUp "W", 1
+    Delay 150
+    KeyDown "D", 1
+    Delay 2500
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 1800
+    KeyUp "A", 1
+    Delay 100
+    KeyPress "X", 1
+    Call 战斗(40,7,0)
+    If 怪打不死 = 1 Then 
+        Exit Sub
+    End If
+    找方向 
+    Call 向北寻路(197, 97, "DEDEFF", "3|0|DEDEFF,0|4|E4E4FF,3|4|E9E9FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500 
+    KeyDown "S", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 1800
+    KeyUp "A", 1
+    Delay 7000
+    KeyDown "A", 1
+    Delay 4000
+    KeyUp "A", 1
+    Delay 100
+    KeyUp "S", 1
+    Delay 100
+    Call 向北寻路(131, 52, "FFA000", "1|1|FFA000,2|2|FFA000", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "S", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 1500
+    KeyUp "A", 1
+    Delay 4000
+    KeyUp "S", 1
+    Delay 100
+    MiddleClick 1
+    Delay 1500
+    KeyDown "A", 1
+    Delay 600
+    KeyDown "W", 1
+    Delay 2600
+    KeyUp "A", 1
+    Delay 100
+    KeyUp "W", 1
+    Delay 100
+    KeyPress "X", 1
+    Delay 100
+    LeftClick 2
+    Delay 100
+    KeyPress "F", 2
+    Delay 100
+    LeftClick 5
+    Call 战斗(40,7,0)
+End Sub 
+Sub 工地混混传送点
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    call 传送点(948,325)
+    MiddleClick 1
+    Delay 2000
+    KeyPress "S", 1
+    Delay 800
+    MiddleClick 1
+    Delay 2000
+    KeyDown "D", 1
+    Delay 1500
+    KeyDown "S", 1
+    Delay 730
+    KeyUp "S", 1
+    Delay 9200
+    KeyUp "D", 1
+    Delay 100
+    Call 向北寻路(77, 114, "5E54D2", "2|0|5E54D2,0|6|DEDEFF,2|6|DEDEFF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "W", 1
+    Delay 4300
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "A", 1
+    For 8
+        Delay 300
+        KeyPress "F", 1
+    Next
+    KeyUp "A", 1
+    Call 战斗(40,7,0)
+End Sub    
+Sub 折千市场
+    Form1.ListBox1.AddItem "折千市场"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点(451, 520)
+    取消任务追踪 
+    主页1
+    MiddleClick 1
+    Delay 2000
+    Delay 100
+    KeyDown "W", 1
+    Delay 3500
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 3800
+    KeyUp "A", 1
+    Delay 150
+    Call 向北寻路(174, 155, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "S", 1
+    Delay 6000
+    KeyUp "S", 1
+    Delay 100
+    LeftClick 2
+    Delay 100
+    Delay 100
+    KeyDown "W", 1
+    Delay 1000
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 2000
+    KeyUp "A", 1
+    Delay 150
+    KeyPress "F", 2
+    Delay 100
+    KeyDown "W", 1
+    Delay 2500
+    KeyUp "W", 1
+    Call 战斗(40,7,0)
+End Sub
+Sub 愿木坡贩卖机
+    Form1.ListBox1.AddItem "愿木坡贩卖机"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    call 传送点(1062,673)
+    KeyDown "Alt", 1
+    Delay 500
+    For 3
+        MoveTo W + 960, H + 240
+        Delay 50
+        LeftDown 1
+        Delay 50
+        MoveTo W + 960, H + 860
+        Delay 50
+        LeftUp 1
+        Delay 400
+    Next
+    KeyUp "Alt", 1
+    Delay 500
+    MiddleClick 1
+    Delay 1500
+    KeyDown "A", 1
+    Delay 1200
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "S", 1
+    Delay 100
+    RightClick 2
+    Delay 3030
+    KeyUp "S", 1
+    Call 向北寻路(168, 83, "DEDEFF", "3|0|DEDEFF,0|4|E4E4FF,3|4|E9E9FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Exit Sub
+    End If
+    Delay 100
+    KeyDown "S", 1
+    Delay 100
+    RightClick 2
+    Delay 5530
+    KeyDown "A", 1
+    Delay 1300
+    KeyUp "A", 1
+    Delay 1100
+    KeyUp "S", 1
+    Delay 500
+    Call 战斗(40,7,0)
+End Sub
+  Sub 纸翼6
+        Form1.ListBox1.AddItem "摇曳镇"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+        重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    call 传送点(541,173)
+
+    取消任务追踪
+    
+    MiddleClick 1
+    Delay 2500
+    KeyDown "right", 1
+    Delay 1000
+    KeyUp "right", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 200
+    
+    For 6
+        RightClick 2
+        Delay 500
+        KeyPress "space", 2
+    Next
+    KeyDown "D", 1
+    Delay 1500
+    KeyUp "D", 1
+    Delay 100
+    KeyUp "W", 1
+    Delay 100
+    KeyPress "S", 2
+    Delay 500
+    MiddleClick 1
+    Delay 2500
+    KeyDown "right", 1
+    Delay 700
+    KeyUp "right", 1
+    Delay 100
+    Call 向北寻路(168, 66, "DEDEFF","3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 200
+    KeyDown "S", 1
+    Delay 200
+    RightClick 2
+    Delay 12800
+        KeyDown "D", 1
+    Delay 2000
+    KeyUp "D", 1
+    Delay 3000
+    KeyUp "S", 1
+    Call 向北寻路(116, 176, "32302F","8|0|1A1A1A,16|0|555353,4|7|1A1A1A,10|12|555353,23|14|555353,30|15|181818,37|17|32302F,21|22|555353,-5|23|555353,34|26|161616,19|33|555353,26|36|191919,34|37|2A292A", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500
+    KeyPress "F", 3
+    Delay 500
+    KeyDown "S", 1
+    Delay 3900
+    KeyUp "S", 1
+    Call 向北寻路(117, 153, "32302F","8|0|1A1A1A,16|0|555353,4|7|1A1A1A,10|12|555353,23|14|555353,30|15|181818,37|17|32302F,21|22|555353,-5|23|555353,34|26|161616,19|33|555353,26|36|191919,34|37|2A292A", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "D", 1
+    Delay 3000
+    KeyUp "D", 1
+    Delay 12000
+    技能循环(1)
+    Call 战斗(20,9,1)
+End Sub 
+Sub 纸翼5
+    ////北角镇左
+        Form1.ListBox1.AddItem "北角镇左"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点(760, 270)
+    取消任务追踪
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 960, H + 561
+    Delay 300
+    For 18
+        Delay 50
+        MouseWheel 6
+    Next
+    Delay 100
+    For 3
+        Delay 300
+        MoveTo W + 662, H + 305
+        Delay 100
+        LeftClick 1
+        Delay 800
+        XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 100
+            主页1
+            Exit For
+        Else 
+            MoveTo W + 946, H + 360
+            Delay 100
+            LeftClick 1
+            Delay 500
+            MoveTo W + 1222, H + 744
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+    Next
+    MiddleClick 1
+    Delay 2500
+    KeyPress "A", 1
+    Delay 800
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 2000
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 950
+    For 15
+        Delay 500
+        KeyPress "space", 2
+    Next
+    Delay 200
+    KeyDown "W", 1
+    Delay 5000
+    KeyUp "W", 1
+    Delay 3000
+    KeyUp "A", 1
+    Call 向北寻路(145, 63, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "A", 1
+    Delay 2000
+    KeyUp "A", 1
+    Delay 100
+    Call 向北寻路(177, 72, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500
+    KeyPress "F", 3
+    Delay 500
+    KeyDown "W", 1
+    Delay 500
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 1400
+    KeyDown "S", 1
+    Delay 2000
+    KeyUp "S", 1
+    For 4
+        Delay 500
+        KeyPress "space", 2
+    Next
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "S", 1
+    Delay 1000
+    KeyUp "S", 1
+    Delay 12900
+    技能循环(1)
+    Call 战斗(20,9,1)
+End Sub
+Sub 纸翼4
+    ////北角镇下
+        Form1.ListBox1.AddItem "北角镇下"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    /////必须晴天
+    Call 传送点(760, 270)
+    MiddleClick 1
+    Delay 2500
+    KeyPress "A", 1
+    Delay 800
+    MiddleClick 1
+    Delay 2000
+    KeyDown "S", 1
+    Delay 900
+    KeyDown "D", 1
+    Delay 1200
+    KeyUp "D", 1
+    Delay 3500
+    KeyDown "A", 1
+    Delay 8500
+    KeyUp "A", 1
+    Delay 1500
+    KeyUp "S", 1
+    Delay 150
+    Call 向北寻路(170, 50, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+          Goto 重来
+    End If
+    Delay 500
+    KeyDown "S", 1
+    Delay 700
+    KeyUp "S", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 1400
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "S", 1
+    Delay 6700
+    KeyUp "S", 1
+        Delay 100
+    KeyDown "D", 1
+    Delay 250
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "S", 1
+    For 26
+        Delay 100
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"5D50FD","1|0|5D50FE,1|1|5D50FD,2|1|5E50FF",0.8)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If Y - H < 190 Then 
+            Exit For
+        End If
+    Next
+    KeyUp "S", 1
+    Delay 600
+    KeyPress "F", 3
+    Delay 1000
+    KeyPress "D", 2
+    Delay 500
+KeyDown "Alt", 1
+    Delay 500
+    For 3
+        MoveTo W + 960, H + 240
+        Delay 50
+        LeftDown 1
+        Delay 50
+        MoveTo W + 960, H + 860
+        Delay 50
+        LeftUp 1
+        Delay 400
+    Next
+    KeyUp "Alt", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "A", 1
+    Delay 1900
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 500
+    For 5
+        Delay 500
+        KeyPress "space", 2
+    Next
+    
+    KeyUp "W", 1
+    Delay 5000
+    技能循环(1)
+    Call 战斗(20,9,1)
+End Sub
+Sub 纸翼3
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    传送粉爪总行
+    取消任务追踪 
+    MiddleClick 1
+    Delay 2000
+    KeyPress "3", 1
+    Delay 500
+    KeyPress "D", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "S", 1
+    Delay 100
+    RightClick 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 750
+    KeyUp "D", 1
+    Delay 100
+    For 3
+        RightClick 2
+        Delay 400
+        RightClick 1
+        Delay 999
+    Next
+    KeyUp "S", 1
+    Call 向北寻路(194, 75, "F5F5F5","-13|1|F5F5F5,-9|3|-F5F5F5,-5|7|F5F5F5,-13|13|F5F5F5,0|13|F5F5F5,-7|15|-F5F5F5,-4|16|-F5F5F5", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500
+    KeyDown "D", 1
+    Delay 220
+    RightClick 2
+    Delay 5400
+    KeyUp "D", 1
+    Call 向北寻路(135, 88, "F5F5F5","-13|1|F5F5F5,-9|3|-F5F5F5,-5|7|F5F5F5,-13|13|F5F5F5,0|13|F5F5F5,-7|15|-F5F5F5,-4|16|-F5F5F5", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "S", 1
+    Delay 700
+    KeyUp "S", 1
+    Delay 1000
+    KeyPress "F", 3
+    Delay 100
+    KeyDown "A", 1
+    Delay 100
+    KeyPress "Space", 2
+    Delay 550
+    KeyPress "Space", 2
+    Delay 450
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "S", 1
+    Delay 5350
+    KeyUp "S", 1
+    Delay 5000
+    技能循环(1)
+    Call 战斗(20, 8, 1)
+End Sub
+Sub 纸翼2
+    Form1.ListBox1.AddItem "海囚旁边"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub 
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(1510, 550)
+    取消任务追踪
+    主页1 
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 960, H + 561
+    Delay 300
+    For 18
+        Delay 50
+        MouseWheel 6
+    Next
+    Delay 500
+    For 3
+        Delay 300
+        MoveTo W + 1150, H + 138
+        Delay 100
+        LeftClick 1
+        Delay 800
+        XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 100
+            主页1
+            Exit For
+        Else 
+            MoveTo W + 1222, H + 744
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+    Next
+    Delay 100
+    KeyDown "D", 1
+    Delay 260
+    KeyUp "D", 1
+    Delay 300
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 100
+    RightClick 2
+    Delay 1600
+    KeyDown "D", 1
+    Delay 4200
+    KeyUp "D", 1
+    Delay 1500
+    KeyDown "D", 1
+    Delay 1500
+    KeyUp "D", 1
+    Call 向北寻路(97, 174, "8046D9", "-2|1|8046D9,4|2|8348DB,-4|3|7F46D7,0|5|FFFFFF", 100, 100, 0.8)
+    KeyDown "W", 1
+    Delay 2000
+    For 13
+        KeyPress "SPACE", 1
+        Delay 500
+    Next
+    Delay 300
+    KeyDown "A", 1
+    For 26
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626","5|2|FBFBFB,2|5|262626,6|7|F5F5F5,7|10|EFEFEF,2|12|262626,4|16|F5F5F5,4|19|212429",0.9)//图钉
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))  
+        If Y - H > 55 Then 
+            Exit For
+        End If
+        KeyPress "SPACE", 1
+        Delay 500
+    Next
+    KeyUp "A", 1
+    Delay 100
+    KeyUp "W", 1
+    Call 向北寻路(165, 65,"262626","5|2|FBFBFB,2|5|262626,6|7|F5F5F5,7|10|EFEFEF,2|12|262626,4|16|F5F5F5,4|19|212429", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "W", 1
+    Delay 1500
+    KeyPress "SPACE", 1
+    Delay 500
+    KeyPress "SPACE", 1
+    Delay 2000
+    KeyUp "W", 1
+    For 30
+        Delay 100
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626","5|2|FBFBFB,2|5|262626,6|7|F5F5F5,7|10|EFEFEF,2|12|262626,4|16|F5F5F5,4|19|212429",0.9)//图钉
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))  
+        If Y - H > 76 Then 
+            Exit For
+        Else 
+            KeyDown "W", 1
+            Delay 100
+            KeyUp "W", 1  
+        End If
+    Next
+    Delay 500
+    KeyPress "F", 3
+    Delay 200
+    KeyDown "D", 1
+    Delay 1400
+    KeyUp "D", 1
+    Delay 300
+    KeyDown "W", 1
+    Delay 100
+    RightClick 2
+    Delay 1100
+    KeyDown "D", 1
+    Delay 800
+    KeyUp "D", 1
+    Delay 1200
+    KeyDown "D", 1
+    Delay 800
+    KeyUp "D", 1
+    Delay 1000
+    KeyDown "D", 1
+    Delay 800
+    KeyUp "D", 1
+    Delay 700
+    KeyDown "A", 1
+    Delay 1500
+    KeyUp "A", 1
+    Delay 250
+    KeyUp "W", 1
+    Delay 1000
+    MiddleClick 1
+    Delay 2000
+    技能循环(1)
+    Call 战斗(20, 9, 1)
+End Sub
+Sub 纸翼1
+    Form1.ListBox1.AddItem "水梨子车站"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub 
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(819, 632)
+    取消任务追踪
+    主页1 
+    MiddleClick 1
+    Delay 2000
+    KeyDown "D", 1
+    Delay 100
+    RightClick 2
+    Delay 2200
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "S", 1
+    Delay 260
+    KeyUp "S", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    For 14
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"DEDEFF","3|0|DEDEFF,0|4|E4E4FF,3|4|E9E9FF",0.8)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If Y - H > 193 Then 
+            Exit For
+        End If
+        KeyDown "W", 1
+        Delay 100
+        RightClick 2
+        Delay 420
+        KeyPress "SPACE", 1
+        Delay 350
+        KeyPress "SPACE", 1
+        Delay 500
+    Next
+    KeyUp "W", 1
+    Delay 100
+    找方向
+    Call 向北寻路(120, 213, "DEDEFF", "3|0|DEDEFF,0|4|E4E4FF,3|4|E9E9FF", 150, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "W", 1
+    Delay 1500
+    KeyDown "A", 1
+    Delay 2300
+    KeyUp "A", 1
+    Delay 100
+    KeyUp "W", 1
+    Delay 200
+    KeyPress "F", 1
+    Delay 200
+    KeyPress "F", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 100
+    RightClick 2
+    Delay 500
+    KeyDown "S", 1
+    Delay 1900
+    KeyUp "S", 1
+    Delay 100
+    KeyUp "D", 1
+    Delay 100
+    Delay 1000
+    MiddleClick 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(20, 9, 1)
+End Sub
+
+
+Sub 洄天鱼幡2
+    重来次数=0
+    Rem 重来6
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub 
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(819, 632)
+    取消任务追踪
+    主页1 
+    MiddleClick 1
+    Delay 2000
+    天气晴天
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 960, H + 561
+    Delay 300
+    For 18
+        Delay 50
+        MouseWheel 6
+    Next
+    Delay 500
+    MoveTo W + 1300, H + 280
+
+    Delay 300
+    For 3
+        Delay 300
+        MoveTo W + 622, H + 664
+        Delay 100
+        LeftClick 1
+        Delay 800
+        XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 100
+            主页1
+            Exit For
+        Else 
+            MoveTo W + 946, H + 360
+            Delay 100
+            LeftClick 1
+            Delay 500
+            MoveTo W + 1222, H + 744
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+    Next
+    KeyDown "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 100
+    RightClick 2
+    Delay 600
+    KeyUp "A", 1
+    Delay 100
+    For 4
+        RightClick 2
+        Delay 400
+        RightClick 2
+        Delay 999
+    Next
+    KeyUp "W", 1
+    Delay 100
+    Call 战斗(20, 7, 0)
+    找方向 
+    For 16
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1",0.8)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyDown "A", 1
+            Delay 300
+            KeyUp "A", 1
+            Exit For
+        Else 
+            KeyDown "A", 1
+            Delay 500
+            KeyUp "A", 1
+        End If
+    Next
+    Call 向北寻路(73, 125, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来6
+    End If
+    Delay 200
+    KeyDown "W", 1
+    Delay 100
+    KeyDown "A", 1
+    RightClick 2
+    Delay 3600
+    KeyUp "A", 1
+    Delay 100
+    KeyUp "W", 1
+    Delay 100
+    Call 向北寻路(94, 148, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来6
+    End If
+    KeyPress "A", 2
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 900
+    KeyUp "A", 1
+    For 80
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626","-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X - W > 98 Then 
+            Exit For
+        Else 
+            KeyPress "SPACE", 1
+            Delay 500
+        End If
+        If X - W > 97 Then 
+            KeyPress "A", 1
+        End If
+        If X - W < 97 Then 
+            KeyPress "D", 1
+        End If
+    Next
+    KeyUp "W", 1
+    Delay 2500
+    KeyPress "D", 2
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    Call 向北寻路(100, 143, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    KeyDown "W", 1
+    Delay 600
+    KeyPress "SPACE", 1
+    Delay 500
+    KeyPress "SPACE", 1
+    Delay 500
+    KeyPress "SPACE", 1
+    Delay 500
+    KeyDown "D", 1
+    Delay 4900
+    KeyUp "D", 1
+    For 80
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626","-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If Y - H > 179 Then 
+            Exit For
+        Else 
+            KeyPress "SPACE", 1
+            Delay 500
+            KeyPress "SPACE", 1
+            Delay 500	
+        End If
+    Next
+    KeyUp "W", 1
+    Delay 200
+    Call 向北寻路(115, 181, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来6
+    End If
+    KeyDown "W", 1
+    Delay 2300
+    KeyUp "W", 1
+    Call 战斗(40, 7, 0)
+    找方向
+    Call 向北寻路(144, 199, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来6
+    End If
+    Call 向北寻路(151, 195, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来6
+    End If
+    KeyDown "A", 1
+    Delay 100
+    KeyPress "SPACE", 1
+    Delay 500
+    KeyPress "SPACE", 1
+    Delay 500
+    KeyPress "SPACE", 1
+    Delay 5500
+    KeyDown "S", 1
+    Delay 2500
+    Call 向北寻路(220, 159, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来6
+    End If
+    Call 战斗(40, 7, 0)
+    ////////////
+End Sub
+Sub 洄天鱼幡1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(560, 877)
+    取消任务追踪
+    主页1 
+    天气晴天
+    KeyDown "A", 1
+    Delay 350
+    KeyUp "A", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 960, H + 561
+    Delay 300
+    For 18
+        Delay 50
+        MouseWheel 6
+    Next
+    Delay 500
+    MoveTo W + 700, H + 240
+    Delay 100
+    LeftDown 1
+    Delay 300
+    MoveTo W + 1360, H + 850
+    Delay 500
+    LeftUp 1
+    Delay 300
+    For 3
+        Delay 300
+        MoveTo W + 918, H + 301
+        Delay 100
+        LeftClick 1
+        Delay 800
+        XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 100
+            主页1
+            Exit For
+        Else 
+            MoveTo W + 1222, H + 744
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+    Next
+    KeyDown "W", 1
+    Delay 100
+    RightClick 2
+    Delay 2500
+    KeyDown "D", 1
+    Delay 400
+    KeyUp "D", 1
+    Delay 4500
+    KeyDown "A", 1
+    Delay 550
+    KeyUp "A", 1
+    Delay 200
+    For 14
+        KeyPress "SPACE", 1
+        Delay 500
+        KeyPress "SPACE", 1
+        Delay 800
+        RightClick 2
+        Delay 200
+    Next
+    KeyDown "D", 1
+    Delay 500
+    For 15
+        KeyPress "SPACE", 1
+        Delay 500
+        KeyPress "SPACE", 1
+        Delay 800
+        RightClick 2
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626","5|2|FBFBFB,2|5|262626,6|7|F5F5F5,7|10|EFEFEF,2|12|262626,4|16|F5F5F5,4|19|212429",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Delay 2000
+            KeyUp "W", 1
+            Delay 4500
+            KeyUp "D", 1
+            Exit For
+        End If
+    Next
+    Call 向北寻路(102, 126, "262626", "5|2|FBFBFB,2|5|262626,6|7|F5F5F5,7|10|EFEFEF,2|12|262626,4|16|F5F5F5,4|19|212429", 150, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Call    战斗(40,7,0)
+    /////////////////////
+End Sub
+Sub 妖刀6
+    Form1.ListBox1.AddItem "麦昆幽灵大道储物柜旁"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(1300, 295)
+    取消任务追踪 
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 93, H + 455
+    Delay 100
+    LeftClick 2
+    Delay 500
+    MoveTo W +543, H + 700
+    Delay 100
+    LeftClick 1
+    Delay 800
+    XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        TracePrint 1
+        XY=Plugin.Color.FindMultiColor(W+1465,H+947,W+1617,H+974,"2C2C2C","0|2|2C2C2C,0|4|2C2C2C",1)//取消追踪的取
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else 
+            MoveTo W + 1520, H + 961
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+        KeyPress "ESC", 1
+        Delay 100
+        TracePrint 1
+        主页1
+    Else 
+        Goto  重来
+    End If
+    MiddleClick 1
+    Delay 2000
+    KeyPress "D", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "D", 1
+    Delay 600
+    TracePrint 1
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    RightClick 1
+    Delay 300
+    For 9
+        KeyPress "Space", 1
+        Delay 500
+    Next
+    Call 向北寻路(178, 183, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500
+    KeyPress "A", 2
+    Delay 500
+    KeyPress "T", 1
+    Delay 2500
+    KeyPress "F", 1
+    Delay 1500
+    For i=1 to 9
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Delay 800
+            Exit For
+        Else 
+            KeyPress "F", 1
+            Delay 2500
+        End If
+        If i = 9 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "T", 1
+    Delay 20000
+    Form1.ListBox1.AddItem "如果这里卡住不下车 看你小地图"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "是标记被遮挡或者周围有其他标记 清理掉"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    i=0
+    Do
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"191919","6|2|1A1A1A,-7|6|555353,6|6|555353,-7|13|555353,0|15|1B1B1B,12|15|191819,5|22|161616,8|24|555353,-2|28|191819",0.8)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint X-W&"-"&Y-H
+        If 160 < X - W < 164 AND 175 < Y - H < 179 Then 
+            Exit Do
+        End If
+        i = i + 1
+        TracePrint i
+        If i > 66 Then 
+            进出试用
+            Goto 重来
+        End If
+    Loop
+    Delay 1000
+    KeyPress "F", 2
+    Delay 2500
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "F", 2
+            Delay 2500
+        Else
+            Exit For
+        End If
+        If i = 30 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 982, H + 534
+    Delay 100
+    LeftClick 1
+    Delay 800
+    MoveTo W + 1520, H + 962
+    Delay 100
+    LeftClick 1
+    Delay 500
+    KeyPress "Esc", 1
+    Delay 1000
+    主页1 
+    KeyDown "S", 1
+    Delay 800
+    KeyUp "S", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 100
+    For 6
+        KeyPress "Space", 1
+        Delay 450
+    Next
+    KeyUp "D", 1
+    Call 向北寻路(214, 129, "191818","-5|1|1B1A1A,3|2|2A292A,-4|7|2A292A,-38|8|1C1B1C,-29|9|1A1A1A,-9|11|191919,-33|12|2A292A,-3|15|2C2A2A,-24|18|2A292A,-5|19|171717,-20|21|191919,-21|27|2C2A2A", 150, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "S", 1
+    Delay 4700
+    KeyUp "S", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 2800
+    KeyUp "D", 1
+    Delay 100
+    KeyPress "F", 3
+    Delay 1000
+    MiddleClick 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 妖刀5
+    Form1.ListBox1.AddItem "愿木坡左传送点"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    call 传送点(1062,673)
+    KeyDown "Alt", 1
+    Delay 500
+    For 3
+        MoveTo W + 960, H + 240
+        Delay 50
+        LeftDown 1
+        Delay 50
+        MoveTo W + 960, H + 860
+        Delay 50
+        LeftUp 1
+        Delay 400
+    Next
+    KeyUp "Alt", 1
+    Delay 500
+    MiddleClick 1
+    Delay 1500
+    KeyDown "A", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 2030
+    KeyUp "W", 1
+    Delay 4500
+    KeyUp "A", 1
+    Delay 100
+    Delay 100
+    KeyDown "W", 1
+    Delay 2030
+    KeyUp "W", 1
+    Delay 100
+    LeftClick 1
+    Delay 300
+    LeftClick 1
+    Delay 500
+    LeftClick 1
+    Delay 500
+    Call 向北寻路(197, 135, "DEDEFF", "3|0|DEDEFF,0|4|E4E4FF,3|4|E9E9FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500
+    KeyDown "A", 1
+    Delay 4400
+    KeyDown "W", 1
+    Delay 2900
+    KeyUp "W", 1
+    Delay 100
+    KeyUp "A", 1
+    Delay 100
+    Call 向北寻路(240, 140, "DEDEFF", "3|0|DEDEFF,0|4|E4E4FF,3|4|E9E9FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "A", 1
+    Delay 700
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    RightClick 2
+    Delay 2900
+    KeyUp "W", 1
+    
+    Call 向北寻路(121, 177,"2A292A","-2|2|2A292A,-11|5|191919,-7|5|2B2A2B,-15|7|161616,-4|8|1A1A1A,-9|10|2F2E2F,-24|11|2A292A,-30|14|191A19,-4|16|1A1A1A,-24|22|2A292A,-28|23|161616,-22|26|1A1A1A", 100, 100, 0.9)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "A", 1
+    Delay 100
+    RightClick 2
+    Delay 5700
+    KeyUp "A", 1
+    Call 向北寻路(176, 161,"2A292A","-2|2|2A292A,-11|5|191919,-7|5|2B2A2B,-15|7|161616,-4|8|1A1A1A,-9|10|2F2E2F,-24|11|2A292A,-30|14|191A19,-4|16|1A1A1A,-24|22|2A292A,-28|23|161616,-22|26|1A1A1A", 100, 100, 0.9)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyPress "S",1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 4500
+    KeyUp "W", 1
+    Delay 1000
+    MiddleClick 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 妖刀4
+    Form1.ListBox1.AddItem "维纳公寓左上角"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(617, 430)
+    取消任务追踪 
+    主页1
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 960, H + 561
+    Delay 300
+    For 18
+        Delay 50
+        MouseWheel 6
+    Next
+    Delay 500
+    MoveTo W + 400, H + 700
+    Delay 100
+    LeftDown 1
+    Delay 300
+    MoveTo W + 1560, H + 700
+    Delay 500
+    LeftUp 1
+    Delay 300
+    For 3
+        Delay 300
+        MoveTo W + 1130, H + 540
+        Delay 100
+        LeftClick 1
+        Delay 800
+        XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            XY=Plugin.Color.FindMultiColor(W+1465,H+947,W+1492,H+974,"2C2C2C","0|2|2C2C2C,0|4|2C2C2C",1)//取消追踪的取
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else 
+                MoveTo W + 1520, H + 961
+                Delay 100
+                LeftClick 1
+                Delay 500
+            End If
+            KeyPress "ESC", 1
+            Delay 100
+            主页1
+            Exit For
+        Else 
+            MoveTo W + 946, H + 360
+            Delay 100
+            LeftClick 1
+            Delay 500
+            MoveTo W + 1222, H + 744
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+    Next
+    KeyDown "D", 1
+    Delay 3000
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    RightClick 2
+    Delay 7200
+    Call 向北寻路(166, 196, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyPress "A", 1
+    Delay 500
+    KeyPress "T", 1
+    Delay 2500
+    KeyPress "F", 1
+    Delay 1500
+    For i=1 to 9
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Delay 800
+            Exit For
+        Else 
+            KeyPress "F", 1
+            Delay 2500
+        End If
+        If i = 9 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "T", 1
+    Delay 20000
+    Form1.ListBox1.AddItem "如果这里卡住不下车 看你小地图"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "是标记被遮挡或者周围有其他标记 清理掉"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    i=0
+    Do
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626","-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint X-W&"-"&Y-H
+        If 161 < X - W < 165 AND 154 < Y - H < 158 Then 
+            Delay 2000
+            Exit Do
+        End If
+        i = i + 1
+        TracePrint i
+        If i > 88 Then 
+            进出试用
+            Goto 重来
+        End If
+    Loop
+    Delay 1000
+    KeyPress "F", 2
+    Delay 2500
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "F", 2
+            Delay 2500
+        Else
+            Exit For
+        End If
+        If i = 30 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 1005, H + 636
+    Delay 100
+    LeftClick 1
+    Delay 800
+    MoveTo W + 1520, H + 962
+    Delay 100
+    LeftClick 1
+    Delay 500
+    KeyPress "Esc", 1
+    Delay 1000
+    主页1 
+    MiddleClick 1
+    Delay 2000
+    KeyDown "Right", 1
+    Delay 500
+    KeyUp "Right", 1
+    Delay 100
+    KeyDown "S", 1
+    Delay 1800
+    KeyUp "S", 1
+    Delay 100
+    Call 向北寻路(164, 157, "262626","-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 150, 100, 0.9)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "S", 1
+    Delay 1600
+    KeyDown "D", 1
+    Delay 600
+    KeyUp "D", 1
+    Delay 100
+    KeyUp "S", 1
+    Delay 1000
+    MiddleClick 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 妖刀3
+    Form1.ListBox1.AddItem "维纳公寓楼下"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(606, 487)
+    Delay 1000
+    MiddleClick 1
+    Delay 2000
+    KeyPress "S", 2
+    Delay 500
+    MiddleClick 1
+    Delay 2500
+    KeyDown "W", 1
+    Delay 1400
+    KeyDown "D", 1
+    Delay 700
+    KeyUp "D", 1
+    Delay 1600
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 900
+    KeyUp "D", 1
+    Delay 140
+    KeyDown "W", 1
+    Delay 110
+    KeyPress "Space", 1
+    Delay 500
+    KeyPress "Space", 1
+    Delay 550
+    KeyUp "W", 1
+    Delay 100
+    LeftClick 1
+    Delay 2000
+    找方向
+    KeyDown "S", 1
+    Delay 100
+    RightClick 2
+    Delay 1000
+    KeyDown "D", 1
+    Delay 100
+    KeyUp "S", 1
+    Delay 1300
+    Call 向北寻路(150, 100, "0096F5","0|3|0098F1,4|3|009AF5,0|6|0098F1,-3|7|0098F1,3|7|009AF5", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 1000
+    MiddleClick 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 妖刀2
+    Form1.ListBox1.AddItem "克莱门学院上图钉"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(617, 430)
+    XY=Plugin.Color.FindMultiColor(W+31,H+277,W+67,H+319,"CAEAFF","4|1|C8E9FF,2|3|C8E9FF,-1|4|CDEBFF,3|6|C7EBFF",0.9)//任务追踪
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        KeyPress "J", 1
+        Delay 2000
+        MoveTo W + 1648, H + 1005
+        Delay 100
+        LeftClick 1
+    End If
+    主页1
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 960, H + 561
+    Delay 300
+    For 18
+        Delay 50
+        MouseWheel 6
+    Next
+    Delay 500
+    MoveTo W + 1300, H + 280
+    Delay 100
+    LeftDown 1
+    Delay 300
+    MoveTo W + 960, H + 700
+    Delay 500
+    LeftUp 1
+    Delay 300
+    For 3
+        Delay 300
+        MoveTo W + 1283, H + 201
+        Delay 100
+        LeftClick 1
+        Delay 800
+        XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            XY=Plugin.Color.FindMultiColor(W+1465,H+947,W+1492,H+974,"2C2C2C","0|2|2C2C2C,0|4|2C2C2C",1)//取消追踪的取
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else 
+                MoveTo W + 1520, H + 961
+                Delay 100
+                LeftClick 1
+                Delay 500
+            End If
+            KeyPress "ESC", 1
+            Delay 100
+            主页1
+            Exit For
+        Else 
+            MoveTo W + 1222, H + 744
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+    Next
+    KeyDown "D", 1
+    Delay 3000
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    RightClick 2
+    Delay 7200
+    Call 向北寻路(166, 196, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyPress "A", 1
+    Delay 500
+    KeyPress "T", 1
+    Delay 2500
+    KeyPress "F", 1
+    Delay 1500
+    For i=1 to 9
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Delay 800
+            Exit For
+        Else 
+            KeyPress "F", 1
+            Delay 2500
+        End If
+        If i = 9 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "T", 1
+    Delay 20000
+    Form1.ListBox1.AddItem "如果这里卡住不下车 看你小地图"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "是标记被遮挡或者周围有其他标记 清理掉"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    i=0
+    Do
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626","5|2|FBFBFB,2|5|262626,6|7|F5F5F5,7|10|EFEFEF,2|12|262626,4|16|F5F5F5,4|19|212429",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint X-W&"-"&Y-H
+        If 163 < X - W < 167 AND 148 < Y - H < 152 Then 
+            Delay 2000
+            Exit Do
+        End If
+        i = i + 1
+        TracePrint i
+        If i > 88 Then 
+            进出试用
+            Goto 重来
+        End If
+    Loop
+    Delay 1000
+    KeyPress "F", 2
+    Delay 2500
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "F", 2
+            Delay 2500
+        Else
+            Exit For
+        End If
+        If i = 30 Then 
+            goto 重来	
+        End If
+    Next
+    MiddleClick 1
+    Delay 2000
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 1011, H + 646
+    Delay 100
+    LeftClick 1
+    Delay 800
+    MoveTo W + 1520, H + 962
+    Delay 100
+    LeftClick 1
+    Delay 500
+    KeyPress "Esc", 1
+    Delay 1000
+    主页1
+    KeyDown "A", 1
+    Delay 1000
+    KeyUp "A", 1
+    Delay 200
+    KeyDown "W", 1
+    Delay 200
+    RightClick 2
+    Delay 2020
+    KeyDown "D", 1
+    Delay 100
+    KeyUp "D", 1
+    Delay 800
+    KeyUp "W", 1
+    Delay 2000
+    Delay 1000
+    MiddleClick 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(20, 7, 1)	
+End Sub
+Sub 妖刀1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(961, 538)
+    XY=Plugin.Color.FindMultiColor(W+31,H+277,W+67,H+319,"CAEAFF","4|1|C8E9FF,2|3|C8E9FF,-1|4|CDEBFF,3|6|C7EBFF",0.9)//任务追踪
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        KeyPress "J", 1
+        Delay 2000
+        MoveTo W + 1648, H + 1005
+        Delay 100
+        LeftClick 1
+    End If
+    主页1
+    KeyDown "W", 1
+    Delay 350
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 900
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    RightClick 2
+    Delay 900
+    KeyPress "SPACE", 1
+    Delay 500
+    KeyPress "SPACE", 1
+    Delay 500
+    KeyPress "SPACE", 1
+    Delay 1900
+    KeyPress "SPACE", 1
+    Delay 500
+    KeyPress "SPACE", 1
+    Delay 2500
+    KeyUp "W", 1
+    Delay 100
+    Delay 1000
+    MiddleClick 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 波普4
+    Form1.ListBox1.AddItem "维纳公寓旁"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(606, 487)
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyPress "S", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 1400
+    KeyDown "D", 1
+    Delay 700
+    KeyUp "D", 1
+    Delay 1600
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 900
+    KeyUp "D", 1
+    Delay 140
+    KeyDown "W", 1
+    Delay 110
+    KeyPress "Space", 1
+    Delay 500
+    KeyPress "Space", 1
+    Delay 550
+    KeyUp "W", 1
+    Delay 100
+    LeftClick 1
+    Delay 2000
+    找方向
+    KeyDown "S", 1
+    Delay 2000
+    KeyDown "A", 1
+    Delay 3100
+    KeyUp "S", 1
+    Delay 100
+    Call 向北寻路(212, 89, "0096F5","0|3|0098F1,4|3|009AF5,0|6|0098F1,-3|7|0098F1,3|7|009AF5", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+
+
+    KeyDown "S", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 5800
+    KeyUp "S", 1
+    Delay 100
+    KeyUp "A", 1
+    Call 向北寻路(190, 159, "1A1818","-3|2|545150,-11|5|232223,2|5|1A1A1A,-15|9|2A292A,4|12|555250,-13|13|1A1A1A,2|14|403F40,0|16|565251,-11|17|191818,-7|21|414141", 200, 100, 0.8)
+    KeyDown "A", 1
+    Delay 1000
+    KeyDown "S", 1
+    Delay 1800
+    KeyUp "S", 1
+    Delay 4900
+    KeyUp "A", 1
+    Delay 1000
+    MiddleClick 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(40, 5, 1)
+End Sub
+Sub 波普3
+    Form1.ListBox1.AddItem "墨菲克斯传送点"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub 
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(863, 528)
+    取消任务追踪
+    主页1 
+    MiddleClick 1
+    Delay 2000
+    KeyDown "A", 1
+    For 2
+        KeyPress "SPACE", 2
+        Delay 400
+        KeyPress "SPACE", 2
+        Delay 600
+        RightClick 1
+        Delay 500
+    Next
+    Delay 500
+    KeyDown "W", 1
+        Delay 700
+    KeyUp "W", 1
+    For 9
+        KeyPress "SPACE", 2
+        Delay 400
+        KeyPress "SPACE", 2
+        Delay 600
+        RightClick 1
+        Delay 500
+    Next
+    KeyDown "W", 1
+
+    For 3
+        KeyPress "SPACE", 2
+        Delay 400
+        KeyPress "SPACE", 2
+        Delay 600
+        RightClick 1
+        Delay 200
+    Next
+
+    KeyUp "W", 1
+    Call 向北寻路(167, 178, "282728","-10|1|1B1B1B,8|3|1F1F1F,-8|5|555353,6|6|565453,-9|10|555353,-2|11|1F1F1F,4|13|565150,-7|15|161616,-3|16|2B2A2B,3|16|252425", 150, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+        KeyDown "A", 1
+        Delay 2400
+    KeyUp "A", 1
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 波普2
+    Form1.ListBox1.AddItem "折千市场"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    TracePrint 重来次数
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(909, 258)
+    取消任务追踪 
+    主页1
+    MiddleClick 1
+    Delay 2000
+    /////
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 93, H + 410
+    Delay 100
+    LeftClick 2
+    Delay 500
+    MoveTo W +470, H + 583
+    Delay 100
+    LeftClick 1
+    Delay 800
+    XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        TracePrint 1
+        XY=Plugin.Color.FindMultiColor(W+1465,H+947,W+1617,H+974,"2C2C2C","0|2|2C2C2C,0|4|2C2C2C",1)//取消追踪的取
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else 
+            MoveTo W + 1520, H + 961
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+        KeyPress "ESC", 1
+        Delay 100
+        TracePrint 1
+        主页1
+    Else 
+        Goto  重来
+    End If
+    KeyDown "A", 1
+    Delay 800
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "S", 1
+    Delay 100
+    RightClick 2
+    Delay 7800
+    KeyUp "S", 1
+    Delay 150
+    Call 向北寻路(171, 60, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "S", 1
+    Delay 300
+    KeyUp "S", 1
+    Delay 500
+    KeyPress "A", 2
+    Delay 500
+    KeyPress "T", 1
+    Delay 2500
+    KeyPress "F", 1
+    Delay 1500
+    For i=1 to 9
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Delay 800
+            Exit For
+        Else 
+            KeyPress "F", 1
+            Delay 2500
+        End If
+        If i = 9 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "T", 1
+    Delay 12000
+    Form1.ListBox1.AddItem "如果这里卡住不下车 看你小地图"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "是标记被遮挡或者周围有其他标记 清理掉"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    i=0
+    Do
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"FFA000","11|0|FFA000,0|2|FFA000,11|2|FFA000",0.8)//警局
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint X-W&"-"&Y-H
+        If 117 < X - W < 121 AND 108 < Y - H < 112 Then 
+            Exit Do
+        End If
+        i = i + 1
+        TracePrint i
+        If i > 66 Then 
+            进出试用
+            Goto 重来
+        End If
+    Loop
+    Delay 1000
+    KeyPress "F", 2
+    Delay 2500
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "F", 2
+            Delay 2500
+        Else
+            Exit For
+        End If
+        If i = 30 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 966, H + 485
+    Delay 100
+    LeftClick 1
+    Delay 800
+    MoveTo W + 1520, H + 962
+    Delay 100
+    LeftClick 1
+    Delay 500
+    KeyPress "Esc", 1
+    Delay 1000
+    主页1 
+    MiddleClick 1
+    Delay 2000
+    KeyDown "D", 1
+    Delay 900
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 2500
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 6000
+    KeyUp "D", 1
+    Delay 100
+    //////
+    Call 向北寻路(194, 139, "555453","-1|3|1C1C1C,-9|11|1D1D1D,5|13|191919,-9|15|565353,4|17|555353,-17|31|555353,-20|33|1D1C1C,4|36|585453,6|40|1A191A", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "W", 1
+    Delay 250
+    For 80
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"555453","-1|3|1C1C1C,-9|11|1D1D1D,5|13|191919,-9|15|565353,4|17|555353,-17|31|555353,-20|33|1D1C1C,4|36|585453,6|40|1A191A",0.8)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))  
+        If Y - H > 179 Then 
+            Exit For
+        Else 
+            KeyPress "SPACE", 1
+            Delay 500	
+        End If
+    Next  
+    Delay 250
+    KeyUp "W", 1
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 波普
+    Form1.ListBox1.AddItem "水梨子车站"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub 
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(819, 632)
+    取消任务追踪
+    主页1 
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 100
+    RightClick 2
+    Delay 600
+    KeyUp "A", 1
+    Delay 100
+    For 4
+        RightClick 2
+        Delay 400
+        RightClick 2
+        Delay 999
+    Next
+    For 80
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626","-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X - W > 79 Then 
+            Exit For
+        Else 
+            KeyPress "SPACE", 1
+            Delay 500	
+        End If
+    Next
+    KeyUp "W", 1
+    找方向
+    Call 向北寻路(76, 111, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 200
+    KeyDown "D", 1
+    Delay 990
+    KeyPress "SPACE", 2
+    Delay 500
+    KeyPress "SPACE", 1
+    Delay 300
+    KeyPress "SPACE", 1
+    Delay 1000
+    KeyDown "W", 1
+    Delay 3400
+    KeyUp "W", 1
+    Delay 4500
+    KeyDown "W", 1
+    Delay 4000
+    KeyUp "D", 1
+    Delay 210
+    KeyUp "W", 1
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 伤心英熊5
+    Form1.ListBox1.AddItem "金苹果藏馆旁"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(1404, 492)
+    取消任务追踪
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 100
+    RightClick 1
+    Delay 1500
+    KeyDown "D", 1
+    Delay 200
+    KeyUp "W", 1
+    For 3
+        RightClick 1
+        Delay 400
+        RightClick 1
+        Delay 1050
+    Next
+    Call 向北寻路(90, 182, "DEDEFF","3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 300
+    KeyDown "D", 1
+    Delay 100
+    For 8
+        RightClick 1
+        Delay 400
+        RightClick 1
+        Delay 1050
+    Next
+    KeyUp "D", 1
+    Delay 300
+    LeftClick 1
+    Delay 400
+    MiddleClick 1
+    Delay 400
+    KeyPress "4", 3
+    Delay 400
+    LeftDown 1
+    Delay 2000
+    LeftUp 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 伤心英熊4
+    Form1.ListBox1.AddItem "海囚旁边"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(1510, 550)
+    取消任务追踪 
+    Delay 2000
+    KeyDown "W", 1
+    Delay 50
+    KeyDown "D", 1
+    Delay 300
+    KeyUp "W", 1
+    Delay 10
+    KeyUp "D", 1
+    Delay 50
+    MiddleClick 1
+    Delay 300
+    找方向
+    KeyDown "S", 1
+    Delay 100
+    RightClick 1
+    Delay 1500
+    KeyDown "A", 1
+    Delay 2000
+    Call 向北寻路(170, 70, "8046D9","-2|1|8046D9,4|2|8348DB,-4|3|7F46D7,0|5|FFFFFF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 300
+    KeyPress "A", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 4100
+    KeyUp "W", 1
+    LeftClick 1
+    Delay 400
+    MiddleClick 1
+    Delay 400
+    KeyPress "4", 3
+    Delay 400
+    LeftDown 1
+    Delay 2000
+    LeftUp 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 伤心英熊3
+    Form1.ListBox1.AddItem "麦昆幽灵大道储物柜右"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(1300, 295)
+    取消任务追踪 
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 960, H + 561
+    Delay 300
+    For 18
+        Delay 50
+        MouseWheel 6
+    Next
+    Delay 100
+    For 3
+        Delay 300
+        MoveTo W + 409, H + 740
+        Delay 100
+        LeftClick 1
+        Delay 800
+        XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            XY=Plugin.Color.FindMultiColor(W+1465,H+947,W+1492,H+974,"2C2C2C","0|2|2C2C2C,0|4|2C2C2C",1)//取消追踪的取
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else 
+                MoveTo W + 1520, H + 961
+                Delay 100
+                LeftClick 1
+                Delay 500
+            End If
+            KeyPress "ESC", 1
+            Delay 100
+            主页1
+            Exit For
+        Else 
+            MoveTo W + 946, H + 360
+            Delay 100
+            LeftClick 1
+            Delay 500
+            MoveTo W + 1222, H + 744
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+    Next
+    MiddleClick 1
+    Delay 2000
+    KeyPress "D", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "D", 1
+    Delay 600
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    RightClick 1
+    Delay 300
+    For 9
+        KeyPress "Space", 1
+        Delay 500
+    Next
+    Call 向北寻路(178, 183, "DEDEFF","3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 100, 100, 0.8)
+    Delay 500
+    KeyPress "A", 2
+    Delay 500
+    KeyPress "T", 1
+    Delay 2500
+    KeyPress "F", 1
+    Delay 1500
+    For i=1 to 9
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Delay 800
+            Exit For
+        Else 
+            KeyPress "F", 1
+            Delay 2500
+        End If
+        If i = 9 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "T", 1
+    Delay 10000
+    Form1.ListBox1.AddItem "如果这里卡住不下车 看你小地图"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "是标记被遮挡或者周围有其他标记 清理掉"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    i=0
+    Do
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626","-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint X-W&"-"&Y-H
+        If 130 < X - W < 134 AND 138 < Y - H < 142 Then 
+            Exit Do
+        End If
+        i = i + 1
+        TracePrint i
+        If i > 66 Then 
+            进出试用
+            Goto 重来
+        End If
+    Loop
+    Delay 1000
+    KeyPress "F", 2
+    Delay 2500
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "F", 2
+            Delay 2500
+        Else
+            Exit For
+        End If
+        If i = 30 Then 
+            goto 重来	
+        End If
+    Next
+    MiddleClick 1
+    Delay 2000
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 860, H + 560
+    Delay 100
+    LeftClick 1
+    Delay 800
+    MoveTo W + 1520, H + 962
+    Delay 100
+    LeftClick 1
+    Delay 500
+    KeyPress "Esc", 1
+    Delay 1000
+    主页1
+    KeyDown "A", 1
+    Delay 600
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    RightClick 1
+    Delay 6000
+    KeyDown "A", 1
+    Delay 100
+    KeyUp "W", 1
+    Delay 4000
+    KeyUp "A", 1
+    Delay 100
+    KeyPress "D", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    Call 向北寻路(148, 79, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    LeftClick 1
+    Delay 400
+    MiddleClick 1
+    Delay 400
+    KeyPress "4", 3
+    Delay 400
+    LeftDown 1
+    Delay 2000
+    LeftUp 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 伤心英熊2
+    Form1.ListBox1.AddItem "阿拉克涅传送点"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(1203, 614)
+    取消任务追踪 
+    KeyPress "A", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "A", 1
+    Delay 100
+    RightClick 1
+    Delay 500
+    KeyDown "W", 1
+    Delay 1800
+    KeyUp "W", 1
+    Delay 1700
+    Call 向北寻路(197, 132, "FFEFAD","3|0|FFEFAD,2|1|FFEFAD,1|10|FFF3B4,2|10|FFF3B4", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 300
+    KeyDown "W", 1
+    Delay 100
+    For 7
+        RightClick 1
+        Delay 400
+        RightClick 1
+        Delay 999
+    Next
+    Delay 5000
+    KeyDown "D", 1
+    Delay 3300
+    KeyUp "D", 1
+    Delay 300
+    KeyUp "W", 1
+    Call 向北寻路(84, 133, "2F2E2D","-5|2|171717,-14|4|555353,0|8|2D2B2C,6|10|1A1A1A,-5|22|1A191A,7|24|1A1A1A,0|26|1B1B1B,-6|27|555353,9|28|555353", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "W", 1
+    Delay 4000
+    Call 向北寻路(88, 163, "2F2E2D","-5|2|171717,-14|4|555353,0|8|2D2B2C,6|10|1A1A1A,-5|22|1A191A,7|24|1A1A1A,0|26|1B1B1B,-6|27|555353,9|28|555353", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "W", 1
+    Delay 100
+    RightClick 1
+    Delay 3500
+    KeyDown "D", 1
+    Delay 1500
+    
+    Call 向北寻路(127, 163, "191919","-22|2|181818,-14|2|2B2A2B,4|3|2B2A2B,-9|4|1B1B1A,-21|5|2C2826,8|5|1A1A1A,-10|8|2F2E2E,-22|9|181718,11|14|191919,8|16|2A292A,4|20|2F2E2D,9|21|1A1A1A,6|24|2F2E2F", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "D", 1
+    Delay 5500
+    KeyUp "D", 1
+    LeftClick 1
+    Delay 400
+    LeftClick 1
+    Delay 400
+    MiddleClick 1
+    Delay 400
+    KeyPress "4", 3
+    Delay 400
+    LeftDown 1
+    Delay 1000
+    LeftDown 1
+    Delay 2000
+    LeftUp 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 伤心英熊1
+    Form1.ListBox1.AddItem "粉爪总行传送点"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    传送粉爪总行
+    取消任务追踪 
+    MiddleClick 1
+    Delay 2000
+    KeyPress "3", 1
+    Delay 500
+    KeyPress "D", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "S", 1
+    Delay 100
+    RightClick 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 750
+    KeyUp "D", 1
+    Delay 100
+    For 3
+        RightClick 2
+        Delay 400
+        RightClick 1
+        Delay 999
+    Next
+    Call 向北寻路(194, 71, "F5F5F5","-13|1|F5F5F5,-9|3|-F5F5F5,-5|7|F5F5F5,-13|13|F5F5F5,0|13|F5F5F5,-7|15|-F5F5F5,-4|16|-F5F5F5", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500
+    KeyDown "D", 1
+    Delay 220
+    For 2
+        RightClick 2
+        Delay 400
+        RightClick 1
+        Delay 999
+    Next
+    Call 向北寻路(104, 96, "F5F5F5","-13|1|F5F5F5,-9|3|-F5F5F5,-5|7|F5F5F5,-13|13|F5F5F5,0|13|F5F5F5,-7|15|-F5F5F5,-4|16|-F5F5F5", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500
+    KeyDown "D", 1
+    Delay 200
+    For 3
+        RightClick 2
+        Delay 400
+        RightClick 1
+        Delay 999
+    Next
+    KeyUp "D", 1
+    Call 向北寻路(149, 52, "F59D00", "-6|6|FFA200,-4|6|F99B00,4|6|FFA200,7|6|FFA200", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500
+    KeyDown "S", 1
+    Delay 800
+    KeyUp "S", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 100
+    For 2
+        RightClick 2
+        Delay 400
+        RightClick 1
+        Delay 999
+    Next
+    Delay 300
+    KeyUp "D", 1
+    Delay 200
+    LeftClick 1
+    Delay 400
+    MiddleClick 1
+    Delay 400
+    KeyPress "4", 3
+    Delay 400
+    For 6
+        LeftDown 1
+        Delay 500
+    Next
+    Delay 1000
+    LeftUp 1
+    Delay 500
+    技能循环(1)
+    Call 战斗(20, 7, 1)
+End Sub
+Sub 克莱门学院上
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(617, 430)
+    XY=Plugin.Color.FindMultiColor(W+31,H+277,W+67,H+319,"CAEAFF","4|1|C8E9FF,2|3|C8E9FF,-1|4|CDEBFF,3|6|C7EBFF",0.9)//任务追踪
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        KeyPress "J", 1
+        Delay 2000
+        MoveTo W + 1648, H + 1005
+        Delay 100
+        LeftClick 1
+    End If
+    主页1
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 960, H + 561
+    Delay 300
+    For 18
+        Delay 50
+        MouseWheel 6
+    Next
+    Delay 500
+    MoveTo W + 1300, H + 280
+    Delay 100
+    LeftDown 1
+    Delay 300
+    MoveTo W + 960, H + 700
+    Delay 500
+    LeftUp 1
+    Delay 300
+    For 3
+        Delay 300
+        MoveTo W + 646+378, H + 318
+        Delay 100
+        LeftClick 1
+        Delay 800
+        XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            XY=Plugin.Color.FindMultiColor(W+1465,H+947,W+1492,H+974,"2C2C2C","0|2|2C2C2C,0|4|2C2C2C",1)//取消追踪的取
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else 
+                MoveTo W + 1520, H + 961
+                Delay 100
+                LeftClick 1
+                Delay 500
+            End If
+            KeyPress "ESC", 1
+            Delay 100
+            主页1
+            Exit For
+        Else 
+            MoveTo W + 946, H + 360
+            Delay 100
+            LeftClick 1
+            Delay 500
+            MoveTo W + 1222, H + 744
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+    Next
+    //    MiddleClick 1
+    //    Delay 2000
+    //    KeyPress "D", 1
+    //    Delay 800
+    //    MiddleClick 1
+    //    Delay 2000
+    KeyDown "D", 1
+    Delay 3000
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    RightClick 2
+    Delay 7200
+    Call 向北寻路(166, 196, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyPress "A", 1
+    Delay 500
+    KeyPress "T", 1
+    Delay 2500
+    KeyPress "F", 1
+    Delay 1500
+    For i=1 to 9
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Delay 800
+            Exit For
+        Else 
+            KeyPress "F", 1
+            Delay 2500
+        End If
+        If i = 9 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "T", 1
+    Delay 20000
+    Form1.ListBox1.AddItem "如果这里卡住不下车 看你小地图"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "是标记被遮挡或者周围有其他标记 清理掉"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    i=0
+    Do
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626","-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint X-W&"-"&Y-H
+        If 162 < X - W < 166 AND 155 < Y - H < 159 Then 
+            Delay 2000
+            Exit Do
+        End If
+        i = i + 1
+        TracePrint i
+        If i > 88 Then 
+            进出试用
+            Goto 重来
+        End If
+    Loop
+    Delay 1000
+    KeyPress "F", 2
+    Delay 2500
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "F", 2
+            Delay 2500
+        Else
+            Exit For
+        End If
+        If i = 30 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "A", 1
+    Delay 500
+    KeyPress "A", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2500
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 1011, H + 646
+    Delay 100
+    LeftClick 1
+    Delay 800
+    MoveTo W + 1520, H + 962
+    Delay 100
+    LeftClick 1
+    Delay 500
+    KeyPress "Esc", 1
+    Delay 1000
+    主页1
+    KeyDown "D", 1
+    Delay 1000
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "S", 1
+    Delay 1000
+    For 4
+        RightClick 1
+        Delay 400
+        RightClick 1
+        Delay 999
+    Next
+    Delay 1000
+    KeyUp "S", 1
+    Call 向北寻路(131, 103, "262626", "8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    LeftClick 1
+    Delay 500
+    LeftClick 1
+    Delay 500
+    LeftClick 1
+    Delay 1500
+    Call 战斗(40,7,0)
+    If 怪打不死 = 1 Then 
+        Exit Sub
+    End If
+    找方向
+    Call 向北寻路(117, 135, "262626", "8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "w", 1
+    Delay 2500
+    KeyUp "w", 1
+    Delay 6000
+    Call 战斗(40,7,0)
+End Sub
+Sub 粉爪总行
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点(935, 520)
+    取消任务追踪 
+    主页1
+    Delay 500
+    KeyDown "A", 1
+    Delay 2200
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 5500
+    KeyUp "W", 1
+    Delay 500
+    KeyPress "A", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 13000
+    KeyUp "W", 1
+    Delay 150
+    Call 向北寻路(140, 194, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500
+    //    KeyPress "D", 1
+    //    Delay 500
+    //    MiddleClick 1
+    //    Delay 2000
+    KeyDown "S", 1
+    Delay 699
+    KeyUp "S", 1
+    Delay 150
+    KeyDown "D", 1
+    Delay 2600
+    KeyUp "D", 1
+    Delay 2000
+    Call 战斗(40,7,0)
+End Sub
+Sub 玉子市场
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(617, 430)
+    取消任务追踪 
+    设置时间
+    //KeyDown "Right", 1
+    //Delay 800
+    //KeyUp "Right", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 300
+    RightClick 1
+    Delay 5000
+    Keyup "A", 1
+    Call 向北寻路(189, 77, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "S", 1
+    Delay 100
+    RightClick 1
+    Delay 4000
+    KeyDown "A", 1
+    Delay 400
+    Keyup "A", 1
+    Delay 3600
+    Keyup "S", 1
+    Delay 100
+    Call 向北寻路(222, 137, "2A292A","-5|3|171717,-9|5|2A292A,4|7|191919,-1|9|161616,-6|12|181818,7|13|555353,3|15|555353,-3|18|555353,7|23|181818", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "D", 1
+    For 6
+        Delay 500
+        KeyPress "Space",1
+    Next
+    KeyUp "D", 1
+    Call 向北寻路(198, 149, "2A292A","-5|3|171717,-9|5|2A292A,4|7|191919,-1|9|161616,-6|12|181818,7|13|555353,3|15|555353,-3|18|555353,7|23|181818", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 3000
+    Call 战斗(40,7,0)
+    找方向
+    Call 向北寻路(177, 162, "2A292A","-5|3|171717,-9|5|2A292A,4|7|191919,-1|9|161616,-6|12|181818,7|13|555353,3|15|555353,-3|18|555353,7|23|181818", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyPress "D", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    For 13
+        Delay 500
+        KeyPress "Space",1
+    Next
+    Delay 500
+    KeyUp "W", 1
+    Delay 1000
+    KeyDown "D", 1
+    Delay 900
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 4500
+    KeyUp "W", 1
+    Delay 100
+    KeyPress "Space", 1
+    Delay 2000
+    Call 战斗(40,7,0)
+End Sub
+
+Sub 水晶山大道小房间
+    call 传送点(845,770)
+    Delay 300
+    KeyPress "D", 1
+    Delay 800
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 200
+    KeyPress "Space", 1
+    Delay 500
+    KeyPress "Space", 1
+    Delay 500
+    KeyPress "Space", 1
+    Delay 200
+    KeyDown "D", 1
+    Delay 2000
+    KeyUp "D", 1
+    Delay 2000
+    KeyUp "W", 1
+    Delay 100
+    LeftClick 1
+    Delay 2000
+    KeyDown "A", 1
+    Delay 300
+    KeyDown "W", 1
+    Delay 1000
+    KeyUp "A", 1
+    Delay 2000
+    KeyUp "W", 1
+    Delay 1000
+    Call 战斗(40, 7, 0)
+    Rem 重新脱离
+    Delay 100
+    KeyPress "Esc", 1
+    Delay 1000
+    MoveTo W + 1798, H + 182
+    Delay 100
+    LeftClick 1
+    Delay 1500
+    MoveTo W + 1611, H + 440
+    Delay 100
+    LeftClick 1
+    Delay 1500
+    等待传送结束 
+    Delay 1000
+    For 3
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            主页1 
+            Exit Sub
+            Exit For
+        Else 
+            KeyPress "M", 1
+            Delay 2500
+        End If
+    Next
+    Delay 500
+    主页1
+    Goto 重新脱离
+End Sub
+Sub 摇曳镇
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    call 传送点(541,173)
+    MiddleClick 1
+    Delay 2000
+    设置时间
+    KeyPress "D", 1
+    Delay 800
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 2700
+    KeyDown "A", 1
+    Delay 5000
+    KeyUp "A", 1
+    Delay 4300
+    KeyUp "W", 1
+    Delay 150
+    KeyDown "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 1800
+    KeyUp "A", 1
+    Delay 2200
+    KeyUp "W", 1
+    LeftClick 1
+    Delay 1000
+    LeftClick 3 
+    Call 战斗(40,7,0)
+End Sub
+Sub 北角镇
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点(760, 270)
+    取消任务追踪
+    
+    MiddleClick 1
+    Delay 2500
+    KeyPress "A", 1
+    Delay 800
+    MiddleClick 1
+    Delay 2000
+    设置时间 
+    KeyDown "W", 1
+    Delay 1500
+    KeyDown "A", 1
+    For 26
+        Delay 400
+        KeyPress "Space", 1
+    Next
+    KeyUp "A", 1
+    Delay 1100
+    KeyUp "W", 1
+    Delay 150
+    Call 向北寻路(204, 203, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500
+    KeyDown "W", 1
+    Delay 500
+    KeyDown "A", 1
+    For 9
+        Delay 400
+        KeyPress "Space", 1
+    Next
+    Delay 100
+    KeyUp "W", 1
+    Delay 1000
+    KeyUp "A", 1
+    Delay 150
+    Call 向北寻路(109, 115, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Call 战斗(40,7,0)
+    If 怪打不死 = 1 Then 
+        Exit Sub
+    End If
+    KeyDown "Alt", 1
+    Delay 500
+    For 3
+        MoveTo W + 960, H + 240
+        Delay 50
+        LeftDown 1
+        Delay 50
+        MoveTo W + 960, H + 860
+        Delay 50
+        LeftUp 1
+        Delay 400
+    Next
+    KeyUp "Alt", 1
+    Delay 500
+    找方向 
+    Call 向北寻路(111, 124, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500
+    KeyDown "W", 1
+    Delay 5000
+    KeyDown "A", 1
+    Delay 2000
+    KeyUp "A", 1
+    Delay 100
+    KeyUp "W", 1
+    Delay 100
+    LeftClick 5
+    Call 战斗(40,7,0)
+End Sub
+Sub 北角镇右
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点(760, 270)
+    取消任务追踪 
+    天气雪天
+    Delay 300
+    MiddleClick 1
+    Delay 2000
+    KeyPress "A", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    Delay 200
+    KeyDown "W", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 100
+    RightClick 1
+    Delay 1900
+    KeyUp "D",1
+    Delay 3000
+    Call 向北寻路(123, 203, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 200
+    KeyDown "W", 1
+    Delay 100
+    KeyPress "Space", 1
+    Delay 350
+    KeyPress "Space", 1
+    Delay 700
+    RightClick 1
+    Delay 2500
+    KeyPress "Space", 1
+    Delay 350
+    KeyPress "Space", 1
+    Delay 700
+    RightClick 1
+    Delay 2900
+    Call 向北寻路(95, 195,"292829","-2|1|555353,4|4|252425,25|4|252425,2|6|535253,19|6|1D1B1B,30|6|555353,8|7|1F1F1F,12|8|1F1F1F,26|8|555353,6|10|565353,20|11|555353,12|13|555353", 100, 100, 0.7)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    MiddleClick 1
+    Delay 100
+    LeftClick 1
+    Delay 100
+    Call 战斗(40,7,0)
+    找方向
+    Call 向北寻路(95, 195,"292829","-2|1|555353,4|4|252425,25|4|252425,2|6|535253,19|6|1D1B1B,30|6|555353,8|7|1F1F1F,12|8|1F1F1F,26|8|555353,6|10|565353,20|11|555353,12|13|555353", 100, 100, 0.7)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 200
+    KeyDown "W", 1
+    Delay 400
+    KeyUp "W",1
+    Delay 100
+    KeyDown "D", 1
+    For 7
+        Delay 100
+        RightClick 1
+        Delay 400
+        RightClick 1
+        Delay 999
+    Next
+    Call 向北寻路(136, 152, "1A181A","-9|5|555353,32|13|1B1B1B,25|14|555353,6|20|555353,1|23|191919,32|35|555353,26|36|1A1919,57|37|1D1C1D,51|38|555353", 100, 100, 0.7)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    MiddleClick 1
+    Delay 100
+    LeftClick 1
+    Delay 800
+    MiddleClick 1
+    Delay 100
+    LeftClick 1
+    Delay 800
+    MiddleClick 1
+    Delay 100
+    LeftClick 1
+    Delay 800
+    Call 战斗(40,7,0)
+    找方向 
+    Call 向北寻路(136, 152, "1A181A","-9|5|555353,32|13|1B1B1B,25|14|555353,6|20|555353,1|23|191919,32|35|555353,26|36|1A1919,57|37|1D1C1D,51|38|555353", 100, 100, 0.7)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "D", 1
+    For 3
+        Delay 100
+        RightClick 1
+        Delay 400
+        RightClick 1
+        Delay 999
+    Next
+    Call 向北寻路(87, 144, "2E2D2E","-2|1|555453,-17|6|545251,-20|7|1D1B1B,11|22|555353,-3|24|555353,16|24|212021,-7|25|1B1B1B,22|49|1D1D1D,4|50|555353,0|51|1B1B1B,19|51|575354", 100, 100, 0.7)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "D", 1
+    Delay 7000
+    KeyUp "D", 1
+    Delay 500
+    LeftClick 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 1800
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 6500
+    KeyUp "W", 1
+    Call 战斗(40,7,0)
+End Sub
+Sub 克莱门学院左下
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(617, 430)
+    取消任务追踪 
+    //KeyDown "Right", 1
+    //Delay 800
+    //KeyUp "Right", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 2500
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 300
+    RightClick 1
+    Delay 200
+    Call 向北寻路(225, 144, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "A", 1
+    Delay 100
+    RightClick 1
+    Delay 2700
+    KeyUp "A", 1
+    Delay 100
+    Call 向北寻路(190, 143, "272627","1|4|555353,10|11|1D1D1D,-15|12|575452,-18|13|1F1E1F,7|13|555354,-3|17|555353,10|23|555353,13|25|1F1F1F,-4|33|565353,-6|35|282728", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "A", 1
+    Delay 100
+    RightClick 1
+    Delay 4000
+    KeyUp "A", 1
+    Delay 100
+    Call 向北寻路(225, 123, "272627","1|4|555353,10|11|1D1D1D,-15|12|575452,-18|13|1F1E1F,7|13|555354,-3|17|555353,10|23|555353,13|25|1F1F1F,-4|33|565353,-6|35|282728", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "S", 1
+    Delay 100
+    RightClick 1
+    Delay 5000
+    KeyUp "S", 1
+    Delay 100
+    //Call 向北寻路(72, 125, "3A3638", "3|2|101010,2|5|111111,-12|7|1E1E1E,-4|8|33302F,-9|11|101010", 200, 100, 0.8)
+    Delay 100
+    KeyDown "S", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 2000
+    KeyUp "A", 1
+    Delay 100
+    KeyUp "S", 1
+    Delay 1000
+    Call 战斗(40,7,0)
+End Sub
+Sub 工地混混
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    call 传送点(948,325)
+    取消任务追踪
+    主页1
+        KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 960, H + 561
+    Delay 300
+    For 18
+        Delay 50
+        MouseWheel 6
+    Next
+    Delay 500
+    MoveTo W + 1000, H + 960
+    Delay 100
+    LeftDown 1
+    Delay 300
+    MoveTo W + 600, H + 740
+    Delay 500
+    LeftUp 1
+    Delay 300
+    For 3
+        Delay 300
+        MoveTo W + 1435, H + 705
+        Delay 100
+        LeftClick 1
+        Delay 800
+        XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 100
+            Exit For
+        Else 
+                    MoveTo W + 946, H + 360
+            Delay 100
+            LeftClick 1
+            Delay 500
+            MoveTo W + 1222, H + 744
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+    Next
+    For 3
+        Delay 300
+        
+        MoveTo W + 1416, H + 593
+        Delay 100
+        LeftClick 1
+        Delay 800
+        XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            XY=Plugin.Color.FindMultiColor(W+1465,H+947,W+1492,H+974,"2C2C2C","0|2|2C2C2C,0|4|2C2C2C",1)//取消追踪的取
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else 
+                MoveTo W + 1520, H + 961
+                Delay 100
+                LeftClick 1
+                Delay 500
+            End If
+            KeyPress "ESC", 1
+            Delay 100
+            主页1
+            Exit For
+        Else 
+
+            MoveTo W + 1222, H + 744
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+    Next
+    MiddleClick 1
+    Delay 2000
+    KeyDown "A", 1
+    Delay 5400
+    KeyUp "A", 1
+    Delay 100
+    KeyPress "W", 1
+    Delay 500
+    KeyPress "T", 1
+    Delay 2500
+    KeyPress "F", 1
+    Delay 1500
+    For i=1 to 9
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Delay 800
+            Exit For
+        Else 
+            KeyPress "F", 1
+            Delay 2500
+        End If
+        If i = 9 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "T", 1
+    Delay 20000
+    Form1.ListBox1.AddItem "如果这里卡住不下车 看你小地图"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "是标记被遮挡或者周围有其他标记 清理掉"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    i=0
+    Do
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626","-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint X-W&"-"&Y-H
+        If 154 < X - W < 160 AND 162 < Y - H < 168 Then 
+            Exit Do
+        End If
+        i = i + 1
+        TracePrint i
+        If i > 66 Then 
+            进出试用
+            Goto 重来
+        End If
+    Loop
+    Delay 1000
+    KeyPress "F", 2
+    Delay 2500
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "F", 2
+            Delay 2500
+        Else
+            Exit For
+        End If
+        If i = 30 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "D", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "A", 1
+    Delay 1000
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 2200
+    KeyDown "A", 1
+    Delay 4200
+    KeyUp "A", 1
+    Delay 1200
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 3000
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 1500
+    KeyUp "D", 1
+    Call 战斗(40,7,0)
+    If 怪打不死 = 1 Then 
+        Exit Sub
+    End If
+    KeyPress "3", 2
+    找方向
+    Call 向北寻路(137, 153, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Exit Sub
+    End If
+    Delay 500
+    KeyDown "D", 1
+    Delay 8700
+    KeyUp "D", 1
+    Call 向北寻路(80, 153, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Exit Sub
+    End If
+    Delay 500
+    KeyDown "S", 1
+    Delay 3000
+    KeyUp "S", 1
+    Delay 1000
+    KeyDown "S", 1
+    Delay 200
+    KeyDown "D", 1
+    Delay 600
+    KeyUp "D", 1
+    Delay 4300
+    KeyUp "S", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 2800
+    KeyUp "A", 1
+    Delay 100
+    Call 向北寻路(98, 102, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Exit Sub
+    End If
+    Delay 100
+    KeyDown "S", 1
+    Delay 2300
+    KeyUp "S", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 1800
+    KeyUp "A", 1
+    Delay 100
+    Call 战斗(40,7,0)
+End Sub
+Sub 混混据点
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点(948, 325)
+    XY=Plugin.Color.FindMultiColor(W+31,H+277,W+67,H+319,"CAEAFF","4|1|C8E9FF,2|3|C8E9FF,-1|4|CDEBFF,3|6|C7EBFF",0.9)//任务追踪
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        KeyPress "J", 1
+        Delay 2000
+        MoveTo W + 1648, H + 1005
+        Delay 100
+        LeftClick 1
+    End If
+    主页1
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 960, H + 561
+    Delay 300
+    For 18
+        Delay 50
+        MouseWheel 6
+    Next
+    Delay 500
+    MoveTo W + 1400, H + 360
+    Delay 100
+    LeftDown 1
+    Delay 300
+    MoveTo W + 600, H + 840
+    Delay 500
+    LeftUp 1
+    Delay 300
+    For 3
+        Delay 300
+        MoveTo W + 1313, H + 609
+        Delay 100
+        LeftClick 1
+        Delay 800
+        XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 100
+            Exit For
+        Else 
+            MoveTo W + 946, H + 360
+            Delay 100
+            LeftClick 1
+            Delay 500
+            MoveTo W + 1222, H + 744
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+    Next
+    For 3
+        Delay 300
+        MoveTo W + 1291, H + 368
+        Delay 100
+        LeftClick 1
+        Delay 800
+        XY=Plugin.Color.FindMultiColor(W+1390,H+66,W+1539,H+196 ,"8444EC","0|2|8444EC,0|4|8444EC",1)//粉色圈
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            XY=Plugin.Color.FindMultiColor(W+1465,H+947,W+1492,H+974,"2C2C2C","0|2|2C2C2C,0|4|2C2C2C",1)//取消追踪的取
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else 
+                MoveTo W + 1520, H + 961
+                Delay 100
+                LeftClick 1
+                Delay 500
+            End If
+            KeyPress "ESC", 1
+            Delay 100
+            主页1
+            Exit For
+        Else 
+            MoveTo W + 946, H + 360
+            Delay 100
+            LeftClick 1
+            Delay 500
+            MoveTo W + 1222, H + 744
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+    Next
+    MiddleClick 1
+    Delay 2000
+    KeyDown "A", 1
+    Delay 6400
+    KeyUp "A", 1
+    Delay 500
+    KeyPress "S", 1
+    Delay 500
+    KeyPress "S", 1
+    Delay 500
+    KeyPress "T", 1
+    Delay 2500
+    KeyPress "F", 1
+    Delay 1500
+    For i=1 to 9
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Delay 800
+            Exit For
+        Else 
+            KeyPress "F", 1
+            Delay 2500
+        End If
+        If i = 9 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "T", 1
+    Delay 20000
+    Form1.ListBox1.AddItem "如果这里卡住不下车 看你小地图"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "是标记被遮挡或者周围有其他标记 清理掉"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    i = 0
+    Do
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626","-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint X-W&"-"&Y-H
+        If 152 < X - W < 156 AND 151 < Y - H < 155 Then 
+            Delay 2000
+            Exit Do
+        End If
+        i = i + 1
+        TracePrint i
+        If i > 66 Then 
+        Goto 重来
+        End If
+        If X = 坐标X and X > 0 Then 
+        	摩托停了 = 摩托停了 + 1
+        	Else 
+        	摩托停了 =0
+        End If
+        If 摩托停了>3  Then 
+            KeyPress "F", 2
+            Delay 2500
+            For i=1 to 30
+                Delay 200
+                XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    KeyPress "F", 2
+                    Delay 2500
+                Else
+                    Exit For
+                End If
+                If i = 30 Then 
+                    goto 重来	
+                End If
+            Next
+            找方向 
+            取消任务追踪
+            KeyDown "D", 1
+            Delay 2000
+            For 66
+                KeyPress "SPACE", 1
+                Delay 600
+                RightClick 1
+                Delay 300
+                多点找色 30, 30, 270, 270, "262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 0.8//标记
+                If X > 0 Then 
+                    Call 向北寻路(141, 80, "262626", "8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 200, 100, 0.8)
+                    KeyDown "S", 1
+                    Delay 1000
+                    RightClick 1
+                    Delay 400
+                    RightClick 1
+                    Delay 5600
+                    KeyUp "S", 1
+                    Goto 混混据点标记
+                End If
+            Next
+            KeyUp "D", 1
+        End If
+        坐标X=X
+    Loop
+    Delay 1000
+    KeyPress "F", 2
+    Delay 2500
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1862,H+543,W+1911,H+713,"FFFFFF","0|3|FFFFFF,2|3|FFFFFF,1|5|FFFFFF,-1|7|FFFFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "F", 2
+            Delay 2500
+        Else
+            Exit For
+        End If
+        If i = 30 Then 
+            goto 重来	
+        End If
+    Next
+    KeyPress "A", 1
+    Delay 500
+    KeyPress "A", 1
+    Delay 500
+    MiddleClick 1
+    Delay 3000
+    KeyPress "M", 1
+    Delay 1000
+    For 30
+        XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            Delay 200
+        End If
+    Next
+    MoveTo W + 963, H + 623
+    Delay 100
+    LeftClick 1
+    Delay 800
+    MoveTo W + 1520, H + 962
+    Delay 100
+    LeftClick 1
+    Delay 500
+    KeyPress "Esc", 1
+    Delay 1000
+    主页1
+    KeyDown "D", 1
+    Delay 2000
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "S", 1
+    Delay 4200
+    For 4
+        RightClick 1
+        Delay 400
+        RightClick 1
+        Delay 999
+    Next
+    Delay 1000
+    KeyUp "S", 1
+    
+    Call 向北寻路(139, 65, "262626", "8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "S", 1
+    Delay 100
+    RightClick 2
+    Delay 5000
+    KeyUp "S", 1
+    For 16
+        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"262626", "-2|3|292829,-4|5|2C2A2C,3|5|262526,8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1",0.8)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyDown "S", 1
+            Delay 500
+            KeyUp "S", 1
+            Exit For
+        Else 
+            KeyDown "S", 1
+            Delay 500
+            KeyUp "S", 1
+        End If
+    Next
+    Rem 混混据点标记
+    Call 向北寻路(148, 85, "262626", "8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Call 向北寻路(148, 105, "262626", "8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Call 战斗(40,7,0)
+    找方向
+    Call 向北寻路(148, 80, "262626", "8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Exit Sub
+    End If
+    Call 向北寻路(103, 74, "262626", "8|5|F9FBF9,0|6|FDFBFD,4|6|1C1F23,1|7|FDFBFD,7|7|FFFBFF,3|9|FFFBFF,4|9|F1F1F1", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Exit Sub
+    End If
+    KeyDown "D", 1
+    Delay 5000
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "S", 1
+    Delay 2000
+    KeyUp "S", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 2000
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 2000
+    KeyUp "A", 1
+    Delay 100
+    Call 战斗(40,7,0)
+End Sub
+Sub 北角镇下
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    /////必须晴天
+    Call 传送点(760, 270)
+    天气晴天
+    MiddleClick 1
+    Delay 2000
+    KeyPress "A", 1
+    Delay 800
+    MiddleClick 1
+    Delay 2000
+    KeyDown "S", 1
+    Delay 900
+    KeyDown "D", 1
+    Delay 1200
+    KeyUp "D", 1
+    Delay 3500
+    KeyDown "A", 1
+    Delay 8500
+    KeyUp "A", 1
+    Delay 1500
+    KeyUp "S", 1
+    Delay 150
+    Call 向北寻路(170, 50, "DEDEFF", "3|0|E0E0FF,0|2|DEDEFF,3|2|E0E0FF", 100, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 500
+    KeyDown "S", 1
+    Delay 700
+    KeyUp "S", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 1400
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "S", 1
+    Delay 1600
+    KeyDown "A", 1
+    Delay 1000
+    KeyUp "A", 1
+    Delay 100
+    KeyUp "S", 1
+    LeftClick 1
+    Delay 500
+    LeftClick 1
+    Delay 500
+    LeftClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 400
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 3100
+    KeyUp "A", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 4000
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 2000
+    KeyUp "A", 1
+    Call 战斗(40,7,0)
+End Sub
+Sub 塞润尼缇庄园
+    重来次数=0
+    Rem 重来2
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Goto 重来1
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(658, 721)
+    取消任务追踪 
+    Delay 300
+    MiddleClick 1
+    Delay 2000
+    KeyPress "A", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    Call 向北寻路(208, 108, "8147DA", "2|3|8147DA,-1|4|2B1836,1|5|7542C1,-3|7|2B1835,-1|8|8047D8", 200, 100, 0.7)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Call 战斗(40, 7, 0)
+    重来次数=0
+    Rem 重来1
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Goto 重来
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(658, 721)
+    取消任务追踪 
+    Delay 300
+    MiddleClick 1
+    Delay 2000
+    KeyPress "A", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 100
+    For 7
+        Delay 500
+        KeyPress "Space", 1
+    Next
+    Delay 100
+    KeyUp "W", 1
+    Delay 1290
+    KeyUp "A", 1 
+    Call 向北寻路(212, 158, "5B3891", "-3|4|7A44CA,0|4|2B1835,2|4|2B1836,-1|7|8147DA,1|9|8047D8", 200, 100, 0.7)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Call 战斗(40,7,0)
+    找方向
+    Call 向北寻路(226, 158, "5B3891", "-3|4|7A44CA,0|4|2B1835,2|4|2B1836,-1|7|8147DA,1|9|8047D8", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Call 向北寻路(238, 144, "5B3891", "-3|4|7A44CA,0|4|2B1835,2|4|2B1836,-1|7|8147DA,1|9|8047D8", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 200
+    KeyDown "S", 1
+    Delay 100
+    KeyDown "A",1
+    Delay 6500
+    KeyUp "A",1
+    Delay 100
+    KeyUp "S",1
+    Call 战斗(40, 7, 0)
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(658, 721)
+    取消任务追踪 
+    Delay 300
+    MiddleClick 1
+    Delay 2000
+    KeyPress "A", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "S", 1
+    Delay 500
+    KeyDown "D", 1
+    Delay 100
+    RightClick 1
+    Delay 3400
+    KeyUp "D",1
+    Delay 100
+    For 14
+        Delay 500
+        KeyPress "Space", 1
+    Next
+    Delay 100
+    KeyDown "D", 1
+    Delay 4000
+    KeyUp "D", 1
+    For 2
+        Delay 500
+        KeyPress "Space", 1
+    Next
+    Delay 100
+    KeyUp "S", 1
+    Call 向北寻路(133, 138, "101010","4|0|F5F5F5,4|6|F5F5F5,0|10|101010,4|10|F5F5F5", 200, 100, 0.7)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "S", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 100
+    For 9
+        Delay 500
+        KeyPress "Space", 1
+    Next
+    Delay 100
+    KeyUp "A", 1
+    Delay 100
+    KeyUp "S", 1
+    Delay 100
+    LeftClick 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 2000
+    KeyUp "W", 1
+    Delay 100
+    KeyUp "D", 1
+    Call 战斗(40,7,0)
+    找方向 
+    KeyDown "W", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 100
+    For 8
+        Delay 500
+        KeyPress "Space", 1
+    Next
+    Delay 100
+    KeyUp "W", 1
+    Delay 100
+    KeyUp "D", 1
+    Call 向北寻路(101, 158, "101010","4|0|F5F5F5,4|6|F5F5F5,0|10|101010,4|10|F5F5F5", 200, 100, 0.7)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 1500
+    KeyUp "W", 1
+    Delay 100
+    KeyUp "D", 1
+    Call 战斗(40,7,0)
+End Sub

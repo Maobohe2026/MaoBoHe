@@ -1,0 +1,184 @@
+Sub 高危
+    坐标X = -190
+    坐标Y = 310
+    角色1倒下 = 1
+    Rem 重开
+    For 4
+        XY=Plugin.Color.FindMultiColor(W+501,H+441,W+620,H+555,"52E0FF","-26|2|52E0FF,-30|9|47CCFF,-5|10|42C8FF",0.9)//高危界面
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint XY
+        If X > 0 Then 
+            Delay 500
+            Exit For
+        Else 
+            主页1
+            Delay 1000
+            KeyPress "M", 1
+            For 30
+                XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    Exit For
+                Else 
+                    Delay 200
+                End If
+            Next
+            MoveTo W + 1800, H + 970
+            Delay 100
+            LeftClick 1
+            Delay 2000
+            MoveTo W + 1619, H + 142
+            Delay 100
+            LeftClick 1
+            Delay 2000
+        End If
+    Next
+    Rem 下一个
+    If 角色1倒下 = 1 or 角色2倒下 = 1 or 角色3倒下 = 1 or 角色4倒下 = 1 Then 
+        坐标X = 坐标X + 340
+        If 坐标X > 1600 and 坐标Y=310 Then 
+            坐标X = 150
+            坐标Y = 坐标Y+370
+        End If
+        If 坐标X > 1600 and 坐标Y=680 Then 
+            翻页 = 1
+            坐标X = 150
+            坐标Y = 531
+        End If
+    End If
+    If 翻页 = 1 Then 
+        Delay 500
+        MoveTo W + 960, H + 550
+        Delay 300
+        For 10
+            Delay 10
+            MouseWheel -2
+        Next
+    End If
+    Delay 500
+    XY=Plugin.Color.FindMultiColor(W + 坐标X, H + 坐标Y,W + 坐标X+50, H + 坐标Y+50,"9FE0FF","-30|1|9DE0FF,-10|1|9DE0FF,-20|25|78D0FF,0|25|78D0FF",0.9)//VI
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+    角色1倒下 = 1
+        Form1.ListBox1.AddItem "已经完成跳过"
+        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+        Goto 下一个
+    End If
+    MoveTo W + 坐标X, H + 坐标Y
+    Delay 100
+    LeftClick 1
+    Delay 1500
+    MoveTo W + 450, H + 850
+    Delay 100
+    LeftClick 1
+    Delay 1000
+    For 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1800,H+47,W+1870,H+75,"C6C6C3","7|0|C6C4C3,4|3|C6C3C3,7|7|C6C6C3",0.9)//界面X
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        End If
+    Next
+    Delay 500
+    MoveTo W + 600, H + 1000
+    Delay 100
+    LeftClick 1
+    Delay 2000
+    Rem 继续战斗
+    For 60
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+19,H+975,W+150,H+1045,"F5F5F5","3|0|F5F5F5,0|5|F5F5F5,3|5|F5F5F5,0|11|F5F5F5,3|11|F5F5F5",1)//Enter
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        End If
+    Next
+    KeyDown "W", 1
+    Delay 1400
+    KeyUp "W", 1
+    Delay 500
+    Form1.ListBox1.AddItem "开始战斗"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重置角色状态
+    For 999
+        TracePrint 123
+        XY=Plugin.Color.FindMultiColor(W+34,H+244,W+83,H+321,"D1BA00","-9|6|D1BA00,9|13|D1BA00,-6|20|D1BA00,7|20|D1BA00,1|23|D1BA00",0.8)//周本左边标记
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            战斗结束=0
+        Else 
+            战斗结束 = 战斗结束 + 1
+            If 战斗结束 > 5 Then 
+                等待传送结束 
+                Goto 重开	
+            End If
+        End If
+        XY=Plugin.Color.FindMultiColor(W+782,H+144,W+1150,H+318,"2222DC","-2|2|2222DC,4|2|2222DC,2|4|2222DC,-3|10|2222DC,-4|16|2222DC",0.9)//挑战失败
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        角色1倒下 = 1
+            Form1.ListBox1.AddItem "挑战失败"
+            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+            MoveTo W + 800, H + 800
+            Delay 100
+            LeftClick 2
+            Delay 2000
+            等待传送结束 
+            Goto 重开
+        End If
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+                XY=Plugin.Color.FindMultiColor(W+34,H+244,W+83,H+321,"D1BA00","-9|6|D1BA00,9|13|D1BA00,-6|20|D1BA00,7|20|D1BA00,1|23|D1BA00",0.8)//周本左边标记
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else
+            Goto 重开
+            End If
+        End If
+        XY=Plugin.Color.FindMultiColor(W+782,H+144,W+1150,H+318,"DFDFDF","3|0|DFDFDF,6|0|DFDFDF,3|7|DFDFDF,3|15|DFDFDF,-1|17|DFDFDF",0.9)//挑战成功
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Delay 300
+            XY=Plugin.Color.FindMultiColor(W+782,H+144,W+1150,H+318,"DFDFDF","3|0|DFDFDF,6|0|DFDFDF,3|7|DFDFDF,3|15|DFDFDF,-1|17|DFDFDF",0.9)//挑战成功
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                Delay 300
+                Form1.ListBox1.AddItem "挑战成功"
+                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                XY=Plugin.Color.FindMultiColor(W+1168,H+918,W+1217,H+956,"D2D2D2","-5|5|2C2C2C,0|5|2C2C2C,6|5|2C2C2C,-3|10|D4D4D4,3|10|D4D4D4",0.8)//下一难度
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    MoveTo W + 1200, H + 937
+                    Delay 100
+                    LeftClick 2
+                    Delay 2000
+                    Goto 继续战斗
+                Else 
+                    Form1.ListBox1.AddItem "挑战完成"
+                    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    MoveTo W + 700, H + 937
+                    Delay 100
+                    LeftClick 2
+                    Delay 2000
+                    等待传送结束 
+                    Goto 重开
+                End If
+            End If
+        End If
+        技能循环(1)
+    Next
+End Sub

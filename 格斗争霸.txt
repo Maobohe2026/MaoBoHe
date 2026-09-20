@@ -1,0 +1,445 @@
+Sub 格斗争霸
+    Form1.ListBox1.AddItem "格斗争霸赛"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Rem 重开
+    For 4
+        XY=Plugin.Color.FindMultiColor(W+1404,H+138,W+1759,H+244,"529AFF","7|3|55A1FF,1|10|4D8FFF,6|11|4D92FF,24|13|4F98FF",0.9)//fight
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            主页1
+            Delay 1000
+            KeyPress "M", 1
+            Delay 1000
+            For 30
+                XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    Exit For
+                Else 
+                    Delay 200
+                End If
+            Next
+            MoveTo W + 120, H + 970
+            Delay 100
+            LeftClick 1
+            Delay 1000
+            For 30
+                XY=Plugin.Color.FindMultiColor(W+1254,H+126,W+1356,H+192,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    Exit For
+                Else 
+                    Delay 200
+                End If
+            Next
+            MoveTo W + 508, H + 771
+            Delay 100
+            For 9
+                Delay 50
+                MouseWheel -6
+            Next
+            Delay 500
+            XY=Plugin.Color.FindMultiColor(W+225,H+127,W+1671,H+1013,"65661C","9|1|2D2A17,6|6|6A602A,1|8|615820,9|11|2C2616",0.9)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                MoveTo X, Y
+                Delay 100
+            End If
+            LeftClick 2
+            Delay 200
+            For 30
+                XY=Plugin.Color.FindMultiColor(W+1404,H+138,W+1759,H+244,"529AFF","7|3|55A1FF,1|10|4D8FFF,6|11|4D92FF,24|13|4F98FF",0.9)//fight
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    Exit For
+                Else 
+                    Delay 200
+                End If
+            Next
+        End If
+    Next
+    Form1.ListBox1.AddItem "点击匹配"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Do
+        XY=Plugin.Color.FindMultiColor(W+1404,H+138,W+1759,H+244,"529AFF","7|3|55A1FF,1|10|4D8FFF,6|11|4D92FF,24|13|4F98FF",0.9)//fight
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            MoveTo W + 1574, H +472
+            Delay 100
+            LeftClick 2
+            Delay 5000
+        Else 
+            Form1.ListBox1.AddItem "进入比赛"
+            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+            Exit Do
+        End If
+    Loop
+    i=0
+    For 1200
+        Form1.ListBox1.RemoveItem Form1.ListBox1.ListIndex  
+        Form1.ListBox1.AddItem "比赛中"&i
+        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+        i = i + 1
+        XY=Plugin.Color.FindMultiColor(W+300,H+100,W+1724,H+868,"2065D0","-4|10|2B6BD0,3|10|2363C9,-11|14|236ED7,7|16|2061C9,2|18|2160C7,-4|19|2266CE,0|26|1C65CE",0.7)//松果
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        XY=Plugin.Color.FindMultiColor(W+300,H+100,W+1724,H+868,"203F87","-4|8|1E3B7F,-10|10|1E3F89,3|10|20397D,9|12|21418A,-2|13|1F3B7C,4|17|1E387D,1|23|1E3B83",0.7)
+        ZB = InStr(XY,"|")
+        O= Clng(Left(XY, ZB - 1)): P = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 or O>0 Then 
+            Form1.ListBox1.AddItem "发现松果 送给敌人"
+            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+            LeftDown 1
+            Delay 2000
+            LeftUp 1
+        End If
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Goto 重开
+        End If
+        XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"2120F3","3|0|2120F3",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            找不到格斗目标=0
+        Else 
+            找不到格斗目标 = 找不到格斗目标 + 1
+            If 找不到格斗目标 > 4 Then 
+                找不到格斗目标 = 0
+                Delay 1000
+                KeyPress "D", 1
+                Delay 500
+                MiddleClick 1
+                Delay 1000
+                KeyDown "W", 1
+                Delay 1200
+                KeyUp "W", 1
+            End If
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1190,H+370,W+1769,H+763,"E4E4E4","-4|5|BDB4BE,1|5|F4F0F2,6|5|8E817F,1|10|796C71",0.9)//止疼片
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            MoveTo W + 1566, H +941
+            Delay 100
+            LeftClick 2
+            Exit For
+        Else 
+            For 5
+                LeftClick 1
+                Delay 300
+            Next
+            KeyPress "Q", 1
+            KeyPress "E", 1  
+        End If
+    Next
+    Form1.ListBox1.AddItem "比赛结束"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    KeyPress "Esc", 1
+    Delay 500
+    MoveTo W + 1167, H + 709
+    Delay 100
+    LeftClick 1
+    等待传送结束 
+    Goto 重开
+End Sub
+Sub 小旋风
+    Form1.ListBox1.AddItem "请在小旋风旁边开始"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "T快捷键放强力止疼片"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "请使用女主角"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    For 9999
+        For 300
+            Delay 2000
+            If CDate("4:57") < Time() < CDate("5:09") Then 
+                XY=Plugin.Color.FindMultiColor(W+1116,H+15,W+1788,H+119,"9B8F3F","10|4|4E2F1D,5|6|5C5B3B,2|11|D5C58D,9|14|D17D3E,5|22|FBED94",0.9)//背包环石
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    MoveTo W + 662, H + 768
+                    Delay 100
+                    LeftClick 2
+                    Delay 200
+                Else 
+                    KeyPress "B", 1
+                    Delay 2000
+                    MoveTo W + 662, H + 768
+                    Delay 100
+                    LeftClick 2
+                    Delay 200
+                End If
+            Else 
+                XY=Plugin.Color.FindMultiColor(W+1116,H+15,W+1788,H+119,"9B8F3F","10|4|4E2F1D,5|6|5C5B3B,2|11|D5C58D,9|14|D17D3E,5|22|FBED94",0.9)//背包环石
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    KeyPress "B", 1
+                    Delay 2000
+                Else 
+                    Exit For
+                End If
+            End If
+        Next
+        XY=Plugin.Color.FindMultiColor(W+1110,H+370,W+1244,H+798,"FFFFFF","-8|1|FFFFFF,10|2|FFFFFF,-9|12|FFFFFF,10|13|FFFFFF,1|14|FFFFFF,-5|17|FFFFFF",1)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyDown "Alt", 1
+            Delay 500
+            MoveTo X, Y
+            Delay 100
+            LeftClick 1
+            Delay 500
+            KeyUp "Alt", 1   	
+        End If
+        For 12
+            KeyPress "F", 1
+            Delay 500
+            XY=Plugin.Color.FindMultiColor(W+1290,H+540,W+1389,H+903,"FFFFFF","0|13|FFFFFF,-2|72|FFFFFF,-2|89|FFFFFF,-3|147|FFFFFF,-3|164|FFFFFF,-4|222|FFFFFF,-4|239|FFFFFF",1)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                KeyPress "F", 1
+                Delay 500
+                KeyPress "F", 1
+                Delay 500
+                Exit for
+            End If
+        Next
+        Delay 2000
+        For 20
+            Delay 250
+            XY=Plugin.Color.FindMultiColor(W+760,H+16,W+874,H+63,"E1E1E1","-1|4|E1E1E1,-4|6|060404,2|6|060404,-1|9|E1E1E1,-2|13|E1E1E1,3|16|060404,1|19|E1E1E1,-3|21|060404",0.8)//LV.80
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                Form1.ListBox1.AddItem "开始战斗"
+                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                KeyUp "W", 1
+                Exit For
+            Else 
+                KeyDown "W", 1
+                Delay 100
+                RightClick 1
+                Delay 100
+            End If
+        Next
+        Do
+            XY=Plugin.Color.FindMultiColor(W+760,H+16,W+874,H+63,"E1E1E1","-1|4|E1E1E1,-4|6|060404,2|6|060404,-1|9|E1E1E1,-2|13|E1E1E1,3|16|060404,1|19|E1E1E1,-3|21|060404",0.8)//LV.80
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                错误循环=0
+                格挡开关=1
+                找不到LV = 0
+                For 2
+                    LeftClick 1
+                    Delay 300
+                Next
+                KeyPress "Q", 1
+                XY=Plugin.Color.FindMultiColor(W+800,H+1000,W+881,H+1024,"0000FF","1|0|0000FF",0.9)//血条
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    KeyPress "T", 1
+                Else 
+                    TracePrint 1
+                End If
+            Else 
+                格挡开关 = 0
+                Delay 1000
+                For 1
+                    找不到LV = 找不到LV + 1
+                    If 找不到LV > 3 Then 
+                        XY=Plugin.Color.FindMultiColor(W+752,H+358,W+964,H+529,"FBF9F9","-21|1|FBF9F9,-22|8|FBF9F9,-2|8|FBF9F9,-44|17|FBF9F9,-13|17|FBF9F9,-30|24|FBF9F9,-16|34|FBF9F9,-45|43|FBF9F9,-34|49|FBF9F9,-18|49|FBF9F9,-3|49|FBF9F9",0.9)
+                        ZB = InStr(XY,"|")
+                        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                        If X > 0 Then 
+                            Form1.ListBox1.AddItem "点击复活"
+                            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                            MoveTo W+960, H+835
+                            Delay 100
+                            LeftClick 2
+                            Delay 5000
+                            找方向 
+                            KeyDown "A", 1
+                            Delay 2000
+                            KeyUp "A", 1
+                            Delay 100
+                            KeyDown "D", 1
+                            Delay 700
+                            KeyUp "D", 1
+                            Delay 200
+                            KeyDown "S", 1
+                            Delay 100
+                            For 4
+                                RightClick 1
+                                Delay 400
+                                RightClick 1
+                                Delay 999
+                            Next
+                            Delay 100
+                            KeyDown "D", 1
+                            For 16
+                                KeyPress "SPACE", 1
+                                Delay 500
+                            Next
+                            KeyUp "S", 1
+                            Delay 100
+                            KeyUp "D", 1
+                            Delay 200
+                            KeyDown "A", 1
+                            Delay 200
+                            KeyDown "W", 1
+                            Delay 1400
+                            KeyUp "W", 1
+                            Delay 400
+                            KeyUp "A", 1
+                            Delay 800
+                            XY=Plugin.Color.FindMultiColor(W+1042,H+507,W+1230,H+646,"FFFFFF","1|0|FFFFFF",0.9)
+                            ZB = InStr(XY,"|")
+                            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                            If X > 0 Then 
+                                Exit Do 
+                            Else 
+                                Form1.ListBox1.AddItem "没找到对话选项"
+                                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                                KeyDown "S", 1
+                                Delay 100
+                                For 4
+                                    KeyPress "SPACE", 1
+                                    Delay 500
+                                Next
+                                Delay 100
+                                KeyUp "S", 1
+                                Goto 找小旋风
+                            End If
+                        End If
+                    End If
+                Next
+                TracePrint 找不到LV
+                XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1024,H+300,"000000","2|0|000000,-3|1|000000,-2|1|000000,-1|1|000000,1|1|000000,3|1|000000,4|1|000000,5|1|000000,0|2|000000,2|2|000000",1)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    For 20
+                        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1024,H+768,"000000","2|0|000000,-3|1|000000,-2|1|000000,-1|1|000000,1|1|000000,3|1|000000,4|1|000000,5|1|000000,0|2|000000,2|2|000000",1)
+                        ZB = InStr(XY,"|")
+                        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                        If X > 0 Then 
+                            Delay 200
+                        Else 
+                            Delay 800
+                            XY=Plugin.Color.FindMultiColor(W+760,H+16,W+874,H+63,"E1E1E1","-1|4|E1E1E1,-4|6|060404,2|6|060404,-1|9|E1E1E1,-2|13|E1E1E1,3|16|060404,1|19|E1E1E1,-3|21|060404",0.8)//LV.80
+                            ZB = InStr(XY,"|")
+                            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                            If X > 0 Then 
+                            Else
+                                Goto 开始找方向
+                            End If
+                        End If
+                    Next
+                End If
+                If 找不到LV > 8 Then 
+                    Rem 开始找方向
+                    格挡开关 = 0
+                    Form1.ListBox1.AddItem "战斗结束"
+                    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    Rem 找小旋风 
+                    找不到LV = 0               
+                    找方向 
+                    TracePrint "找房方向-接近小旋风"
+                    KeyDown "S", 1
+                    Delay 2000
+                    KeyUp "S", 1
+                    Delay 100
+                    KeyDown "D", 1
+                    Delay 700
+                    KeyUp "D", 1
+                    Delay 800
+                    XY=Plugin.Color.FindMultiColor(W+1042,H+507,W+1230,H+646,"FFFFFF","1|0|FFFFFF",0.9)
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    TracePrint XY
+                    If X > 0 Then 
+                        XY=Plugin.Color.FindMultiColor(W+1288,H+402,W+1310,H+906,"E8E8E8","2|0|1E1F1F,0|3|E8E8E8,2|3|1E1F1F",0.8)//小旋风
+                        ZB = InStr(XY,"|")
+                        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                        TracePrint XY
+                        If X > 0 Then 
+                            Exit Do
+                        Else 
+                            TracePrint "没有2"
+                        End If
+                    Else 
+                        TracePrint "没有1"
+                        Delay 500
+                    End If
+                    KeyDown "S", 1
+                    Delay 100
+                    KeyDown "D", 1
+                    For 16
+                        KeyPress "SPACE", 1
+                        Delay 500
+                    Next
+                    KeyUp "S", 1
+                    Delay 100
+                    KeyUp "D", 1
+                    Delay 200
+                    KeyDown "A", 1
+                    Delay 200
+                    KeyDown "W", 1
+                    Delay 1400
+                    KeyUp "W", 1
+                    Delay 400
+                    KeyUp "A", 1
+                    Delay 800
+                    XY=Plugin.Color.FindMultiColor(W+1042,H+507,W+1230,H+646,"FFFFFF","1|0|FFFFFF",0.9)
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                    Form1.ListBox1.AddItem XY
+                    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    If X > 0 Then 
+                        Exit Do 
+                    Else 
+                        错误循环 = 错误循环 + 1
+                        If 错误循环 > 2 Then 
+                            错误循环=0
+                            KeyDown "D", 1
+                            Delay 100
+                            For 5
+                                KeyPress "SPACE", 1
+                                Delay 500
+                            Next
+                            Delay 100
+                            KeyUp "D", 1
+                        End If
+                        Form1.ListBox1.AddItem "没找到对话选项"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        KeyDown "S", 1
+                        Delay 100
+                        For 4
+                            KeyPress "SPACE", 1
+                            Delay 500
+                        Next
+                        Delay 100
+                        KeyUp "S", 1
+                        Goto 找小旋风
+                    End If
+                End If
+            End If
+        Loop
+    Next
+End Sub

@@ -1,0 +1,847 @@
+Sub 排球周常
+    Form1.ListBox1.AddItem "前往排球场地再开始"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "默认选零和薄荷"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "胜率不高,你会打的话不建议用"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Rem 重来
+    Delay 500
+    Do
+        Rem 打球中
+        Delay 5
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//大世界
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            TracePrint XY
+            Delay 2000
+            XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then
+                XY=Plugin.Color.FindMultiColor(W+992,H+494 ,W+1263,H+673,"FFFFFF","-2|5|FFFFFF,5|8|FFFFFF,2|16|FFFFFF,-114|19|FFFFFF,-113|24|FFFFFF",1)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    KeyPress "F", 2
+                    Delay 3000
+                End If
+            End If
+        End If
+        XY=Plugin.Color.FindMultiColor(W+100,H+300,W+1824,H+1068,"21C7FF","11|4|21C8FF,0|6|21C8FF,-7|12|21C8FF,9|16|21C8FF,20|18|21C7FF,2|23|21C8FF",0.9)//金色排球开始
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            TracePrint XY
+            坐标X = X
+            坐标Y=Y
+            XY=Plugin.Color.FindMultiColor(W+444,H+612,W+799,H+769,"DCDCDC","-16|19|DCDCDC,0|19|DCDCDC,19|19|DCDCDC,1|36|DCDCDC",0.9)//未选角色1
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            TracePrint XY
+            If X > 0 Then 
+                MoveTo X, Y
+                Delay 100
+                LeftClick 1
+                Delay 1000
+                XY=Plugin.Color.FindMultiColor(W+1000,H+124 ,W+1634,H+734,"EDE7E9","10|6|E4EBFF,9|12|AD8BA2,4|14|C4C0C2,11|20|A891A0",0.9)//零
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                Else
+                    XY=Plugin.Color.FindMultiColor(W+1000,H+124 ,W+1634,H+734,"CEBCBA","13|4|DCCCCA,21|8|D2BABA,4|10|B4B2D6,12|13|BC7863,17|19|E4E7F5",0.8)//
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                End If
+                If X > 0 Then 
+                    MoveTo X, Y
+                    Delay 100
+                    LeftClick 1
+                    Delay 500
+                End If
+                XY=Plugin.Color.FindMultiColor(W+1000,H+124 ,W+1634,H+734,"B898FF","4|2|CECA3D,7|8|8E7F26,7|13|F3EDE2,11|16|DE72F9",0.9)//薄荷
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    MoveTo X, Y
+                    Delay 100
+                    LeftClick 1
+                    Delay 500
+                End If	
+            End If
+            MoveTo 坐标X, 坐标Y
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+100,H+100,"E8E5E6","5|0|E8E5E6,-8|10|E8E5E6,-8|17|E8E5E6,14|19|E8E5E6,18|19|E8E5E6,-8|26|E8E5E6,4|39|E8E5E7,13|39|E8E5E7",0.7)//退出
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            If 已经设置视角 < 1 Then 
+                For 5
+                    XY=Plugin.Color.FindMultiColor(W+498,H+513,W+1300,H+571,"FFFFFF","-10|1|ABABAB,-10|2|E4E4E4,-5|2|AEAEAE,10|3|D1D1D1,5|4|CBCBCB,-8|14|FFFFFF,5|16|CBCBCB,-10|18|ABABAB,8|19|FFFFFF",0.9)//打开
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    TracePrint XY
+                    If X > 0 Then 
+                        Delay 300
+                        KeyPress "R", 1
+                        Form1.ListBox1.AddItem "已经关闭自动扣球"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        已经设置视角 = 已经设置视角 + 1
+                        Form1.ListBox1.AddItem "如果不对 请手动调整下"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        Delay 400
+                        Exit For
+                    Else 
+                        KeyPress "R", 1
+                        Delay 300
+                    End If
+                Next
+            End If
+            XY=Plugin.Color.FindMultiColor(W+1803,H+422,W+1870,H+503,"FFFFFF","1|0|FFFFFF,3|0|FFFFFF,6|0|FFFFFF",0.9)//发球阶段
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            TracePrint XY&"发球"&Plugin.GetSysInfo.GetTime()
+            If X > 0 Then 
+                For 15
+                    Delay 180
+                    发球等待次数=发球等待次数+1
+                    XY=Plugin.Color.FindMultiColor(W+1803,H+422,W+1870,H+503,"FFFFFF","1|0|FFFFFF,3|0|FFFFFF,6|0|FFFFFF",0.9)//发球阶段
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    TracePrint XY&"发球"&Plugin.GetSysInfo.GetTime()
+                    If X > 0 Then 
+                        If 发球等待次数 = 14 Then 
+                            Form1.ListBox1.AddItem "抛球-扣球"
+                            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                            Delay 100
+                            LeftClick 1
+                            Delay 2500
+                            RightClick 1
+                            Delay 2500
+                            发球等待次数=0
+                            Exit For
+                        End If
+                    Else 
+                        发球等待次数=0
+                        Exit For
+                    End If
+                Next
+            End If
+            XY=Plugin.Color.FindMultiColor(W+1753,H+700,W+1870,H+809,"000000","-21|2|FFFFFF,-20|7|FFFFFF,-16|7|FFFFFF,-27|9|000000,-29|11|FFFFFF,-27|11|000000,-25|13|FFFFFF",0.9)//扣球
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                TracePrint "跳跃" & Plugin.GetSysInfo.GetTime()
+                Form1.ListBox1.AddItem "跳跃"
+                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                KeyPress "Space", 2
+                Delay 300
+                For 300
+                    Delay 10
+                    XY=Plugin.Color.FindMultiColor(W+1788,H+699,W+1860,H+769,"FFFFFF","1|0|FFFFFF,3|0|FFFFFF,6|0|FFFFFF",0.9)//扣球亮起
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                        Delay 250
+                        TracePrint "扣球" & Plugin.GetSysInfo.GetTime()
+                        Form1.ListBox1.AddItem "扣球"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        RightClick 3
+                        Exit For
+                    End If
+                Next
+            End If
+            i = 0
+        等待发球 = 等待发球 + 1
+        If 等待发球 > 2 Then 
+            等待发球 = 0
+            LeftClick 1
+            TracePrint "传球" & Plugin.GetSysInfo.GetTime()
+        End If
+        End If
+
+        i = i + 1
+        TracePrint i
+        If i > 32 Then 
+            i = 0
+            MoveTo W+960,H+540
+            LeftClick 1
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1845,H+41,W+1883,H+83,"E7E8E7","3|0|E7E8E7,1|3|E7E8E7,1|5|E7E8E7,2|8|E7E8E7,0|11|E7E8E7,3|11|E7E8E7",1)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            TracePrint XY
+            MoveTo X, Y : Delay 100 : LeftClick 1 : Delay 300
+            MoveTo W+1234,H+683 : Delay 300 : LeftClick 1 : Delay 300
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1296,H+100,W+1469,H+277,"FFEEC6","13|2|FFEFC6,5|6|FFECC6,8|9|FFEBC0,3|14|FFF3CE,11|15|FFF3CE",0.8)//失败
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            TracePrint XY
+            Form1.ListBox1.AddItem "失败退出"
+            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+            MoveTo W + Plugin.Plug365New.RndStart(95, 97), H + 978 //退出
+            Delay 100
+            LeftClick 2
+        End If
+        XY=Plugin.Color.FindMultiColor(W+600,H+400,W+1469,H+777,"312D2E","38|6|A0F3FF,16|10|B7FFFF,4|32|BBFFFF,3|37|5AAFFD,43|53|79328F,18|57|BF3FEE",0.9)//面包
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            TracePrint XY
+            延迟 4500
+            Form1.ListBox1.AddItem "比赛结束"
+            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+            If Form1.TabControl1.Tab = 4 Then 
+                For 36
+        
+        多点找色 283,77,1709,98, "F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
+        If X > 0 Then 
+        Else
+            移动点击 92, 978, 1000
+            KeyPress "ESC",1
+            Delay 2000
+        End If
+    Next
+            End If
+             
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1409,H+117,W+1568,H+269,"55F1FF","9|8|58F2FF,21|10|4FECFF,9|16|55F1FF,17|16|4FE9FD,22|22|4AE5FD",0.8)//成功
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            TracePrint XY
+            Form1.ListBox1.AddItem "继续下一局"
+            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+            MoveTo W + Plugin.Plug365New.RndStart(95, 97), H + 978  //成功
+            Delay 100
+            LeftClick 2
+            Delay 1500
+        End If
+    Loop
+End Sub
+
+Sub 排球
+    Form1.ListBox1.AddItem "沙滩 前往活动位置再开始 "
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    //    Form1.ListBox1.AddItem "需要手动关闭自动扣球"
+    //    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    //    Form1.ListBox1.AddItem "切换到主控视角 "
+    //    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "没法判断球位置 只能靠运气"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "运气差失败率会很高"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "默认会选择薄荷和零"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "如果要练其他角色可以先选角色再开始"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Rem 重来
+    Delay 500
+    XY=Plugin.Color.FindMultiColor(W+0,H+0,W+100,H+100,"E8E5E6","5|0|E8E5E6,-8|10|E8E5E6,-8|17|E8E5E6,14|19|E8E5E6,18|19|E8E5E6,-8|26|E8E5E6,4|39|E8E5E7,13|39|E8E5E7",0.7)//退出
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    TracePrint XY
+    If X > 0 Then 
+        Goto 打球中
+    End If
+    For 4
+        XY=Plugin.Color.FindMultiColor(W+1176,H+262,W+1318,H+393,"795FFF","2|6|3A26D7,11|10|E3F4FF,5|12|73BDFD,8|22|8E84FF,4|25|D2DEFF",0.9)//开始界面娜娜莉头发
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else
+            For 16
+                XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    Exit For
+                Else 
+                    KeyPress "ESC", 1
+                    Delay 1800
+                End If
+                XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1024,H+768,"B2E621","-11|12|B2E621,-26|22|B2E621,-38|32|B2E621,-38|33|B2E621,-55|45|B2E621",0.9)//打球中ESC界面
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    KeyPress "ESC", 1
+                    Delay 1800
+                    Goto 打球中
+                End If
+            Next
+            KeyPress "F", 1
+            Delay 2000
+            If Form1.ComboBox8.ListIndex = 3 or Form1.ComboBox8.ListIndex = 5 Then 
+                MoveTo W+310, H+470
+                Delay 100
+                LeftClick 2
+                Delay 1500
+            Else
+                XY=Plugin.Color.FindMultiColor(W+375,H+138,W+591,H+248,"59A7FF","-14|1|59A7FF,-56|2|31F0FF,-91|5|FF9D3D,-82|5|FF9D3D",0.9)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then
+                    XY=Plugin.Color.FindMultiColorEx(	W+1000,H+515,W+1879,H+881,"A5D721","20|7|ADDF21,6|11|B0E11E,11|16|BDE718,26|19|BDE718,9|26|C3EB18",0.9,0)//全部完成
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                    Else 
+                        XY=Plugin.Color.FindMultiColorEx(	W+18,H+515,W+1000,H+881,"A5D721","20|7|ADDF21,6|11|B0E11E,11|16|BDE718,26|19|BDE718,9|26|C3EB18",0.9,0)//全部完成
+                        ZB = InStr(XY,"|")
+                        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    End If
+                    If X-W >1400 Then 
+                        Exit Sub
+                        Form1.ListBox1.AddItem "全部完成"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    End If
+                    If 800 > X - W > 500 Then 
+                    	选三四角色=1
+                    End If
+                    If X-W > 0 Then 
+                        MoveTo X + 593, Y - 200
+                        Delay 100
+                        LeftClick 2
+                        Delay 1500
+                    End If
+                    If X < 0 Then 
+                        MoveTo W + 293, H + 470
+                        Delay 100
+                        LeftClick 2
+                        Delay 1500	
+                    End If
+                End If
+            End If
+        End If
+    Next
+    If Form1.ComboBox8.ListIndex = 1 Then 
+        MoveTo W + 293, H + 470
+        Delay 300
+        For i = 1 To 16
+            XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then
+                Goto 重来
+            End If
+            XY=Plugin.Color.FindMultiColor(W+355,H+153,W+390,H+912,"4A4A4A","9|1|302E2D,16|2|302E2D,4|7|302E2D,12|8|302E2D,9|12|302E2D",0.9)//选择没三星
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                MoveTo X, Y
+                Delay 100
+                LeftClick 1
+                Delay 1000
+                Exit For
+            Else 
+                For 8
+                    Delay 10
+                    MouseWheel -1
+                Next
+                Delay 1000
+            End If
+            If i = 16 Then 
+                For 16
+                    XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                        Exit For
+                    Else 
+                        KeyPress "ESC", 1
+                        Delay 1800
+                    End If
+                    XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1024,H+768,"B2E621","-11|12|B2E621,-26|22|B2E621,-38|32|B2E621,-38|33|B2E621,-55|45|B2E621",0.9)//打球中ESC界面
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                        KeyPress "ESC", 1
+                        Delay 1800
+                        Goto 打球中
+                    End If
+                Next
+                Goto 重来
+            End If
+        Next
+    End If
+    If Form1.ComboBox8.ListIndex = 2 Then 
+        MoveTo W + 293, H + 470
+        Delay 300
+        For i = 1 To 16
+            XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then
+                Goto 重来
+            End If
+            XY=Plugin.Color.FindMultiColor(W+237,H+153,W+320,H+912,"E7E3E7","12|2|DEDBDE,-8|20|C6C7C6,19|25|BDBEBD,-6|39|AAAAAA,18|39|AAAAAA",0.9)//锁
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                MoveTo X, Y-250
+                Delay 100
+                LeftClick 1
+                Delay 1000
+                Exit For
+            Else 
+                For 8
+                    Delay 10
+                    MouseWheel -1
+                Next
+                Delay 1000
+            End If
+            If i = 16 Then 
+                For 16
+                    XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                        Exit For
+                    Else 
+                        KeyPress "ESC", 1
+                        Delay 1800
+                    End If
+                    XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1024,H+768,"B2E621","-11|12|B2E621,-26|22|B2E621,-38|32|B2E621,-38|33|B2E621,-55|45|B2E621",0.9)//打球中ESC界面
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                        KeyPress "ESC", 1
+                        Delay 1800
+                        Goto 打球中
+                    End If
+                Next
+                Goto 重来
+            End If
+        Next
+    End If
+    If Form1.ComboBox8.ListIndex = 3 or Form1.ComboBox8.ListIndex = 5 Then 
+    移动点击 267,571,500
+    End If
+    MoveTo W + 1696, H + 1006
+    Delay 100
+    LeftClick 2
+    Form1.ListBox1.AddItem "你如果想选其他角色"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Form1.ListBox1.AddItem "可以再这个界面选好再启动"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Delay 1500
+    If Form1.ComboBox8.ListIndex = 3 Then 
+        XY=Plugin.Color.FindMultiColor(W+523,H+164 ,W+1034,H+734,"CEDA34","3|0|CEDA34,5|0|CEDA34,7|0|CEDA34",0.8)//主控
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else 
+            MoveTo W + 610, H + 583
+            Delay 100
+            LeftClick 1
+        End If
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+523,H+164 ,W+1034,H+734,"61CAFD","2|0|61CAFD,4|0|61CAFD,6|0|61CAFD",0.8)//队友
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else 
+            MoveTo W + 944, H + 409
+            Delay 100
+            LeftClick 1
+        End If
+    Else 
+//    If 选三四角色 = 1 Then 
+//        XY=Plugin.Color.FindMultiColor(W+523,H+164 ,W+1034,H+734,"CEDA34","3|0|CEDA34,5|0|CEDA34,7|0|CEDA34",0.8)//主控
+//        ZB = InStr(XY,"|")
+//        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+//        If X > 0 Then 
+//        Else 
+//            MoveTo W + 960, H + 243
+//            Delay 100
+//            LeftClick 1
+//        End If
+//        Delay 1000
+//        XY=Plugin.Color.FindMultiColor(W+523,H+164 ,W+1034,H+734,"61CAFD","2|0|61CAFD,4|0|61CAFD,6|0|61CAFD",0.8)//队友
+//        ZB = InStr(XY,"|")
+//        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+//        If X > 0 Then 
+//        Else 
+//            MoveTo W + 606, H + 418
+//            Delay 100
+//            LeftClick 1
+//        End If
+//    End If
+        XY=Plugin.Color.FindMultiColor(W+523,H+164 ,W+1034,H+734,"CEDA34","3|0|CEDA34,5|0|CEDA34,7|0|CEDA34",0.8)//主控
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else 
+            XY=Plugin.Color.FindMultiColor(W+523,H+164 ,W+1034,H+734,"EDE7E9","10|6|E4EBFF,9|12|AD8BA2,4|14|C4C0C2,11|20|A891A0",0.9)//零
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else
+                XY=Plugin.Color.FindMultiColor(W+523,H+164 ,W+1034,H+734,"CEBCBA","13|4|DCCCCA,21|8|D2BABA,4|10|B4B2D6,12|13|BC7863,17|19|E4E7F5",0.8)//
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            End If
+            If X > 0 Then 
+                MoveTo X, Y
+                Delay 100
+                LeftClick 1
+                Delay 500
+            End If
+        End If
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+523,H+164 ,W+1034,H+734,"61CAFD","2|0|61CAFD,4|0|61CAFD,6|0|61CAFD",0.8)//队友
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else 
+            XY=Plugin.Color.FindMultiColor(W+523,H+164 ,W+1034,H+734,"B898FF","4|2|CECA3D,7|8|8E7F26,7|13|F3EDE2,11|16|DE72F9",0.9)//薄荷
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                MoveTo X, Y
+                Delay 100
+                LeftClick 1
+                Delay 500
+            End If
+        End If
+    End If
+    Delay 1000
+    MoveTo W + 1696, H + 1006
+    Delay 100
+    LeftClick 2
+    Delay 1500
+    Do
+        Rem 打球中
+        Delay 5
+        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+100,H+100,"E8E5E6","5|0|E8E5E6,-8|10|E8E5E6,-8|17|E8E5E6,14|19|E8E5E6,18|19|E8E5E6,-8|26|E8E5E6,4|39|E8E5E7,13|39|E8E5E7",0.7)//退出
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            If 已经设置视角 < 1 Then 
+                //            XY=Plugin.Color.FindMultiColor(W+1753,H+422,W+1870,H+653,"FFFFFF","1|0|FFFFFF,3|0|FFFFFF,6|0|FFFFFF",1)//接球阶段
+                //            ZB = InStr(XY,"|")
+                //            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                //            If X > 0 Then 
+                //                XY=Plugin.Color.FindMultiColor(W+1867,H+415,W+1915,H+623,"FFFFFF","-1|4|FFFFFF,1|11|-FFFFFF,5|16|-FFFFFF,5|27|-FFFFFF,12|34|-FFFFFF,9|36|FFFFFF,8|40|FFFFFF",1)//鼠标
+                //                ZB = InStr(XY,"|")
+                //                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                //                If X > 0 Then 
+                //                    已经设置视角 = 已经设置视角 + 1
+                //                    Form1.ListBox1.AddItem "已设置成主控视角"
+                //                    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                //                Else 
+                //                    KeyPress "Z", 1
+                //                    Delay 300
+                //                End If
+                //            End If
+                For 5
+                    XY=Plugin.Color.FindMultiColor(W+498,H+513,W+1300,H+571,"FFFFFF","-10|1|ABABAB,-10|2|E4E4E4,-5|2|AEAEAE,10|3|D1D1D1,5|4|CBCBCB,-8|14|FFFFFF,5|16|CBCBCB,-10|18|ABABAB,8|19|FFFFFF",0.9)//打开
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    TracePrint XY
+                    If X > 0 Then 
+                        Delay 300
+                        KeyPress "R", 1
+                        Form1.ListBox1.AddItem "已经关闭自动扣球"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        已经设置视角 = 已经设置视角 + 1
+                        Form1.ListBox1.AddItem "如果不对 请手动调整下"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        Delay 400
+                        Exit For
+                    Else 
+                        KeyPress "R", 1
+                        Delay 300
+                    End If
+                Next
+            End If
+            XY=Plugin.Color.FindMultiColor(W+1803,H+422,W+1870,H+503,"FFFFFF","1|0|FFFFFF,3|0|FFFFFF,6|0|FFFFFF",0.9)//发球阶段
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            TracePrint XY&"发球"&Plugin.GetSysInfo.GetTime()
+            If X > 0 Then 
+                Delay 100
+                For 30
+                XY=Plugin.Color.FindMultiColor(W+1803,H+422,W+1870,H+503,"FFFFFF","1|0|FFFFFF,3|0|FFFFFF,6|0|FFFFFF",0.9)//发球阶段
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                    Delay 100
+                    Else 
+                    Exit For
+
+                End If	
+                Next
+                XY=Plugin.Color.FindMultiColor(W+1803,H+422,W+1870,H+503,"FFFFFF","1|0|FFFFFF,3|0|FFFFFF,6|0|FFFFFF",0.9)//发球阶段
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                TracePrint XY&"发球"&Plugin.GetSysInfo.GetTime()
+                If X > 0 Then 
+                    Form1.ListBox1.AddItem "抛球-扣球"
+                    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    If 发球不抛球 = 1 Then 
+                        RightClick 2
+                        Delay 2500
+                    Else 
+                        Delay 100
+                        LeftClick 1
+                        Delay 2500
+                        RightClick 1
+                        Delay 2500
+                    End If
+                End If
+            Else 
+                等待发球 = 等待发球 + 1
+                If 等待发球 > 2 Then 
+                    等待发球 = 0
+                    LeftClick 1
+                    TracePrint "传球" & Plugin.GetSysInfo.GetTime()
+                End If
+            End If
+            XY=Plugin.Color.FindMultiColor(W+1753,H+700,W+1870,H+809,"000000","-21|2|FFFFFF,-20|7|FFFFFF,-16|7|FFFFFF,-27|9|000000,-29|11|FFFFFF,-27|11|000000,-25|13|FFFFFF",0.9)//扣球
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                TracePrint "跳跃" & Plugin.GetSysInfo.GetTime()
+                Form1.ListBox1.AddItem "跳跃"
+                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                KeyPress "Space", 2
+                Delay 250
+                KeyPress "Space", 2
+                For 300
+                    Delay 10
+                    XY=Plugin.Color.FindMultiColor(W+1788,H+699,W+1860,H+769,"FFFFFF","1|0|FFFFFF,3|0|FFFFFF,6|0|FFFFFF",0.9)//扣球亮起
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                        Delay 250
+                        TracePrint "扣球" & Plugin.GetSysInfo.GetTime()
+                        Form1.ListBox1.AddItem "扣球"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        RightClick 3
+                        Exit For
+                    End If
+                Next
+            End If
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1845,H+41,W+1883,H+83,"E7E8E7","3|0|E7E8E7,1|3|E7E8E7,1|5|E7E8E7,2|8|E7E8E7,0|11|E7E8E7,3|11|E7E8E7",1)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            MoveTo X, Y : Delay 100 : LeftClick 1 : Delay 300
+            MoveTo W+1234,H+683 : Delay 300 : LeftClick 1 : Delay 300
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1176,H+262,W+1318,H+393,"795FFF","2|6|3A26D7,11|10|E3F4FF,5|12|73BDFD,8|22|8E84FF,4|25|D2DEFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Goto 重来
+        End If
+        If 输五个球退出 = 1 Then 
+            XY=Plugin.Color.FindMultiColor(W+1036,H+19 ,W+1138,H+138,"7960FF","27|0|7960FF,14|1|7960FF,11|11|CFCECE,17|13|C8CAC8,2|15|7960FF,28|15|CBCCCB,20|23|7960FF,0|28|7960FF,11|31|DDDEDC,22|31|7960FF,-1|37|D9D8D9,10|39|D9DBD9,22|39|7960FF,-2|44|7960FF,9|49|DDDEDD,20|52|7960FF,-2|54|7960FF,8|60|7960FF",0.9)//输五个
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                Form1.ListBox1.AddItem "输五个球没机会拿到领先三分 重来"
+                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                Delay 2000
+                KeyPress "ESC", 1
+                Delay 2000
+                MoveTo W + 1627, H + 437
+                Delay 100
+                LeftClick 2
+                Delay 4000
+            End If
+        End If
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            TracePrint XY
+            Delay 2000
+            XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then
+                Goto 重来
+            End If
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1296,H+100,W+1469,H+277,"FFEEC6","13|2|FFEFC6,5|6|FFECC6,8|9|FFEBC0,3|14|FFF3CE,11|15|FFF3CE",0.8)//失败
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Delay 1000
+            TracePrint XY
+            If Form1.CheckBox54.Value = 1 Then 
+            多点找色 1504, 440, 1814, 491, "4545FF", "3|0|4545FF,6|0|4545FF,-88|2|4545FF,-84|2|4545FF,-79|2|4545FF,-44|3|4545FF,-40|3|4545FF,-35|3|4545FF", 0.9
+            If X > 0 Then 
+                    MoveTo W +Plugin.Plug365New.RndStart(95, 97), H + 978   //离开
+                    Delay 100
+                    LeftClick 2
+                    Delay 1500
+                    Exit Sub
+            End If
+            End If
+            If Form1.ComboBox8.ListIndex = 3 or Form1.ComboBox8.ListIndex = 5 Then 
+                Form1.ListBox1.AddItem "继续下一局"
+                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                MoveTo W + Plugin.Plug365New.RndStart(95, 97), H + 897  //重开
+                Delay 100
+                LeftClick 2
+                Delay 1500
+            Else
+                Delay 500
+                XY=Plugin.Color.FindMultiColor(W+1763,H+511,W+1876,H+756,"52EFFF","-1|58|52EFFF,0|58|52EFFF,0|116|52EFFF",0.9)//三星
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    输五个球退出 = 0
+                    发球不抛球=0
+                    Form1.ListBox1.AddItem "失败 但三星了 离开下一关"
+                    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    MoveTo W +Plugin.Plug365New.RndStart(95, 97), H + 978   //离开
+                    Delay 100
+                    LeftClick 2
+                    Delay 1500
+                    Goto 重来
+                Else 
+                    XY=Plugin.Color.FindMultiColor(0,0,1024,768,"69F3FF","-3|2|53EEFE,0|57|63F1FF,-3|60|51EEFB,-1|116|2F2E2C,-4|120|2F2E2C",1)
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                    XY=Plugin.Color.FindMultiColor(W+1763,H+511,W+1876,H+756,"5AF3FF","-3|3|52EFFF,0|62|52EFFF,-4|63|52EFFF,0|117|302E2D,-4|120|302E2D",0.9)//领先三分没星
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                        输五个球退出=1
+                        Form1.ListBox1.AddItem "领先三分没星,后面输五个球直接重来"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    End If
+                    XY=Plugin.Color.FindMultiColor(W+1763,H+511,W+1876,H+756,"5AF3FF","-3|3|52EFFF,0|62|302E2D,-4|63|302E2D,0|117|52EFFF,-4|120|52EFFF",0.9)//扣球没星
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                        发球不抛球=1
+                        Form1.ListBox1.AddItem "只差起跳扣球没星 发球不再抛球"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    End If
+                    Form1.ListBox1.AddItem "失败 没三星 重来"
+                    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    MoveTo W + Plugin.Plug365New.RndStart(95, 97), H + 897  //重开
+                    Delay 100
+                    LeftClick 2
+                    Delay 1500
+                End If
+            End If
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1409,H+117,W+1568,H+269,"55F1FF","9|8|58F2FF,21|10|4FECFF,9|16|55F1FF,17|16|4FE9FD,22|22|4AE5FD",0.8)//成功
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            TracePrint XY
+            Delay 1000
+            If Form1.CheckBox54.Value = 1 Then 
+            多点找色 1504, 440, 1814, 491, "4545FF", "3|0|4545FF,6|0|4545FF,-88|2|4545FF,-84|2|4545FF,-79|2|4545FF,-44|3|4545FF,-40|3|4545FF,-35|3|4545FF", 0.9
+            If X > 0 Then 
+                    MoveTo W +Plugin.Plug365New.RndStart(95, 97), H + 978   //离开
+                    Delay 100
+                    LeftClick 2
+                    Delay 1500
+                    Exit Sub
+            End If
+            End If
+            If Form1.ComboBox8.ListIndex = 3 or Form1.ComboBox8.ListIndex = 5 Then 
+                Form1.ListBox1.AddItem "继续下一局"
+                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                If Form1.ComboBox8.ListIndex = 3 Then 
+                重复练级次数 = 重复练级次数 + 1
+                End If
+                If 重复练级次数 > 5 Then 
+                    重复练级次数 = 0
+                    MoveTo W + Plugin.Plug365New.RndStart(95, 97), H + 978  //重开
+                    Delay 100
+                    LeftClick 2
+                    Delay 1500
+                    Goto 重来
+                Else 
+                    MoveTo W + Plugin.Plug365New.RndStart(95, 97), H + 897  //重开
+                    Delay 100
+                    LeftClick 2
+                    Delay 1500
+                End If
+            Else
+                Delay 500
+                XY=Plugin.Color.FindMultiColor(W+1763,H+511,W+1876,H+756,"52EFFF","-1|58|52EFFF,0|58|52EFFF,0|116|52EFFF",0.9)//三星
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    XY=Plugin.Color.FindMultiColor(W+139,H+785,W+242,H+841,"FFFFFF","4|0|FFFFFF,8|0|FFFFFF,13|0|FFFFFF,6|2|FFFFFF",0.8)//有下一局
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                        输五个球退出 = 0
+                        发球不抛球=0
+                        Form1.ListBox1.AddItem "成功 三星 下一关"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        MoveTo W + Plugin.Plug365New.RndStart(95, 97), H + 811  //下一关
+                        Delay 100
+                        LeftClick 2
+                        Delay 1500
+                    Else
+                        Form1.ListBox1.AddItem "最后一关了 退出重来"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        MoveTo W + Plugin.Plug365New.RndStart(95, 97), H + 978  //重开
+                        Delay 100
+                        LeftClick 2
+                        Delay 1500
+                        Goto 重来
+                    End If
+                Else 
+                    If Form1.ComboBox8.ListIndex = 2 Then 
+                        Form1.ListBox1.AddItem "成功 没三星 也下一关"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        MoveTo W + Plugin.Plug365New.RndStart(95, 97), H + 811  //下一关
+                        Delay 100
+                        LeftClick 2
+                        Delay 1500
+                        MoveTo W + Plugin.Plug365New.RndStart(95, 97), H + 978  //重开
+                        Delay 100
+                        LeftClick 2
+                        Delay 1500
+                    Else 
+                        XY=Plugin.Color.FindMultiColor(W+1763,H+511,W+1876,H+756,"5AF3FF","-3|3|52EFFF,0|62|52EFFF,-4|63|52EFFF,0|117|302E2D,-4|120|302E2D",0.9)//领先三分没星
+                        ZB = InStr(XY,"|")
+                        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                        If X > 0 Then 
+                            输五个球退出=1
+                            Form1.ListBox1.AddItem "领先三分没星,后面输五个球直接重来"
+                            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        End If
+                        XY=Plugin.Color.FindMultiColor(W+1763,H+511,W+1876,H+756,"5AF3FF","-3|3|52EFFF,0|62|302E2D,-4|63|302E2D,0|117|52EFFF,-4|120|52EFFF",0.9)//扣球没星
+                        ZB = InStr(XY,"|")
+                        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                        If X > 0 Then 
+                            发球不抛球=1
+                            Form1.ListBox1.AddItem "只差起跳扣球没星 发球不再抛球"
+                            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        End If
+                        Form1.ListBox1.AddItem "成功 没三星 重来"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        MoveTo W + Plugin.Plug365New.RndStart(95, 97), H + 897  //重开
+                        Delay 100
+                        LeftClick 2
+                        Delay 1500
+                    End If
+                End If
+            End If
+        End If
+    Loop
+End Sub

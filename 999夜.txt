@@ -1,0 +1,1415 @@
+Sub 沃伦大陆4
+    Rem 重来
+    主页1
+    KeyPress "M", 1
+    Delay 100
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1781,H+14,W+1887,H+117,"C4C8CB","0|11|1B2529,9|11|C4C8CB,-8|12|C4C7CA,0|20|C4C8CB",0.7)//地图界面X
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint XY
+        If X > 0 Then 
+            Exit For
+        End If
+        If i = 30 Then Goto 重来
+    Next
+    Delay 100
+    MoveTo W+960,H+540
+    For 18
+        Delay 20
+        MouseWheel -6
+    Next
+    Delay 100
+    XY=Plugin.Color.FindMultiColor(W+5,H+6,W+1920,H+1068,"C7C7C7","-3|2|2C2A2A,-10|6|C7C7C7,10|6|C7C7C7,3|9|2C2A2A,-9|21|C7C7C7,-4|21|2A2928,-14|24|C7C7C7,-1|25|C7C7C7,10|25|C7C7C7",0.9)//龙
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        MoveTo X+14,Y-172
+        Delay 100
+        LeftClick 1
+    Else 
+        Goto 重来
+    End If
+    Delay 700
+    MoveTo W + 1650, H + 962
+    Delay 100
+    LeftClick 2
+    Delay 1000
+    等待传送结束 
+    Delay 100
+    MiddleClick 1
+    Delay 1500
+    KeyPress "F", 3
+    Delay 1000
+    MoveTo W + 108, H + 230
+    Delay 100
+    LeftClick 2
+    Delay 500
+    LeftClick 2
+    Delay 500
+    MoveTo W + 846, H + 833
+    Delay 100
+    LeftClick 1
+    Delay 300
+    MoveTo W + 1154, H + 709
+    Delay 100
+    LeftClick 2
+    Delay 300
+    MoveTo W + 970, H + 960
+    Delay 100
+    LeftClick 2
+    Delay 1500
+    主页1 
+    Delay 100
+    KeyPress "2", 2
+    Delay 300
+    KeyDown "D", 1
+    Delay 500
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    RightClick 1
+    Delay 3100
+    For 7
+        KeyDown "D", 1
+        Delay 550
+        KeyUp "D", 1
+        Delay 500
+    Next 
+    KeyUp "W", 1
+    Delay 500
+    KeyDown "D", 1
+    Delay 550
+    KeyUp "D", 1
+    KeyPress "3", 2
+    Delay 300
+    KeyDown "E", 1
+    Delay 1550
+    KeyUp "E", 1
+    ///////////////==================================
+    Form1.ListBox1.AddItem "开始战斗"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Do
+        Delay 50
+        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1924,H+1068,"CEC6FF","1|1|CEC6FF,2|2|CEC6FF",1)
+        ZB = InStr(XY,"|")
+        O = Clng(Left(XY, ZB - 1)) : P = Clng(Right(XY, Len(XY) - ZB))
+        XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"2120F3","3|0|2120F3",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else
+            XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"1D1CD5","3|0|1D1CD5",0.9)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else 
+                XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"3017EA","3|0|3017EA",0.9)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                Else 
+                End If
+            End If
+        End If
+        If X > 0 or O > 0 Then 
+            KeyUp "S", 1
+            找不到怪 = 0
+            Delay 1000
+            KeyPress "W", 1
+            Delay 200
+            i = i + 1
+            If i > 1 Then 
+                i=0
+                找方向慢
+                Call 向北寻路(163, 114, "676767", "0|1|EDEDED,0|4|FFFFFF,3|5|FFFFFF,0|6|727272", 100, 100, 0.9)
+                //            KeyPress "Q", 1
+            End If
+            Delay 300
+            For 60
+                Delay 300
+                XY=Plugin.Color.FindMultiColor(W+1626,H+919,W+1712,H+956,"FFFFFF","1|0|FFFFFF",0.9)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    KeyDown "E", 1
+                    Delay 1550
+                    KeyUp "E", 1
+                    Delay 100
+                    KeyPress "W", 1
+                    Exit for
+                End If
+            Next
+        Else 
+            找不到怪 = 找不到怪 + 1
+            TracePrint 找不到怪
+            KeyUp "S", 1
+            KeyPress "space", 1
+            Delay 200
+            LeftClick 1
+            Delay 300
+            If 找不到怪 > 3 Then 
+                KeyUp "S", 1
+                找不到怪 = 0
+                怪打不死 = 0
+                KeyDown "E", 1
+                Delay 1500
+                KeyUp "E", 1
+                Exit Do
+            End If
+        End If
+    Loop
+    Goto 重来
+End Sub
+Sub 找方向慢
+    Rem 重新找方向
+    For 24
+        XY=Plugin.Color.FindMultiColor(W+135,H+116,W+177,H+160,"B8EFFF","1|1|B8EFFF",1)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint XY
+        If 151 < X - W < 155 Then 
+            KeyUp "Right", 1
+            Delay 100
+            KeyUp "Left", 1
+            Exit For
+        End If
+        If X - W < 151 Then 
+            KeyUp "Left", 1
+            Delay 10
+            KeyDown "Right", 1
+            Delay 800
+            KeyPress "W", 1
+            Delay 70
+        Else
+            If 150 < X-W < 153 Then 
+                KeyDown "Right", 1
+                Delay 200
+                KeyUp "Right", 1
+                Delay 100
+                KeyPress "W", 1
+                Delay 700
+            End If
+        End If
+        If X - W > 155 Then 
+            KeyUp "Right", 1
+            Delay 10
+            KeyDown "Left", 1
+            Delay 800
+            KeyPress "W", 1
+            Delay 70
+        Else
+            If 153 < X-W < 156 Then 
+                KeyDown "Left", 1
+                Delay 200
+                KeyUp "Left", 1
+                Delay 100
+                KeyPress "W", 1
+                Delay 700
+            End If
+        End If
+    Next
+End Sub
+Sub 沃伦大陆5
+        角色识别
+    Rem 重来
+    主页1
+    KeyPress "M", 1
+    Delay 100
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1781,H+14,W+1887,H+117,"C4C8CB","0|11|1B2529,9|11|C4C8CB,-8|12|C4C7CA,0|20|C4C8CB",0.7)//地图界面X
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint XY
+        If X > 0 Then 
+            Exit For
+        End If
+        If i = 30 Then Goto 重来
+    Next
+    Delay 100
+    MoveTo W+960,H+540
+    For 18
+        Delay 20
+        MouseWheel -6
+    Next
+    Delay 100
+    XY=Plugin.Color.FindMultiColor(W+5,H+6,W+1920,H+1068,"C7C7C7","-3|2|2C2A2A,-10|6|C7C7C7,10|6|C7C7C7,3|9|2C2A2A,-9|21|C7C7C7,-4|21|2A2928,-14|24|C7C7C7,-1|25|C7C7C7,10|25|C7C7C7",0.9)//龙
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        MoveTo X+14,Y-172
+        Delay 100
+        LeftClick 1
+    Else 
+        Goto 重来
+    End If
+    Delay 700
+    MoveTo W + 1650, H + 962
+    Delay 100
+    LeftClick 2
+    Delay 1000
+    等待传送结束 
+    Delay 100
+    MiddleClick 1
+    Delay 1500
+    KeyPress "F", 3
+    Delay 1000
+    MoveTo W + 108, H + 230
+    Delay 100
+    LeftClick 2
+    Delay 500
+    LeftClick 2
+    Delay 500
+    MoveTo W + 846, H + 833
+    Delay 100
+    LeftClick 1
+    Delay 300
+    MoveTo W + 1154, H + 709
+    Delay 100
+    LeftClick 2
+    Delay 300
+    MoveTo W + 970, H + 960
+    Delay 100
+    LeftClick 2
+    Delay 1500
+    主页1 
+    Delay 100
+    KeyPress "2", 2
+    Delay 300
+    KeyDown "D", 1
+    Delay 500
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    RightClick 1
+    Delay 3100
+    For 8
+        KeyDown "D", 1
+        Delay 550
+        KeyUp "D", 1
+        Delay 500
+    Next 
+    KeyUp "W", 1
+    Delay 500
+    KeyDown "D", 1
+    Delay 550
+    KeyUp "D", 1
+    Delay 200
+    LeftClick 1
+    CALL 战斗(180,8,1)
+    Goto 重来
+End Sub
+Sub 沃伦大陆7级
+    角色识别
+    Rem 重来
+    主页1
+    KeyPress "M", 1
+    Delay 100
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1781,H+14,W+1887,H+117,"C4C8CB","0|11|1B2529,9|11|C4C8CB,-8|12|C4C7CA,0|20|C4C8CB",0.7)//地图界面X
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint XY
+        If X > 0 Then 
+            Exit For
+        End If
+        If i = 30 Then Goto 重来
+    Next
+    Delay 100
+    MoveTo W+960,H+540
+    For 18
+        Delay 20
+        MouseWheel -6
+    Next
+    Delay 100
+    XY=Plugin.Color.FindMultiColor(W+5,H+5,W+1917,H+1063,"000000","7|0|000000,-7|4|C7C7C7,5|4|C7C7C7,15|4|C7C7C7,4|9|C7C7C7,13|10|C7C7C7,6|15|C7C7C7,-2|19|C7C7C7,12|19|C7C7C7,5|20|C7C7C7,-4|25|C7C7C7,12|26|C7C7C7,-11|27|C7C7C7,1|29|C7C7C7",0.9)//原
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        MoveTo X - 181, Y +170
+        Delay 100
+        LeftClick 1
+    Else 
+        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1824,H+868,"C6C6FF","10|2|C8C8FF,-1|6|C3C3F0,10|6|C5C5FF,5|10|C7C7FF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            MoveTo X , Y
+            Delay 100
+            LeftClick 1
+            Delay 700
+            MoveTo W + 1650, H + 962
+            Delay 100
+            LeftClick 2
+            等待传送结束 
+        Else 
+            Form1.ListBox1.AddItem "没找到传送目标 "
+            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+            Form1.ListBox1.AddItem "请前往火山原点矿区开始"
+            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+        End If
+        Goto 重来
+    End If
+    Delay 700
+    MoveTo W + 1650, H + 962
+    Delay 100
+    LeftClick 2
+    Delay 1000
+    等待传送结束 
+    Delay 100
+    MiddleClick 1
+    Delay 1500
+    KeyPress "A", 1
+    Delay 500
+    MiddleClick 1
+    Delay 1500
+    KeyPress "F", 3
+    Delay 1000
+    MoveTo W + 108, H + 230
+    Delay 100
+    LeftClick 2
+    Delay 500
+    LeftClick 2
+    Delay 500
+    MoveTo W + 846, H + 833
+    Delay 100
+    LeftClick 1
+    Delay 300
+    MoveTo W + 1154, H + 709
+    Delay 100
+    LeftClick 2
+    Delay 300
+    MoveTo W + 970, H + 960
+    Delay 100
+    LeftClick 2
+    Delay 1500
+    主页1 
+    KeyPress "3", 2
+    Delay 500
+    KeyDown "A", 1
+    Delay 100
+    RightClick 1
+    Delay 400
+    KeyDown "W", 1
+    Delay 200
+    KeyUp "A", 1
+    Delay 3500
+    KeyUp "W", 1
+    LeftClick 1
+    Delay 400
+    LeftClick 1 
+    For i = 1 To 20
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1924,H+1068,"CEC6FF","1|1|CEC6FF,2|2|CEC6FF",1)
+        ZB = InStr(XY,"|")
+        O = Clng(Left(XY, ZB - 1)) : P = Clng(Right(XY, Len(XY) - ZB))
+        XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"2120F3","3|0|2120F3",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else
+            XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"1D1CD5","3|0|1D1CD5",0.9)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else 
+                XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"3017EA","3|0|3017EA",0.9)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                Else 
+                End If
+            End If
+        End If
+        If X > 0 OR O > 0 Then 
+            Exit For 
+        End If
+        If i = 20 Then 
+            Goto 重来
+        End If
+    Next
+    Call 战斗(40,5,1)
+    主页1
+    KeyPress "M", 1
+    Delay 100
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1781,H+14,W+1887,H+117,"C4C8CB","0|11|1B2529,9|11|C4C8CB,-8|12|C4C7CA,0|20|C4C8CB",0.7)//地图界面X
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint XY
+        If X > 0 Then 
+            Exit For
+        End If
+        If i = 30 Then Goto 重来
+    Next
+    Delay 100
+    MoveTo W+960,H+540
+    For 18
+        Delay 20
+        MouseWheel -6
+    Next
+    Delay 100
+    XY=Plugin.Color.FindMultiColor(W+5,H+5,W+1917,H+1063,"000000","7|0|000000,-7|4|C7C7C7,5|4|C7C7C7,15|4|C7C7C7,4|9|C7C7C7,13|10|C7C7C7,6|15|C7C7C7,-2|19|C7C7C7,12|19|C7C7C7,5|20|C7C7C7,-4|25|C7C7C7,12|26|C7C7C7,-11|27|C7C7C7,1|29|C7C7C7",0.9)//原
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        MoveTo X + 111, Y +229
+        Delay 100
+        LeftClick 1
+    Else 
+        Goto 重来
+    End If
+    Delay 700
+    MoveTo W + 1650, H + 962
+    Delay 100
+    LeftClick 2
+    Delay 1000
+    等待传送结束 
+    KeyPress "3", 2
+    Delay 100
+    MiddleClick 1
+    Delay 1500
+    KeyDown "W", 1
+    Delay 100
+    RightClick 2
+    Delay 400
+    Delay 6500
+    KeyUp "W", 1
+    Delay 300
+    LeftClick 1
+    Delay 400
+    LeftClick 1 
+    For i = 1 To 20
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1924,H+1068,"CEC6FF","1|1|CEC6FF,2|2|CEC6FF",1)
+        ZB = InStr(XY,"|")
+        O = Clng(Left(XY, ZB - 1)) : P = Clng(Right(XY, Len(XY) - ZB))
+        XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"2120F3","3|0|2120F3",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else
+            XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"1D1CD5","3|0|1D1CD5",0.9)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else 
+                XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"3017EA","3|0|3017EA",0.9)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                Else 
+                End If
+            End If
+        End If
+        If X > 0 OR O > 0 Then 
+            Exit For 
+        End If
+        If i = 20 Then 
+            Goto 重来
+        End If
+    Next
+    Call 战斗(12,4,1)
+    Goto 重来
+End Sub
+Sub 回收鉴定
+    Form1.ListBox1.AddItem "请在回收或鉴定界面开始"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    XY=Plugin.Color.FindMultiColor(W+0,H+0,W+124,H+100,"FFFFFF","21|0|FFFFFF,6|8|FFFFFF,11|10|0F0F0F,15|13|FFFFFF,0|18|FFFFFF,21|20|FFFFFF,22|20|FFFFFF",0.9)
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        Delay 500
+        XY=Plugin.Color.FindMultiColor(W+1400,H+840,W+1564,H+942,"318AE7","8|7|DEDBDE,-1|15|DCDDDC,10|20|318EE7,-10|21|318EE7",0.7)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint XY
+        If X > 0 Then 
+        Else 
+            MoveTo W + 1511, H + 895
+            Delay 100
+            LeftClick 1
+            Delay 500
+        End If
+        For 999
+            MoveTo W + 1650, H + 1002
+            Delay 100
+            LeftClick 1
+            Delay 500
+        Next
+    End If
+    XY=Plugin.Color.FindMultiColor(W+0,H+0,W+124,H+100,"FFFFFF","-14|1|FFFFFF,-7|3|FFFFFF,7|8|FFFFFF,9|14|FFFFFF,-10|17|000000,-3|21|FFFFFF,1|21|000000,9|25|FFFFFF",0.9)//鉴定
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        For 999
+            XY=Plugin.Color.FindMultiColor(W+0,H+0,W+124,H+100,"FFFFFF","-14|1|FFFFFF,-7|3|FFFFFF,7|8|FFFFFF,9|14|FFFFFF,-10|17|000000,-3|21|FFFFFF,1|21|000000,9|25|FFFFFF",0.9)//鉴定
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                MoveTo W + 1548, H + 883
+                Delay 100
+                LeftClick 1
+                Delay 500
+                MoveTo W + 1650, H + 1002
+                Delay 100
+                LeftClick 1
+                Delay 1000
+            Else 
+                MoveTo W + 1865, H + 55
+                Delay 100
+                LeftClick 1
+                Delay 500
+            End If
+        Next
+    End If
+End Sub
+Sub 沃伦大陆25级
+角色识别
+    Rem 重来
+    主页1
+    KeyPress "M", 1
+    Delay 100
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1781,H+14,W+1887,H+117,"C4C8CB","0|11|1B2529,9|11|C4C8CB,-8|12|C4C7CA,0|20|C4C8CB",0.7)//地图界面X
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint XY
+        If X > 0 Then 
+            Exit For
+        End If
+        If i = 30 Then Goto 重来
+    Next
+    Delay 100
+    MoveTo W+960,H+540
+    For 18
+        Delay 20
+        MouseWheel -6
+    Next
+    Delay 100
+    XY=Plugin.Color.FindMultiColor(W+5,H+5,W+1917,H+1063,"C7C7C7","7|1|C7C7C7,14|5|C7C7C7,20|5|C7C7C7,-5|6|C7C7C7,16|9|131313,9|11|131313,1|20|C7C7C7,20|20|C7C7C7,-6|22|C7C7C7,5|23|C7C7C7",0.9)//地
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        MoveTo X + 100, Y -164
+        Delay 100
+        LeftClick 1
+    Else 
+        XY=Plugin.Color.FindMultiColor(W+230,H+100,W+1024,H+868,"C6C6FF","10|2|C8C8FF,-1|6|C3C3F0,10|6|C5C5FF,5|10|C7C7FF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            MoveTo X , Y
+            Delay 100
+            LeftClick 1
+            Delay 700
+            MoveTo W + 1650, H + 962
+            Delay 100
+            LeftClick 2
+            等待传送结束 
+        Else 
+            Form1.ListBox1.AddItem "没找到传送目标 "
+            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+            Form1.ListBox1.AddItem "请前往火山原点矿区开始"
+            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+        End If
+        Goto 重来
+    End If
+    Delay 700
+    MoveTo W + 1650, H + 962
+    Delay 100
+    LeftClick 2
+    Delay 1000
+    等待传送结束 
+    KeyPress "W", 1
+    Delay 400
+    KeyPress "Ctrl", 1
+    找方向慢 
+    KeyPress "Ctrl", 1
+    Delay 100
+    KeyDown "D", 1
+    Delay 600
+    KeyUp "D", 1
+    Delay 100
+    XY=Plugin.Color.FindMultiColor(W+1042,H+307,W+1230,H+946,"FFFFFF","1|0|FFFFFF",0.9)
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        KeyDown "Alt", 1
+        Delay 500
+        MoveTo X, Y
+        Delay 100
+        LeftClick 1
+        Delay 500
+        KeyUp "Alt", 1   	
+    End If
+    KeyPress "F", 3
+    Delay 1000
+    MoveTo W + 108, H + 230
+    Delay 100
+    LeftClick 2
+    Delay 500
+    LeftClick 2
+    Delay 500
+    MoveTo W + 846, H + 833
+    Delay 100
+    LeftClick 1
+    Delay 300
+    MoveTo W + 1154, H + 709
+    Delay 100
+    LeftClick 2
+    Delay 300
+    MoveTo W + 970, H + 960
+    Delay 100
+    LeftClick 2
+    Delay 1500
+    主页1
+    KeyDown "D", 1
+    Delay 100
+    RightClick 2
+    Delay 2500
+    Delay 100
+    KeyUp "D", 1
+    For i = 1 To 60
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1924,H+1068,"CEC6FF","1|1|CEC6FF,2|2|CEC6FF",1)
+        ZB = InStr(XY,"|")
+        O = Clng(Left(XY, ZB - 1)) : P = Clng(Right(XY, Len(XY) - ZB))
+        XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"2120F3","3|0|2120F3",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else
+            XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"1D1CD5","3|0|1D1CD5",0.9)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else 
+                XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"3017EA","3|0|3017EA",0.9)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                Else 
+                End If
+            End If
+        End If
+        If X > 0 OR O > 0 Then 
+            Exit For 
+        End If
+        If i = 20 Then 
+            Goto 重来
+        End If
+    Next
+    Call 战斗(40,4,1)
+    Goto 重来
+End Sub
+Sub 沃伦大陆真红
+    Rem 重来
+    主页1
+    KeyPress "M", 1
+    Delay 100
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1781,H+14,W+1887,H+117,"C4C8CB","0|11|1B2529,9|11|C4C8CB,-8|12|C4C7CA,0|20|C4C8CB",0.7)//地图界面X
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint XY
+        If X > 0 Then 
+            Exit For
+        End If
+        If i = 30 Then Goto 重来
+    Next
+    Delay 100
+    MoveTo W+960,H+540
+    For 18
+        Delay 20
+        MouseWheel -6
+    Next
+    Delay 100
+    XY=Plugin.Color.FindMultiColor(W+5,H+6,W+1920,H+1068,"C7C7C7","11|0|C7C7C7,-6|3|C7C7C7,16|3|C7C7C7,4|6|1F1F1F,17|9|C7C7C7,-8|10|C7C7C7,4|12|1F1F1F,4|17|222222,10|20|C7C7C7,-5|21|C7C7C7,13|23|C7C7C7,3|27|C7C7C7",0.9)//龙
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    TracePrint X-W&"   "&Y-H
+    If X > 0 Then 
+        MoveTo X -169, Y -56
+        Delay 100
+        LeftClick 1
+    Else 
+        Goto 重来
+    End If
+    Delay 700
+    MoveTo W + 1650, H + 962
+    Delay 100
+    LeftClick 2
+    Delay 1000
+    等待传送结束 
+    Delay 100
+    KeyPress "F", 3
+    Delay 1000
+    MoveTo W + 108, H + 230
+    Delay 100
+    LeftClick 2
+    Delay 500
+    LeftClick 2
+    Delay 500
+    MoveTo W + 846, H + 833
+    Delay 100
+    LeftClick 1
+    Delay 300
+    MoveTo W + 1154, H + 709
+    Delay 100
+    LeftClick 2
+    Delay 300
+    MoveTo W + 970, H + 960
+    Delay 100
+    LeftClick 2
+    Delay 1500
+    主页1 
+    Delay 100
+    KeyPress "4", 2
+    Delay 300
+    KeyDown "W", 1
+    Delay 100
+    KeyPress "Space", 2
+    Delay 500
+    KeyPress "Space", 2
+    Delay 1900
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 3050
+    KeyUp "A", 1
+    Delay 300
+    KeyDown "E", 1
+    Delay 155
+    KeyUp "E", 1
+    ///////////////==================================
+    Form1.ListBox1.AddItem "开始战斗"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    i = 4
+    For 99
+        Delay 50
+        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1924,H+1068,"CEC6FF","1|1|CEC6FF,2|2|CEC6FF",1)
+        ZB = InStr(XY,"|")
+        O = Clng(Left(XY, ZB - 1)) : P = Clng(Right(XY, Len(XY) - ZB))
+        XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"2120F3","3|0|2120F3",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else
+            XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"1D1CD5","3|0|1D1CD5",0.9)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else 
+                XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"3017EA","3|0|3017EA",0.9)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                Else 
+                    XY=Plugin.Color.FindMultiColor(W+760,H+16,W+910,H+63,"E1E1E1","-1|4|E1E1E1,-4|6|060404,2|6|060404,-1|9|E1E1E1,-2|13|E1E1E1,3|16|060404,1|19|E1E1E1,-3|21|060404",0.8)//LV.80
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                    Else 
+                    End If
+                End If
+            End If
+        End If
+        If X > 0 or O > 0 Then 
+            KeyUp "S", 1
+            找不到怪 = 0
+            KeyPress "4", 1
+            Delay 100
+                    随机数 = Plugin.Plug365New.RndStart(0, 2)
+                    If 随机数 = 0 Then 
+                        LeftClick 1
+                    Else
+                     KeyPress "E", 1   
+                    End If
+            
+            Delay 500
+            RightClick 2
+            Delay 500
+            RightClick 2
+            Delay 500
+            KeyDown "W", 1
+            Delay 100
+            RightClick 2
+            Delay 400
+            KeyUp "W", 1
+            Delay 100
+            i = i + 1
+            If i > 5 Then 
+                i=0
+                KeyPress "3", 2
+                Delay 300
+                KeyPress "E", 1
+                Delay 500
+                KeyPress "4", 3
+            End If
+            Delay 300
+        Else 
+            找不到怪 = 找不到怪 + 1
+            TracePrint 找不到怪
+            KeyUp "S", 1
+            KeyPress "space", 1
+            Delay 200
+            LeftClick 1
+            Delay 300
+            If 找不到怪 > 3 Then 
+                KeyUp "S", 1
+                找不到怪 = 0
+                怪打不死 = 0
+                KeyDown "E", 1
+                Delay 1500
+                KeyUp "E", 1
+                Exit For
+            End If
+        End If
+    Next
+    Goto 重来
+End Sub
+Sub 沃伦大陆推塔
+  Form1.ListBox1.AddItem "真龙幻境门口开始"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+        Form1.ListBox1.AddItem "只适合看着的时候挂机"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+        Form1.ListBox1.AddItem "出问题手动调整下"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+  
+    KeyPress "3", 2
+    Delay 1000
+    Do
+        Delay 100
+        次数 = 次数 + 1
+        TracePrint 次数 & "次数"
+        If Form1.ComboBox3.ListIndex = 10 Then 
+           
+        
+        If 300 > 次数 > 200 Then 
+        KeyPress "3", 1
+        Delay 10
+            KeyDown "W", 1
+            Delay 200
+            RightClick 1
+            Delay 200
+        End If
+        If 400 > 次数 > 300 Then 
+            KeyUp "W", 1
+            KeyDown "S", 1
+            Delay 50
+            RightClick 1
+            Delay 200
+        End If
+        If 500 > 次数 > 400 Then 
+            KeyUp "S", 1
+            KeyDown "A", 1
+            Delay 150
+            RightClick 1
+            Delay 200
+        End If
+        If 600 > 次数 > 500 Then 
+            KeyUp "A", 1
+            KeyDown "D", 1
+            Delay 150
+            RightClick 1
+            Delay 200
+        End If
+        If 次数 > 600 Then 
+            KeyUp "D", 1
+            KeyUp "A", 1
+            KeyUp "S", 1
+            KeyUp "W", 1
+            KeyPress "ESC", 1
+            Delay 1500
+            MoveTo W + 150, H + 120
+            Delay 100
+            LeftClick 1
+            Delay 2000
+            MoveTo W + 1180, H + 710
+            Delay 100
+            LeftClick 1
+            Delay 2000
+        End If
+        End If
+        KeyPress "F", 1
+        XY=Plugin.Color.FindMultiColor(W+569,H+878,W+765,H+1053,"52C2E1","-32|5|52BEDE,-42|13|4FBADC,-23|27|E4F1F4,7|33|E4F1F4,-10|66|E4F1F4,7|67|E4F1F4,-9|74|E4F1F4,8|74|E4F1F4",0.9)//探索指南
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            MoveTo W + 1570, H + 951
+            Delay 100
+            LeftClick 1
+            Delay 3000
+        End If
+        XY=Plugin.Color.FindMultiColor(W+19,H+975,W+150,H+1045,"F5F5F5","3|0|F5F5F5,0|5|F5F5F5,3|5|F5F5F5,0|11|F5F5F5,3|11|F5F5F5",1)//Enter
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            XY=Plugin.Color.FindMultiColor(W+1043,H+500,W+1299,H+698,"FFFFFF","3|0|FFFFFF,6|0|FFFFFF,3|2|FFFFFF",1)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                KeyPress "F", 1
+                Delay 200
+            Else 
+                XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    KeyPress "F", 1
+                    Delay 2000
+                Else 
+                    XY=Plugin.Color.FindMultiColor(W+29,H+260,W+182,H+404,"81BFFF","9|0|81BFFF,-5|2|81BFFF,15|2|81BFFF,4|4|84BEFF,5|14|81BFFF",0.9)//牛头
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                    Else 
+                        KeyPress "F", 1
+                        Delay 100
+                        XY=Plugin.Color.FindMultiColor(W+952,H+77,W+1073,H+176,"61E3FF","-50|1|61E3FF,0|1|61E3FF,-19|8|61E3FF,-69|9|61E3FF,-49|12|61E3FF,0|12|61E3FF,12|14|61E3FF,-69|17|61E3FF,-57|17|61E3FF,-18|17|61E3FF,-39|18|61E3FF,-3|24|61E3FF,12|24|61E3FF,-69|25|61E3FF,-44|27|61E3FF,-18|27|61E3FF,-58|29|61E3FF,8|38|61E3FF",0.9)//成功
+                        ZB = InStr(XY,"|")
+                        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                        If X > 0 Then 
+                        Else 
+                            TracePrint "1111"
+                            i = i + 1
+                            If i > 4 Then 
+                                i=0
+                                次数=0
+                                KeyPress "ESC", 1
+                                Delay 1500
+                                MoveTo W + 150, H + 120
+                                Delay 100
+                                LeftClick 1
+                                Delay 2000
+                                MoveTo W + 1180, H + 710
+                                Delay 100
+                                LeftClick 1
+                                Delay 2000
+                            End If
+                        End If
+                    End If
+                End If
+            End If
+        End If
+        XY=Plugin.Color.FindMultiColor(W+800,H+164,W+1075,H+340,"C6F1FD","1|0|F7FFFF,-18|59|D6FAFF,20|59|94E6FA,33|61|7BDBF7,0|63|84E4FA",0.9)//结算界面
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+                KeyUp "D", 1
+        KeyUp "A", 1
+         KeyUp "S", 1
+         KeyUp "W", 1
+            次数=0
+            Delay 100
+            LeftClick 1
+            Delay 2000
+        End If
+        XY=Plugin.Color.FindMultiColor(W+800,H+164,W+1075,H+340,"AD8478","-9|32|7A7B74,9|32|4E6E70,1|52|7C7773,-19|57|6C7873,2|63|607776,2|64|817D76",0.9)//结算界面
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+                KeyUp "D", 1
+        KeyUp "A", 1
+         KeyUp "S", 1
+         KeyUp "W", 1
+            次数=0
+            Delay 100
+            LeftClick 1
+            Delay 2000
+        End If
+
+        XY=Plugin.Color.FindMultiColor(W+952,H+77,W+1073,H+176,"61E3FF","-50|1|61E3FF,0|1|61E3FF,-19|8|61E3FF,-69|9|61E3FF,-49|12|61E3FF,0|12|61E3FF,12|14|61E3FF,-69|17|61E3FF,-57|17|61E3FF,-18|17|61E3FF,-39|18|61E3FF,-3|24|61E3FF,12|24|61E3FF,-69|25|61E3FF,-44|27|61E3FF,-18|27|61E3FF,-58|29|61E3FF,8|38|61E3FF",0.9)//成功
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            成功 = 成功 + 1
+            If 成功 > 4 Then 
+                成功=0
+                次数=0
+                KeyPress "ESC", 1
+                Delay 1500
+                MoveTo W + 150, H + 120
+                Delay 100
+                LeftClick 1
+                Delay 2000
+                MoveTo W + 1180, H + 710
+                Delay 100
+                LeftClick 1
+                Delay 2000
+                End If
+            End If
+        XY=Plugin.Color.FindMultiColor(W+29,H+260,W+182,H+404,"81BFFF","9|0|81BFFF,-5|2|81BFFF,15|2|81BFFF,4|4|84BEFF,5|14|81BFFF",0.9)//牛头
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1924,H+1068,"CEC6FF","1|1|CEC6FF,2|2|CEC6FF",1)
+            ZB = InStr(XY,"|")
+            O = Clng(Left(XY, ZB - 1)) : P = Clng(Right(XY, Len(XY) - ZB))
+            XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"2120F3","3|0|2120F3",0.9)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else
+                XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"1D1CD5","3|0|1D1CD5",0.9)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                Else 
+                    XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"3017EA","3|0|3017EA",0.9)
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                    Else 
+                        XY=Plugin.Color.FindMultiColor(W+80,H+80,W+1860,H+1000,"BFFFFF","1|1|BFFFFF,2|2|BFFFFF,3|3|BFFFFF,4|4|BFFFFF,5|5|BFFFFF,6|6|BFFFFF",0.9)//锁定标记
+                        ZB = InStr(XY,"|")
+                        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                        If X > 0 Then 
+                        Else 
+                            XY=Plugin.Color.FindMultiColor(W+760,H+16,W+910,H+63,"E1E1E1","-1|4|E1E1E1,-4|6|060404,2|6|060404,-1|9|E1E1E1,-2|13|E1E1E1,3|16|060404,1|19|E1E1E1,-3|21|060404",0.8)//LV.80
+                            ZB = InStr(XY,"|")
+                            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                        End If  
+                    End If
+                End If
+            End If
+            If X > 0 or O > 0 Then 
+                XY=Plugin.Color.FindMultiColor(W+1626,H+919,W+1712,H+956,"FFFFFF","1|0|FFFFFF",0.9)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    随机数 = Plugin.Plug365New.RndStart(0, 2)
+                    If 随机数 = 0 Then 
+                        KeyDown "E", 1
+                        Delay 200
+                        RightClick 2
+                        Delay 155
+                        KeyUp "E", 1
+                    ElseIf 随机数 = 1 Then
+                        KeyDown "W", 1
+                        Delay 50
+                        KeyDown "E", 1
+                        Delay 200
+                        RightClick 2
+                        Delay 155
+                        KeyUp "E", 1
+                        Delay 50
+                        KeyUp "W", 1
+                    ElseIf 随机数 = 2 Then
+                        KeyDown "E", 1
+                        Delay 1550
+                        KeyUp "E", 1
+                        Delay 100
+                    End If
+                End If
+                Delay 15
+                LeftClick 1
+                Delay 10
+            Else 
+                MiddleClick 1
+                Delay 500
+                XY=Plugin.Color.FindMultiColor(W+80,H+80,W+1860,H+1000,"BFFFFF","1|1|BFFFFF,2|2|BFFFFF,3|3|BFFFFF,4|4|BFFFFF,5|5|BFFFFF,6|6|BFFFFF",0.9)//锁定标记
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                Else 
+                    KeyDown "W", 1
+                    Delay 50
+                    RightClick 2
+                    Delay 1000
+                    KeyUp "W", 1
+                    XY=Plugin.Color.FindMultiColor(W+80,H+80,W+1860,H+1000,"BFFFFF","1|1|BFFFFF,2|2|BFFFFF,3|3|BFFFFF,4|4|BFFFFF,5|5|BFFFFF,6|6|BFFFFF",0.9)//锁定标记
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                    Else 
+                        KeyDown "A", 1
+                        Delay 50
+                        RightClick 2
+                        Delay 500
+                        KeyUp "A", 1
+                        Delay 500
+                        MiddleClick 1
+                    End If  
+                End If  
+            End If
+        
+        End If
+    Loop
+End Sub
+Sub 沃伦大陆BOSS
+角色识别
+    Rem 重来
+    主页1
+    KeyPress "M", 1
+    Delay 100
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1781,H+14,W+1887,H+117,"C4C8CB","0|11|1B2529,9|11|C4C8CB,-8|12|C4C7CA,0|20|C4C8CB",0.7)//地图界面X
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        TracePrint XY
+        If X > 0 Then 
+            Exit For
+        End If
+        If i = 30 Then Goto 重来
+    Next
+    Delay 100
+    MoveTo W+960,H+540
+    For 18
+        Delay 20
+        MouseWheel -6
+    Next
+    Delay 100
+    XY=Plugin.Color.FindMultiColor(W+5,H+5,W+1917,H+1063,"C7C7C7","0|2|080808,0|4|C7C7C7,0|7|0E0E0E,1|11|080808,1|15|C7C7C7,1|17|080808,1|19|C7C7C7,1|22|080808,-18|23|080808,-16|24|C7C7C7,1|24|C7C7C7",0.9)
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        MoveTo X -566, Y+341
+        Delay 100
+        LeftClick 1
+    Else 
+        Goto 重来
+    End If
+    Delay 700
+    MoveTo W + 1650, H + 962
+    Delay 100
+    LeftClick 2
+    Delay 1000
+    等待传送结束 
+    KeyPress "2", 2
+    Delay 100
+    MiddleClick 1
+    Delay 1500
+    KeyDown "A", 2
+    Delay 700
+    KeyUp "A", 1
+    Delay 200
+    Rem 重新查看
+    KeyPress "F", 3
+    Delay 2000
+    XY=Plugin.Color.FindMultiColor(W+76,H+205,W+146,H+271,"6E94FF","14|0|6E94FF,3|2|6E94FF,4|2|6E94FF,4|3|6E94FF,5|4|6E94FF,6|5|6E94FF,7|6|6E94FF,8|7|6E94FF,8|8|6E94FF,9|8|6E94FF,9|9|6E94FF,10|9|6E94FF,11|9|6E94FF,11|10|6E94FF,0|13|6E94FF,14|13|6E94FF",0.9)
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+    Else 
+        主页1 
+        Goto 重新查看
+    End If
+    MoveTo W + 108, H + 230
+    Delay 100
+    LeftClick 2
+    Delay 500
+    LeftClick 2
+    Delay 500
+    MoveTo W + 846, H + 833
+    Delay 100
+    LeftClick 1
+    Delay 300
+    MoveTo W + 1154, H + 709
+    Delay 100
+    LeftClick 2
+    Delay 300
+    
+    MoveTo W + 970, H + 960
+    Delay 100
+    LeftClick 2
+    Delay 1300
+    主页1 
+    Delay 100
+    KeyPress "2", 2
+    Delay 300
+    KeyDown "D", 2
+    Delay 700
+    KeyUp "D", 1
+    Delay 300
+    KeyDown "W", 1
+    Delay 100
+    RightClick 1
+    Delay 8500
+    KeyUp "W", 1
+    Delay 100
+    KeyPress "3", 2
+    Delay 300
+    KeyDown "E", 1
+    Delay 1550
+    KeyUp "E", 1
+    ///////////////==================================
+    Form1.ListBox1.AddItem "开始战斗"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Do
+        Delay 50
+        XY=Plugin.Color.FindMultiColor(W+760,H+16,W+910,H+63,"E1E1E1","-1|4|E1E1E1,-4|6|060404,2|6|060404,-1|9|E1E1E1,-2|13|E1E1E1,3|16|060404,1|19|E1E1E1,-3|21|060404",0.8)//LV.80
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyUp "S", 1
+            找不到怪 = 0
+            Delay 1000
+            LeftClick 1
+            Delay 100
+            XY=Plugin.Color.FindMultiColor(W+1626,H+919,W+1712,H+956,"FFFFFF","1|0|FFFFFF",0.9)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                KeyDown "E", 1
+                Delay 1550
+                KeyUp "E", 1
+            End If
+        Else 
+            找不到怪 = 找不到怪 + 1
+            TracePrint 找不到怪
+            KeyUp "S", 1
+            KeyPress "space", 1
+            Delay 200
+            LeftClick 1
+            Delay 700
+            If 找不到怪 > 3 Then 
+                KeyUp "S", 1
+                找不到怪 = 0
+                怪打不死 = 0
+                Exit Do
+            End If
+        End If
+    Loop
+    Goto 重来
+End Sub
+Sub 沃伦大陆
+    Rem 重来
+    主页1
+    KeyPress "M", 1
+    Delay 100
+    For i=1 to 30
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+1781,H+14,W+1887,H+117,"C4C8CB","0|11|1B2529,9|11|C4C8CB,-8|12|C4C7CA,0|20|C4C8CB",0.7)//地图界面X
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        End If
+        If i = 30 Then Goto 重来
+    Next
+    Delay 100
+    MoveTo W+960,H+540
+    For 18
+        Delay 20
+        MouseWheel -6
+    Next
+    Delay 100
+    XY=Plugin.Color.FindMultiColor(W+5,H+5,W+1917,H+1063,"C7C7C7","0|2|080808,0|4|C7C7C7,0|7|0E0E0E,1|11|080808,1|15|C7C7C7,1|17|080808,1|19|C7C7C7,1|22|080808,-18|23|080808,-16|24|C7C7C7,1|24|C7C7C7",0.9)
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        MoveTo X - 138, Y + 54
+        Delay 100
+        LeftClick 1
+    Else 
+        Goto 重来
+    End If
+    Delay 700
+    MoveTo W + 1650, H + 962
+    Delay 100
+    LeftClick 2
+    Delay 1000
+    等待传送结束
+    Delay 100
+    KeyPress "F", 3
+    Delay 1000
+    MoveTo W + 108, H + 230
+    Delay 100
+    LeftClick 2
+    Delay 500
+    LeftClick 2
+    Delay 500
+    MoveTo W + 846, H + 833
+    Delay 100
+    LeftClick 1
+    Delay 300
+    MoveTo W + 1154, H + 709
+    Delay 100
+    LeftClick 2
+    Delay 300
+    MoveTo W + 970, H + 960
+    Delay 100
+    LeftClick 2
+    Delay 1500
+    主页1 
+    KeyPress "3", 2
+    Delay 500
+    KeyPress "D", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    KeyDown "D", 1
+    Delay 300
+    KeyUp "D", 1
+    Delay 100
+    KeyDown "W", 1
+    Delay 100
+    //KeyDown "D", 1
+    //Delay 100
+    RightClick 1
+    Delay 1200
+    //KeyUp "D", 1
+    KeyDown "D", 1
+    Delay 1200
+    KeyPress "Space", 1
+    Delay 400
+    KeyPress "Space", 1
+    Delay 1400
+    KeyUp "D", 1
+    Delay 2000
+    KeyDown "D", 1
+    For 7
+        KeyPress "Space", 1
+        Delay 400
+    Next
+    KeyUp "D", 1
+    Delay 1000
+    KeyUp "W", 1
+    LeftClick 1
+    Delay 500
+    LeftClick 1
+    Delay 500
+    For i = 1 To 20
+        Delay 200
+        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+1924,H+1068,"CEC6FF","1|1|CEC6FF,2|2|CEC6FF",1)
+        ZB = InStr(XY,"|")
+        O = Clng(Left(XY, ZB - 1)) : P = Clng(Right(XY, Len(XY) - ZB))
+        XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"2120F3","3|0|2120F3",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else
+            XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"1D1CD5","3|0|1D1CD5",0.9)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+            Else 
+                XY=Plugin.Color.FindMultiColor(W+50,H+41,W+1883,H+1000,"3017EA","3|0|3017EA",0.9)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                Else 
+                End If
+            End If
+        End If
+        If X > 0 OR O > 0 Then 
+            Exit For 
+        End If
+        If i = 20 Then 
+            Goto 重来
+        End If
+    Next
+    Call 战斗(40,4,1)
+    Goto 重来
+End Sub

@@ -1,0 +1,826 @@
+Sub 钓鱼
+    XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        Delay 300
+        XY=Plugin.Color.FindMultiColor(W+1042,H+507,W+1230,H+646,"FFFFFF","1|0|FFFFFF",1)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else 
+            钓鱼传送
+        End If   
+    End If
+    Form1.ListBox1.BorderColor = "5EAB25"
+    Form1.ListBox1.AddItem "开始钓鱼"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Delay 100
+    Do
+        If 记录时间 = "" Then 
+            TracePrint "记录时间为空"
+            记录时间=Now
+        End If
+        //        Form1.ListBox1.AddItem Plugin.GetSysInfo.GetTime() - 钓鱼判断时间
+        //        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+        Delay 10
+        XY=Plugin.Color.FindMultiColor(W+608,H+67,W+1318,H+81,"AAC428","1|1|AFCC2C,0|2|B4D52F,1|3|B9DE33",0.9)//绿色
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            If 鱼大小 = 0 Then 
+                鱼大小 = 1
+                XY = Plugin.Color.FindColor( W+495,H+161,W+509,H+183,"BFBFBF", 0, 1)
+                iZB = InStr(XY, "|")
+                X = CLng(Left(XY, iZB - 1))
+                Y = CLng(Right(XY, Len(XY) - iZB))
+                If X > 0  Then 
+                    截图 = 1
+                    金 = 金 + 1
+                    长度=45
+                Else 
+                    XY=Plugin.Color.FindMultiColor(W+500,H+156,W+554,H+183,"BFBFBF","6|0|BFBFBF,4|6|BFBFBF,-2|7|BFBFBF,1|10|262626,5|11|BFBFBF,-2|13|BFBFBF",1)
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                        绿 = 绿 + 1
+                        长度=70
+                    End If
+                    XY=Plugin.Color.FindMultiColor(W+500,H+156,W+554,H+183,"BFBFBF","-3|5|BFBFBF,2|7|BFBFBF,-7|8|BFBFBF,-2|9|262626,-8|10|BFBFBF,-7|11|BFBFBF,1|12|BFBFBF",1)
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                        蓝 = 蓝 + 1
+                        长度=70
+                    End If
+                    XY=Plugin.Color.FindMultiColor(W+500,H+156,W+554,H+183,"BFBFBF","5|2|BFBFBF,0|4|262626,-3|5|BFBFBF,4|7|BFBFBF,1|10|BFBFBF,-2|13|BFBFBF",1)
+                    ZB = InStr(XY,"|")
+                    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                    If X > 0 Then 
+                        紫 = 紫 + 1
+                        长度=50
+                    End If
+                End If
+                Form1.ListBox1.AddItem "金色" & 金 & "  紫色" &紫& "  蓝色" & 蓝 & "  绿色"&绿
+                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+            End If
+            Form1.ListBox1.BorderColor="0000FF"
+            甩竿 = 0
+            收鱼 =0
+            未计数 = 1
+            XY=Plugin.Color.FindMultiColor(W+608,H+67,W+1318,H+81,"BAFDFD","1|1|B6FCFD,0|3|ADF9FE,1|4|A8F8FE",0.9)//鱼漂
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            黄色 = X
+            XY=Plugin.Color.FindMultiColor(W+608,H+67,W+1318,H+81,"AAC428","1|1|AFCC2C,0|2|B4D52F,1|3|B9DE33",0.9)//绿色
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            绿色 = X + 长度
+            //            If 黄色 - 绿色 > 18 and 黄色>0 Then 
+            //                KeyUp "D", 1
+            //                KeyDown "A", 1
+            //            End If
+            //            If 黄色 - 绿色 < -18 and 黄色>0 Then 
+            //                KeyUp "A", 1
+            //                KeyDown "D", 1
+            //            End If
+            //            If -19< 黄色 - 绿色 < 19 Then 
+            //                KeyUp "A", 1
+            //                KeyUp "D", 1
+            //            End If
+            If 黄色 - 绿色 > 长度-11 and 黄色>0 Then 
+                KeyUp "D", 1
+                KeyDown "A", 1
+            End If
+            If 黄色 - 绿色 < -长度+11 and 黄色>0 Then 
+                KeyUp "A", 1
+                KeyDown "D", 1
+            End If
+            If 长度-10>黄色 - 绿色 > 12 and 黄色>0 Then 
+                //                KeyDown "A", 1
+                //                Delay 25
+                //                KeyUp "A", 1
+                KeyPress "A", 1
+            End If
+            If -长度+10<黄色 - 绿色 < -12 and 黄色>0 Then 
+                //                KeyDown "D", 1
+                //                Delay 25
+                //                KeyUp "D", 1
+                KeyPress "D", 1
+            End If
+            If -13< 黄色 - 绿色 < 13 Then 
+                KeyUp "A", 1
+                KeyUp "D", 1
+            End If
+        Else 
+            Form1.ListBox1.BorderColor="FF0000"
+            KeyUp "A", 1
+            KeyUp "D", 1
+            XY=Plugin.Color.FindMultiColor(W+853,H+944,W+929,H+996,"E3E3E3","3|0|E3E3E3,4|0|E3E3E3,5|0|E3E3E3,6|0|E3E3E3,9|0|E3E3E3",0.9)//收鱼 
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    Form1.ListBox1.BorderColor="5EAB25"
+                Else 
+                    //Call Plugin.Pic.PrintScreen(W + 666, H + 86, W + 1243, H + 816, "C:\异环\大鱼" & Month(Now) & Day(Now) & Hour(Now) & Minute(Now) & Second(Now) & ".jpg")
+                    If Form1.CheckBox16.Value = 1 and 截图 = 1 Then 
+                        Call Plugin.Pic.PrintScreen(W + 666, H + 86, W + 1243, H + 816, "C:\异环\大鱼" & Month(Now) & Day(Now) & Hour(Now) & Minute(Now) & Second(Now) & ".jpg")
+                    End If
+                    TracePrint "收鱼2"
+                    收鱼 = 收鱼 + 1
+                    If 收鱼 > 10 Then 
+                        KeyPress "ESC", 1	
+                    End If
+                    意外情况 = 0
+                    MoveTo W + 1160, H + Plugin.Plug365New.RndStart(790, 800)
+                    Delay 100
+                    LeftClick 1
+                    Delay 200
+                    截图 = 0
+                    循环 = 0
+                    鱼大小 = 0
+                    //Form1.ListBox1.AddItem "鱼"
+                    //Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    ////////////////////////
+                    If 未计数 = 1 Then 
+                        未计数 = 0
+                        拉杆 = 拉杆 + 1
+                        If Form1.CheckBox18.Value = 1 Then 
+                            If 拉杆 > Form1.InputBox3.Text - 1 Then 
+                                Form1.ListBox1.AddItem "钓鱼结束 开始粉爪"
+                                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                                粉爪时间 = Plugin.GetSysInfo.GetTime()
+                                Form1.TabControl1.Tab = 1
+                                粉爪银行传送 
+                                自动粉爪
+                            End If
+                        End If
+                        If Form1.CheckBox15.Value = 1 Then 
+                        Else
+                            If 拉杆 = 300 Then 
+                                Form1.ListBox1.AddItem "活力应该没了"
+                                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                                出售鱼 
+                            End If
+                        End If
+                        时间计数=时间计数+1
+                        用时0 = DateDiff("s", 记录时间, Now)/60
+                        用时 = FormatNumber(用时0,2)
+                        TracePrint 记录时间
+                        TracePrint "用时" & 用时 & "分钟" & "钓" & 拉杆 & "条鱼"
+                        Form1.ListBox1.AddItem "用时" & 用时 & "分钟" & "钓" & 拉杆 & "条鱼"
+                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    End If
+                    //                    If Form1.CheckBox18.Value = 1 Then 
+                    //                        If 时间计数 > 49 Then 
+                    //                            时间计数 = 0
+                    //                            KeyPress "ESC", 1
+                    //                            Delay 300
+                    //                            KeyPress "ESC", 1
+                    //                            Delay 1200
+                    //                            KeyPress "ESC", 1
+                    //                            Delay 1500
+                    //                            设置时间 
+                    //                        End If
+                    //                    End If
+                    //                    If Form1.CheckBox19.Value = 1 Then 
+                    //                        If 时间计数 > 18 Then 
+                    //                            时间计数 = 0
+                    //                            KeyPress "ESC", 1
+                    //                            Delay 300
+                    //                            KeyPress "ESC", 1
+                    //                            Delay 1200
+                    //                            KeyPress "ESC", 1
+                    //                            Delay 1500
+                    //                            设置时间 
+                    //                        End If
+                    //                    End If
+                    /////////////////////////
+                End If
+            End If
+            XY=Plugin.Color.FindMultiColor(W+1600,H+100,W+1830,H+148,"1B1B1B","-9|1|1B1B1B,119|6|FFFFFF,124|6|FFFFFF,2|10|1B1B1B,-9|12|1B1B1B",1)//ESC界面
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                KeyPress "ESC", 1
+                Delay 2100
+            End If
+            XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                收鱼 = 0
+                KeyUp "A", 1
+                KeyUp "D", 1
+                KeyPress "F", 1
+                Delay 1000
+            End If
+            XY=Plugin.Color.FindMultiColor(W+1845,H+47,W+1870,H+75,"C6C6C3","7|0|C6C4C3,4|3|C6C3C3,7|7|C6C6C3",0.9)//钓鱼界面界面X
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                不在钓鱼界面 = 0
+            Else 
+                不在钓鱼界面 = 不在钓鱼界面 + 1
+                If 不在钓鱼界面 > 50 Then 
+                    Form1.ListBox1.RemoveItem Form1.ListBox1.ListIndex  
+                    Form1.ListBox1.AddItem 不在钓鱼界面
+                    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                End If
+                If 不在钓鱼界面 > 120 Then 
+                    不在钓鱼界面 = 0
+                    KeyPress "ESC", 1
+                End If
+                TracePrint 不在钓鱼界面
+            End If
+            XY=Plugin.Color.FindMultiColor(W+1555,H+922,W+1592,H+956,"2C2C2C","7|0|2C2C2C,15|0|2C2C2C,2|9|2C2C2C,12|9|2C2C2C,1|15|2C2C2C,12|16|2C2C2C",1)//开始钓鱼
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                TracePrint "开始钓鱼"
+                MoveTo W + 1721, H + 770 : Delay 100 : LeftClick 1 : Delay 1500//选择鱼饵
+                XY=Plugin.Color.FindMultiColor(W+626,H+459,W+776,H+622,"8E46FA","11|1|8E46FA,-21|29|8E46FA,-22|80|8E46FA,-1|112|8E46FA,14|112|8E46FA",0.9)//第一个鱼饵
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                Else 
+                    MoveTo W + 720, H + 524 : Delay 100 : LeftClick 1 : Delay 500
+                End If
+                MoveTo W + 1171, H + 708 : Delay 100 : LeftClick 1 : Delay 1500   
+                XY=Plugin.Color.FindMultiColor(W+40,H+110,W+654,H+595,"D6A2E7","8|0|FADDFF,14|0|F8E1FF,9|7|A97FE4,13|8|8E58DD,0|9|823FCA",0.9)
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    Form1.ListBox1.AddItem "购买鱼饵"
+                    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    MoveTo X,Y : Delay 100 : LeftClick 1 : Delay 2100
+                    MoveTo W+1830,H+952 : Delay 100 : LeftClick 1 : Delay 2100
+                    MoveTo W + 1622, H + 1030 : Delay 100 : LeftClick 1 : Delay 2100
+                    MoveTo W+1171,H+708 : Delay 100 : LeftClick 1 : Delay 2100
+                    LeftClick 1 : Delay 2100
+                    主页
+                Else
+                    MoveTo W + 1555, H + 922 : Delay 100 : LeftClick 1 : Delay 1500  //开始钓鱼
+                End If
+            End If
+            XY=Plugin.Color.FindMultiColor(W+1728,H+916,W+1827,H+1015,"FF7C20","1|0|FF7C20,0|1|FF7C20,1|1|FF7C20",0.8)//拉杆
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                甩竿 = 0
+                循环 = 0
+                KeyPress "F", 1
+                Delay 500
+            End If
+            XY=Plugin.Color.FindMultiColor(W+1363,H+944,W+1798,H+1012,"FFFFFF","2|0|FFFFFF,1|1|FFFFFF,0|2|FFFFFF,2|2|FFFFFF,1|3|FFFFFF",1)//F图标-甩竿
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                TracePrint "甩竿"&甩竿
+                甩竿=甩竿+1
+                KeyPress "F", 1
+                Delay 200
+            End If
+        End If
+        Rem 主循环
+        If 甩竿 > 20 Then 
+            XY=Plugin.Color.FindMultiColor(W+633,H+433,W+1224,H+668,"FFFFFF","7|0|FFFFFF,-35|3|FFFFFF,-27|3|FFFFFF,33|3|FFFFFF,40|3|FFFFFF",1)//需要装备鱼饵
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                If Form1.CheckBox15.Value = 1 Then 
+                    Exit Sub
+                Else 
+                    甩竿=0
+                    Form1.ListBox1.AddItem "鱼饵没了 购买鱼饵"
+                    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                    Call 万能鱼饵
+                End If
+            End If
+        End If
+        If 甩竿 > 40 Then //////可能是鱼舱满了
+            If Form1.CheckBox15.Value = 1 Then 
+                Exit Sub
+            Else 
+                甩竿=0
+                Form1.ListBox1.AddItem "鱼饵没了 购买鱼饵"
+                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                Call 万能鱼饵
+            End If
+        End If
+        循环 = 循环 + 1
+        Form1.Label3.Caption = 循环
+        If 循环 > 1000 Then 
+            收鱼 = 0
+            KeyUp "A", 1
+            KeyUp "D", 1
+            循环=0
+            主页 
+            Form1.ListBox1.AddItem "出现意外情况 回到游戏主页开始"
+            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+            意外情况 = 意外情况 + 1
+            If 意外情况 > 2 Then 
+                意外情况 = 0
+                Call Plugin.Window.CloseEx(Hwnd)
+                Call Plugin.Memory.TerminateProc(Hwnd)
+            End If
+        End If
+    Loop
+End Sub
+Sub 万能鱼饵
+    Form1.ListBox1.BorderColor="00FFFF"
+    收鱼 = 0
+    KeyUp "A", 1
+    KeyUp "D", 1
+    甩竿=0
+    TracePrint "没有鱼饵了"
+    KeyPress "Q", 3
+    Delay 2500
+    Delay 2500
+    MoveTo W + 720, H + 410
+    Delay 100
+    LeftClick 2
+    Delay 300
+    MoveTo W + 1544, H + 959
+    Delay 100
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    MoveTo W + 720, H + 600
+    Delay 100
+    LeftClick 2
+    Delay 300
+    MoveTo W + 1544, H + 959
+    Delay 100
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    MoveTo W + 720, H + 770
+    Delay 100
+    LeftClick 2
+    Delay 300
+    MoveTo W + 1544, H + 959
+    Delay 100
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    MoveTo W + 720, H + 690
+    Delay 100
+    For 9
+        Delay 50
+        MouseWheel -6
+    Next
+    Delay 200
+    LeftClick 2
+    Delay 300
+    MoveTo W + 1544, H + 959
+    Delay 100
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    MoveTo W + 720, H + 900
+    Delay 100
+    LeftClick 2
+    Delay 300
+    MoveTo W + 1544, H + 959
+    Delay 100
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    LeftClick 2
+    Delay 300
+    //Call Plugin.Pic.PrintScreen(W + 0, H + 0, W + 1920, H + 1080, "C:\异环\卖鱼" & Month(Now) & Day(Now) & Hour(Now) & Minute(Now) & Second(Now) & ".jpg")
+    MoveTo W + 151, H + 412 : Delay 100 : LeftClick 1 : Delay 2100
+    If Form1.CheckBox41.Value = 1 Then 
+        For 999
+            MoveTo W + 1166, H + 594
+            For 7
+                Delay 50
+                MouseWheel -3
+            Next
+            Delay 500
+            XY=Plugin.Color.FindMultiColor(W+237,H+252,W+1174,H+989,"A2B3BF","16|1|A0B2BE,9|8|A0B6C0,0|16|A0B8C4,16|18|A0B8C6,8|20|A0BAC6",0.9)//金鱼
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                MoveTo X, Y
+                Delay 100
+                LeftClick 1
+                Delay 500
+                MoveTo W + 1726, H + 378
+                Delay 100
+                LeftClick 1
+                Delay 300
+            End If
+            XY=Plugin.Color.FindMultiColor(W+1151,H+862,W+1193,H+939,"191919","2|1|B8B8B8,6|1|B8B8B8,3|13|7C7C7C,6|13|7C7C7C",0.9)
+            ZB = InStr(XY,"|")
+            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            If X > 0 Then 
+                Exit For
+            End If
+        Next
+    End If
+    MoveTo W+1075,H+965 : Delay 100 : LeftClick 1 : Delay 2100
+    MoveTo W + 1171, H + 708 : Delay 100 : LeftClick 1 : Delay 2100
+    LeftClick 1 : Delay 2100
+    KeyPress "ESC", 1
+    Delay 2100
+    For 3
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1528,H+105,W+1693,H+148,"1B1B1B","4|1|1B1B1B,10|1|1B1B1B,-1|5|1B1B1B,4|6|1B1B1B,10|7|1B1B1B",1)//ESC界面
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 2100
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1363,H+944,W+1440,H+1012,"FFFFFF","13|11|FFFFFF,-12|14|FFFFFF,5|23|FFFFFF,14|23|FFFFFF,-13|37|FFFFFF",1)//R图标-甩竿
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            KeyPress "ESC", 1
+            Delay 2100
+        End If
+    Next
+    XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        Exit Sub
+    End If
+    KeyPress "R", 3
+    Delay 2500
+    For 6
+        XY=Plugin.Color.FindMultiColor(W+40,H+110,W+654,H+595,"D6A2E7","8|0|FADDFF,14|0|F8E1FF,9|7|A97FE4,13|8|8E58DD,0|9|823FCA",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            MoveTo X,Y : Delay 100 : LeftClick 1 : Delay 1000
+        End If
+        MoveTo W + 1830, H + 952 : Delay 100 : LeftClick 1 : Delay 1000
+        MoveTo W + 1622, H + 1030 : Delay 100 : LeftClick 1 : Delay 2100
+        MoveTo W + 1171, H + 708 : Delay 100 : LeftClick 1 : Delay 2100
+        LeftClick 1 : Delay 2100
+    Next
+    KeyPress "ESC", 1
+    Delay 2100
+    For 3
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1528,H+105,W+1693,H+148,"1B1B1B","4|1|1B1B1B,10|1|1B1B1B,-1|5|1B1B1B,4|6|1B1B1B,10|7|1B1B1B",1)//ESC界面
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 2100
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1363,H+944,W+1440,H+1012,"FFFFFF","13|11|FFFFFF,-12|14|FFFFFF,5|23|FFFFFF,14|23|FFFFFF,-13|37|FFFFFF",1)//R图标-甩竿
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            KeyPress "ESC", 1
+            Delay 2100
+        End If
+    Next
+    XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        Exit Sub
+    End If
+    KeyPress "E", 3
+    Delay 2100
+    XY=Plugin.Color.FindMultiColor(W+626,H+459,W+776,H+622,"8E46FA","11|1|8E46FA,-21|29|8E46FA,-22|80|8E46FA,-1|112|8E46FA,14|112|8E46FA",0.9)//第一个鱼饵
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+    Else 
+        MoveTo W + 720, H + 524 : Delay 100 : LeftClick 1 : Delay 500
+    End If
+    MoveTo W + 1166, H + 708 : Delay 100 : LeftClick 1 : Delay 2100
+    For 3
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1528,H+105,W+1693,H+148,"1B1B1B","4|1|1B1B1B,10|1|1B1B1B,-1|5|1B1B1B,4|6|1B1B1B,10|7|1B1B1B",1)//ESC界面
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 2100
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1363,H+944,W+1440,H+1012,"FFFFFF","13|11|FFFFFF,-12|14|FFFFFF,5|23|FFFFFF,14|23|FFFFFF,-13|37|FFFFFF",1)//R图标-甩竿
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            KeyPress "ESC", 1
+            Delay 2100
+        End If
+    Next
+End Sub
+Sub 海水鱼饵
+    Form1.ListBox1.BorderColor="00FFFF"
+    收鱼 = 0
+    KeyUp "A", 1
+    KeyUp "D", 1
+    甩竿=0
+    TracePrint "没有鱼饵了"
+    KeyPress "Q", 3
+    Delay 2500
+    MoveTo W+151,H+412 : Delay 100 : LeftClick 1 : Delay 2100
+    MoveTo W+1075,H+965 : Delay 100 : LeftClick 1 : Delay 2100
+    MoveTo W+1171,H+708 : Delay 100 : LeftClick 1 : Delay 2100
+    LeftClick 1 : Delay 2100
+    KeyPress "ESC", 1
+    Delay 2100
+    For 3
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1528,H+105,W+1693,H+148,"1B1B1B","4|1|1B1B1B,10|1|1B1B1B,-1|5|1B1B1B,4|6|1B1B1B,10|7|1B1B1B",1)//ESC界面
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 2100
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1363,H+944,W+1440,H+1012,"FFFFFF","13|11|FFFFFF,-12|14|FFFFFF,5|23|FFFFFF,14|23|FFFFFF,-13|37|FFFFFF",1)//R图标-甩竿
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            KeyPress "ESC", 1
+            Delay 2100
+        End If
+    Next
+    XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        Exit Sub
+    End If
+    KeyPress "R", 3
+    Delay 2500
+    XY=Plugin.Color.FindMultiColor(W+40,H+110,W+654,H+595,"76594A","8|3|977660,16|4|BBA18D,0|6|543F31,7|7|957762,5|10|9E786C",0.9)//海水鱼饵
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        MoveTo X,Y : Delay 100 : LeftClick 1 : Delay 2100
+    End If
+    MoveTo W+1830,H+952 : Delay 100 : LeftClick 1 : Delay 2100
+    MoveTo W + 1622, H + 1030 : Delay 100 : LeftClick 1 : Delay 2100
+    MoveTo W+1171,H+708 : Delay 100 : LeftClick 1 : Delay 2100
+    LeftClick 1 : Delay 2100
+    KeyPress "ESC", 1
+    Delay 2100
+    For 3
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1528,H+105,W+1693,H+148,"1B1B1B","4|1|1B1B1B,10|1|1B1B1B,-1|5|1B1B1B,4|6|1B1B1B,10|7|1B1B1B",1)//ESC界面
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 2100
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1363,H+944,W+1440,H+1012,"FFFFFF","13|11|FFFFFF,-12|14|FFFFFF,5|23|FFFFFF,14|23|FFFFFF,-13|37|FFFFFF",1)//R图标-甩竿
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            KeyPress "ESC", 1
+            Delay 2100
+        End If
+    Next
+    XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        Exit Sub
+    End If
+    KeyPress "E", 3
+    Delay 2100
+    MoveTo W + 948, H + 524 : Delay 100 : LeftClick 1 : Delay 1000
+    MoveTo W + 1070, H + 524 : Delay 100 : LeftClick 1 : Delay 1000
+    MoveTo W + 1166, H + 708 : Delay 100 : LeftClick 1 : Delay 2100
+    MoveTo W + 1171, H + 708 : Delay 100 : LeftClick 1 : Delay 2100   //不合适确认
+    For 3
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1528,H+105,W+1693,H+148,"1B1B1B","4|1|1B1B1B,10|1|1B1B1B,-1|5|1B1B1B,4|6|1B1B1B,10|7|1B1B1B",1)//ESC界面
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 2100
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1363,H+944,W+1440,H+1012,"FFFFFF","13|11|FFFFFF,-12|14|FFFFFF,5|23|FFFFFF,14|23|FFFFFF,-13|37|FFFFFF",1)//R图标-甩竿
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            KeyPress "ESC", 1
+            Delay 2100
+        End If
+    Next
+End Sub
+Sub 淡水鱼饵
+    Form1.ListBox1.BorderColor="00FFFF"
+    收鱼 = 0
+    KeyUp "A", 1
+    KeyUp "D", 1
+    甩竿=0
+    TracePrint "没有鱼饵了"
+    KeyPress "Q", 3
+    Delay 2500
+    MoveTo W+151,H+412 : Delay 100 : LeftClick 1 : Delay 2100
+    MoveTo W+1075,H+965 : Delay 100 : LeftClick 1 : Delay 2100
+    MoveTo W+1171,H+708 : Delay 100 : LeftClick 1 : Delay 2100
+    LeftClick 1 : Delay 2100
+    KeyPress "ESC", 1
+    Delay 2100
+    For 3
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1528,H+105,W+1693,H+148,"1B1B1B","4|1|1B1B1B,10|1|1B1B1B,-1|5|1B1B1B,4|6|1B1B1B,10|7|1B1B1B",1)//ESC界面
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 2100
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1363,H+944,W+1440,H+1012,"FFFFFF","13|11|FFFFFF,-12|14|FFFFFF,5|23|FFFFFF,14|23|FFFFFF,-13|37|FFFFFF",1)//R图标-甩竿
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            KeyPress "ESC", 1
+            Delay 2100
+        End If
+    Next
+    XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        Exit Sub
+    End If
+    KeyPress "R", 3
+    Delay 2500
+    XY=Plugin.Color.FindMultiColor(W+40,H+110,W+654,H+595,"6FD5EC","13|0|52BCDC,16|5|72D4EA,5|7|C6EEF3,4|14|769DDE,12|14|6ACFE6",0.9)//淡水鱼饵
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        MoveTo X,Y : Delay 100 : LeftClick 1 : Delay 2100
+    End If
+    MoveTo W+1830,H+952 : Delay 100 : LeftClick 1 : Delay 2100
+    MoveTo W + 1622, H + 1030 : Delay 100 : LeftClick 1 : Delay 2100
+    MoveTo W+1171,H+708 : Delay 100 : LeftClick 1 : Delay 2100
+    LeftClick 1 : Delay 2100
+    KeyPress "ESC", 1
+    Delay 2100
+    For 3
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1528,H+105,W+1693,H+148,"1B1B1B","4|1|1B1B1B,10|1|1B1B1B,-1|5|1B1B1B,4|6|1B1B1B,10|7|1B1B1B",1)//ESC界面
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 2100
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1363,H+944,W+1440,H+1012,"FFFFFF","13|11|FFFFFF,-12|14|FFFFFF,5|23|FFFFFF,14|23|FFFFFF,-13|37|FFFFFF",1)//R图标-甩竿
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            KeyPress "ESC", 1
+            Delay 2100
+        End If
+    Next
+    XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+    If X > 0 Then 
+        Exit Sub
+    End If
+    KeyPress "E", 3
+    Delay 2100
+    MoveTo W + 948, H + 524 : Delay 100 : LeftClick 1 : Delay 1000
+    MoveTo W + 830, H + 524 : Delay 100 : LeftClick 1 : Delay 1000
+    MoveTo W + 1166, H + 708 : Delay 100 : LeftClick 1 : Delay 2100
+    MoveTo W + 1171, H + 708 : Delay 100 : LeftClick 1 : Delay 2100   //不合适确认
+    For 3
+        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+309,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1528,H+105,W+1693,H+148,"1B1B1B","4|1|1B1B1B,10|1|1B1B1B,-1|5|1B1B1B,4|6|1B1B1B,10|7|1B1B1B",1)//ESC界面
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            KeyPress "ESC", 1
+            Delay 2100
+            Exit Sub
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1363,H+944,W+1440,H+1012,"FFFFFF","13|11|FFFFFF,-12|14|FFFFFF,5|23|FFFFFF,14|23|FFFFFF,-13|37|FFFFFF",1)//R图标-甩竿
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            KeyPress "ESC", 1
+            Delay 2100
+        End If
+    Next
+End Sub

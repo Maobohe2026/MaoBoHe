@@ -1,0 +1,404 @@
+Sub 善良鼠饼10
+    Call BOSS传送(1648, 288, 0, 0, 0)
+    日志 "音霸魔王传送点"
+    取消任务追踪
+    Delay 100
+    MiddleClick 1
+    Delay 1500
+        KeyDown "S", 1
+    Delay 60
+    KeyUp "S", 1
+    Delay 600
+    MiddleClick 1
+    Delay 2500
+    KeyDown "W", 1
+    Delay 300
+
+        KeyDown "D", 1
+    Delay 200
+    RightClick 1
+    Delay 1200
+    KeyUp "D", 1
+    Delay 7300
+    KeyUp "W", 1
+    Delay 300
+
+    Call 战斗(40,7,0)
+End Sub
+Sub 善良鼠饼9
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 3 Then 
+        重来次数=0
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    日志 "泡影罐头传送点"
+    Call 传送点二(1155, 479)
+    Delay 500
+    MiddleClick 1
+    Delay 1500
+        KeyDown "A", 1
+    Delay 60
+    KeyUp "A", 1
+    Delay 600
+    MiddleClick 1
+    Delay 1500
+    KeyDown "W", 1
+    Delay 2050
+
+        KeyDown "D", 1
+    Delay 200
+    RightClick 1
+    Delay 1100
+    KeyUp "D", 1
+    Delay 7300
+    KeyUp "W", 1
+    Delay 300
+KeyDown "D", 1
+    Delay 60
+    KeyUp "D", 1
+    Delay 600
+    MiddleClick 1
+    Delay 1500
+    KeyDown "W", 1
+    Delay 100
+    For 25
+        KeyPress "Space", 1
+        Delay 500
+    Next
+    KeyUp "W", 1
+    Call 战斗(40,7,0)
+End Sub
+Sub 善良鼠饼8
+    Form1.ListBox1.AddItem "折千市场"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点(451, 520)
+    取消任务追踪 
+    主页1
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 3500
+    KeyUp "W", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 200
+    RightClick 1
+    Delay 8500
+    KeyUp "A", 1
+    
+   
+    Call 战斗(40,7,0)
+End Sub
+Sub 善良鼠饼7
+日志 "水晶山大道楼顶传送点"
+    call 传送点(845,770)
+    Delay 300
+    MiddleClick 1
+    Delay 2000
+    KeyDown "S", 1
+    Delay 60
+    KeyUp "S", 1
+    Delay 600
+    MiddleClick 1
+    Delay 2500
+    KeyDown "W", 1
+    Delay 3500
+    KeyPress "Space", 1
+    Delay 500
+    KeyPress "Space", 1
+    Delay 1600
+    KeyUp "W", 1
+    Delay 100
+    LeftClick 1
+    Delay 5000
+    
+    Call 战斗(40, 7, 0)
+    
+End Sub
+Sub 善良鼠饼6
+    时间晚上 
+    Form1.ListBox1.AddItem "愿木坡传送点"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点(1062, 673)
+    Delay 500
+    KeyDown "Alt", 1
+    Delay 500
+    For 3
+        MoveTo W + 960, H + 240
+        Delay 50
+        LeftDown 1
+        Delay 50
+        MoveTo W + 960, H + 860
+        Delay 50
+        LeftUp 1
+        Delay 400
+    Next
+    KeyUp "Alt", 1
+    Delay 500
+    MiddleClick 1
+    Delay 1500
+    KeyDown "D", 1
+    Delay 60
+    KeyUp "D", 1
+    Delay 600
+    MiddleClick 1
+    Delay 2000
+   
+    
+    KeyDown "W", 1
+    Delay 100
+    For 10
+        KeyPress "Space", 1
+        Delay 500
+    Next
+    KeyUp "W", 1
+    Call 战斗(40,7,0)
+End Sub
+Sub 善良鼠饼5
+    Form1.ListBox1.AddItem "水梨子火车站传送点"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub 
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(819, 632)
+    取消任务追踪
+    主页1 
+    MiddleClick 1
+    Delay 2000
+    KeyDown "D", 1
+    Delay 100
+    RightClick 2
+    Delay 7900
+    KeyUp "D", 1
+    Delay 500
+    //        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"4255D6","-4|10|516CE7,4|11|5675F3,6|11|5E76F1,-1|22|3951C6",0.9)//违规行为
+    //    ZB = InStr(XY,"|")
+    //    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    //    If X > 0 Then 
+    //    	Else 
+    //    	Form1.ListBox1.AddItem "没有违规事件 跳过"
+    //    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    //    End If
+    KeyDown "S", 1
+    Delay 260
+    KeyUp "S", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2500
+    KeyDown "W", 1
+    Delay 500
+    RightClick 2
+    Delay 3720
+    KeyUp "W", 1
+    Delay 100
+    Call 战斗(35, 7, 0)
+End Sub
+Sub 善良鼠饼4
+    Form1.ListBox1.AddItem "水梨子火车站传送点"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        重来次数=0
+        Exit Sub 
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(819, 632)
+    取消任务追踪
+    主页1 
+    MiddleClick 1
+    Delay 2000
+    KeyDown "A", 1
+    Delay 100
+    RightClick 2
+    Delay 3900
+    KeyUp "A", 1
+    Delay 500
+    //        XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"4255D6","-4|10|516CE7,4|11|5675F3,6|11|5E76F1,-1|22|3951C6",0.9)//违规行为
+    //    ZB = InStr(XY,"|")
+    //    X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+    //    If X > 0 Then 
+    //    	Else 
+    //    	Form1.ListBox1.AddItem "没有违规事件 跳过"
+    //    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    //    End If
+    KeyDown "S", 1
+    Delay 260
+    KeyUp "S", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2500
+    
+    KeyDown "W", 1
+    Delay 500
+    RightClick 2
+    Delay 9720
+    KeyUp "W", 1
+    Delay 100
+    Call 战斗(35, 7, 0)
+End Sub
+Sub 善良鼠饼3
+    Form1.ListBox1.AddItem "新赫兰德区 林檎大道钓鱼传送点"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(1096, 334)
+    取消任务追踪
+    MiddleClick 1
+    Delay 2000
+    天气晴天
+    KeyPress "D", 1
+    Delay 800
+    MiddleClick 1
+    Delay 2000
+    KeyDown "W", 1
+    Delay 500
+    RightClick 2
+    Delay 999
+    KeyDown "D", 1
+    Delay 3100
+    KeyUp "D", 1
+    Delay 7100
+    KeyUp "W", 1
+    Call 战斗(40,7,0)
+End Sub
+Sub 善良鼠饼2
+    Form1.ListBox1.AddItem "许愿池旁边"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(697, 526)
+    取消任务追踪
+    MiddleClick 1
+    Delay 2000
+    KeyPress "D", 1
+    Delay 800
+    MiddleClick 1
+    Delay 2000
+    KeyDown "S", 1
+    Delay 100
+    For 6
+        RightClick 1
+        Delay 400
+        RightClick 1
+        Delay 999
+    Next
+    //    KeyUp "S", 1
+    //    Delay 100
+    //    KeyDown "W", 1
+    //    Delay 11000
+    //    KeyUp "W", 1
+    Delay 100
+    Call 向北寻路(193, 149, "F5F5F5","-13|1|F5F5F5,-9|3|-F5F5F5,-5|7|F5F5F5,-13|13|F5F5F5,0|13|F5F5F5,-7|15|-F5F5F5,-4|16|-F5F5F5", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "S", 1
+    Delay 100
+    For 5
+        RightClick 1
+        Delay 400
+        RightClick 1
+        Delay 1100
+    Next
+    Call 向北寻路(143, 52, "F5F5F5","-13|1|F5F5F5,-9|3|-F5F5F5,-5|7|F5F5F5,-13|13|F5F5F5,0|13|F5F5F5,-7|15|-F5F5F5,-4|16|-F5F5F5", 200, 100, 0.8)
+    If 寻路出错 = 1 Then 
+        Goto 重来
+    End If
+    KeyDown "S", 1
+    Delay 100
+    KeyDown "A", 1
+    Delay 100
+    For 2
+        RightClick 1
+        Delay 400
+        RightClick 1
+        Delay 999
+    Next
+    KeyUp "S", 1
+    Delay 100
+    For 6
+        RightClick 1
+        Delay 400
+        RightClick 1
+        Delay 1500
+    Next
+    KeyUp "A", 1
+    Delay 100
+    Call 向北寻路(213, 137, "63E7FF","5|0|63E7FF,-7|7|63E7FF,2|7|63E7FF,7|7|63E7FF,12|7|63E7FF", 200, 100, 0.7)
+    Delay 100
+    KeyDown "A", 1
+    Delay 200
+    KeyUp "A", 1
+    Delay 500
+    MiddleClick 1
+    Delay 2000
+    Delay 100
+    KeyDown "W", 1
+    Delay 400
+    RightClick 1
+    Delay 4100
+    KeyUp "W", 1
+    Call 战斗(40,7,0)
+End Sub
+Sub 善良鼠饼1
+    Form1.ListBox1.AddItem "绘空町医院传送点"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    重来次数=0
+    Rem 重来
+    If 重来次数 > 1 Then 
+        Exit Sub
+    End If 
+    重来次数 = 重来次数 + 1
+    Call 传送点二(697, 526)
+    取消任务追踪
+    MiddleClick 1
+    Delay 2000
+    天气晴天
+    KeyDown "D", 1
+    Delay 100
+    RightClick 2
+    Delay 2000
+    KeyDown "W", 1
+    Delay 1810
+    KeyUp "D", 1
+    Delay 100
+    For 3
+        RightClick 1
+        Delay 400
+        RightClick 1
+        Delay 1300
+    Next
+    KeyUp "W", 1
+    XY=Plugin.Color.FindMultiColor(W+30,H+30,W+270,H+270,"4255D6","-4|10|516CE7,4|11|5675F3,6|11|5E76F1,-1|22|3951C6",0.9)//违规行为
+    ZB = InStr(XY,"|")
+    X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+    TracePrint XY
+    Call 战斗(40,7,0)
+End Sub

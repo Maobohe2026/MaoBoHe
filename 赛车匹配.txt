@@ -1,0 +1,121 @@
+Sub 赛车
+    Form1.ListBox1.AddItem "赛车匹配"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Rem 重开
+    For 4
+        KeyUp "W", 1
+        Delay 100
+        XY=Plugin.Color.FindMultiColor(W+1583,H+965,W+1691,H+1049,"FFFFFF","11|0|FFFFFF,23|3|FFFFFF,6|5|181818,41|5|FFFFFF,1|10|FFFFFF,10|10|FFFFFF,33|12|FFFFFF,41|12|FFFFFF,35|15|000000,11|19|FFFFFF,33|19|FFFFFF,41|19|FFFFFF",0.9)//开始比赛
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        Else 
+            主页1
+            Delay 1000
+            KeyPress "M", 1
+            Delay 1000
+            For 30
+                XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    Exit For
+                Else 
+                    Delay 200
+                End If
+            Next
+            Delay 500
+            MoveTo W + 120, H + 970
+            Delay 100
+            LeftClick 1
+            Delay 1000
+            For 30
+                XY=Plugin.Color.FindMultiColor(W+1254,H+126,W+1356,H+192,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    Exit For
+                Else 
+                    Delay 200
+                End If
+            Next
+            Delay 100
+            MoveTo W + 961, H + 450
+            Delay 100
+            LeftClick 1
+            Delay 3000
+            LeftClick 1
+            Delay 2000
+        End If
+    Next
+    Form1.ListBox1.AddItem "开始比赛"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    For 100
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+70,H+70,"E8E5E6","5|0|E8E5E6,-8|10|E8E5E6,-8|17|E8E5E6,14|19|E8E5E6,18|19|E8E5E6,-8|26|E8E5E6,4|39|E8E5E7,13|39|E8E5E7",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        End If
+        XY=Plugin.Color.FindMultiColor(W+1583,H+965,W+1691,H+1049,"FFFFFF","11|0|FFFFFF,23|3|FFFFFF,6|5|181818,41|5|FFFFFF,1|10|FFFFFF,10|10|FFFFFF,33|12|FFFFFF,41|12|FFFFFF,35|15|000000,11|19|FFFFFF,33|19|FFFFFF,41|19|FFFFFF",0.9)//开始比赛
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            MoveTo X,Y
+            Delay 100
+            LeftClick 1
+        End If
+    Next
+    TracePrint "进入场景 开始前进"
+    Delay 3000
+    Form1.ListBox1.AddItem "进入场景 开始前进"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    KeyDown "W", 1
+    Delay 10000
+    KeyUp "W", 1
+    i = 0
+    For i=1 to 600
+        Form1.ListBox1.AddItem "等待比赛结束"&i
+        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+        KeyDown "W", 1
+        TracePrint i
+        Delay 1000
+        Form1.ListBox1.RemoveItem Form1.ListBox1.ListIndex  
+        XY=Plugin.Color.FindMultiColor(W+1480,H+0,W+1624,H+100,"6EFFFF","-2|1|69FFFF,-2|4|68FFFF,3|5|72FFFF",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        KeyUp "W", 1
+            Exit For
+        End If
+        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+70,H+70,"E8E5E6","5|0|E8E5E6,-8|10|E8E5E6,-8|17|E8E5E6,14|19|E8E5E6,18|19|E8E5E6,-8|26|E8E5E6,4|39|E8E5E7,13|39|E8E5E7",0.9)
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+        Else 
+        LeftClick 1
+        Delay 1000
+        End If
+    Next
+    TracePrint "结束"
+    KeyUp "W", 1
+    Form1.ListBox1.AddItem "比赛结束"
+    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    Delay 2000
+    MoveTo W + 1628, H +1015
+    Delay 100
+    LeftClick 2
+    Delay 6000
+    For 60
+        Delay 1000
+        XY=Plugin.Color.FindMultiColor(W+0,H+0,W+102,H+100,"666666","8|1|181718,22|1|151518,2|8|181718,8|9|666666,15|16|666666,22|16|151618",0.9)//选择车辆
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            Exit For
+        End If
+    Next
+    Goto 重开
+End Sub
