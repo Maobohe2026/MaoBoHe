@@ -1,2 +1,17 @@
-# MaoBoHe
+# 猫薄荷
  异环自动化的按键精灵脚本
+ 
+ Q频道https://pd.qq.com/s/dd2776fao?b=9 
+ 
+ B站https://space.bilibili.com/6354078
+
+ 使用说明https://docs.qq.com/doc/DTkNUTG5tY0ZacUZB
+ 
+ 代码都是能运行就行
+ 
+ 没特别整理过 有些修bug次数多的逻辑很混乱
+ 
+ 功能实现逻辑也都简单粗暴 
+ 
+ 因此涉及到寻路的功能可能因为各种意外失败
+ 
