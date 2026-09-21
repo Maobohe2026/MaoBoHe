@@ -260,7 +260,9 @@ Sub 拍卖
                         End If
                     End If
                 End If
-                If Form1.CheckBox60.Value = 1 Then
+                If Form1.CheckBox60.Value = 1 Then 
+                 MoveTo W + 1525, H + 968
+                 Delay 500
                 多点找色 1187, 730, 1620, 947, "5297DA", "20|4|5292D6,13|8|4D8DD1,9|15|4A85C8,23|18|4783C6", 0.9
                 If X > 0 Then 
                 Else 
@@ -282,6 +284,7 @@ Sub 拍卖
                 End If
                 MoveTo W + 1525, H +968
                 Delay 100
+                
                 LeftClick 2
                 Delay 1100
                 MoveTo W + 1160, H +714
@@ -425,6 +428,63 @@ Sub 拍卖
             End If
             Delay Plugin.Plug365New.RndStart(5500, 6500)
             当前估价 = 即可落槌识别(W + 1483, H + 138, W + 1828, H + 196, 0.9)
+            If 当前估价 > 10000000 Then //超过1000万两次验证
+            	Delay 1000
+            	当前估价 = 即可落槌识别(W + 1483, H + 138, W + 1828, H + 196, 0.9)
+            	If 当前估价 > 30000000 Then 
+            		当前估价 = 30000000
+            	End If
+            End If
+            ////////////////////判断是否使用了单格均价
+            多点找色 623, 244, 1263, 878, "8CF742", "17|0|63F300,0|15|6EE510,16|15|5DCB02", 0.9//单格绿色
+            If X > 0 Then 
+                坐标Y = Y-H
+                多点找色EX 1023,坐标Y+10,1132,坐标Y+50,"ACACAC","1|0|858585,3|1|8D8D8D,-1|2|ADADAD,3|2|5D5D5D,-1|3|AEAEAE,1|4|868686,2|4|9C9C9C",0.9,0  //数字超过5位数
+                If X - W > 1100 Then 
+                    If 当前估价 < 1310000 Then 
+                        日志 "单格价值超过6万 估价等于131万"
+                        当前估价=1310000	
+                    End If
+                Else 
+                    If X - W > 1090 Then 
+                        For i=1 to 2
+                            多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","6|0|-AEAEAE,-4|1|-AEAEAE,5|2|-AEAEAE,-5|3|-AEAEAE,-1|4|AEAEAE,3|6|AEAEAE,-3|8|AEAEAE,1|9|-AEAEAE,5|9|AEAEAE,-2|11|AEAEAE,1|13|AEAEAE" , 0.9//6
+                            If X > 0 Then 
+                                If 当前估价 < 1310000 Then 
+                                    日志 "单格价值超过6万 估价等于131万"
+                                    当前估价=1310000	
+                                End If
+                                Exit For
+                            End If
+                            多点找色 1023,坐标Y+10, 1043,坐标Y+50, "AEAEAE","4|0|AEAEAE,8|0|AEAEAE,0|1|AEAEAE,2|4|-AEAEAE,6|5|AEAEAE,10|5|-AEAEAE,0|8|-AEAEAE,4|9|AEAEAE,9|9|-AEAEAE,2|12|AEAEAE,7|13|-AEAEAE", 0.9//7
+                            If X > 0 Then 
+                                If 当前估价 < 1310000 Then 
+                                    日志 "单格价值超过6万 估价等于131万"
+                                    当前估价=1310000	
+                                End If
+                                Exit For
+                            End If
+                            多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","6|0|-AEAEAE,-4|2|AEAEAE,0|3|-AEAEAE,4|3|AEAEAE,-5|6|-AEAEAE,0|6|AEAEAE,5|6|-AEAEAE,0|9|-AEAEAE,-4|10|AEAEAE,4|10|AEAEAE,0|13|AEAEAE" , 0.9//8
+                            If X > 0 Then 
+                                If 当前估价 < 1310000 Then 
+                                    日志 "单格价值超过6万 估价等于131万"
+                                    当前估价=1310000	
+                                End If
+                                Exit For
+                            End If
+                            多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","4|1|AEAEAE,1|3|-AEAEAE,-2|4|AEAEAE,3|5|-AEAEAE,6|5|AEAEAE,0|7|AEAEAE,4|9|AEAEAE,7|9|-AEAEAE,-2|11|-AEAEAE,2|12|AEAEAE,6|13|-AEAEAE" , 0.9//9
+                            If X > 0 Then 
+                                If 当前估价 < 1310000 Then 
+                                    日志 "单格价值超过6万 估价等于131万"
+                                    当前估价=1310000	
+                                End If
+                                Exit For
+                            End If
+                        Next
+                    End If
+                End If
+            End If
+            ////////////////////////
             日志 "当前估价" & 当前估价
             If Form1.CheckBox60.Value = 1 Then   //永恒之心模式 开局估价低于6万之间退出.高于按预设出价,后面每轮加价
                 多点找色 623, 244, 1263, 878, "8CF742", "17|0|63F300,0|15|6EE510,16|15|5DCB02", 0.9 //单格绿色
@@ -457,24 +517,44 @@ Sub 拍卖
                             End If
                             If i = 2 Then 
                                 日志 "单格价值小于六万 没永恒之心 直接退出"
-                                KeyPress "ESC", 3
-                                Delay 1000
-                                MoveTo W + 1160, H + 710
-                                Delay 100
-                                LeftClick 3
-                                Delay 2000
-                                Goto 开始拍卖
+                        For 60
+                            Delay 1000
+                            多点找色 283,77,1709,98, "F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
+                            If X > 0 Then 
+                                Exit For
+                            End If
+                            多点找色 1398,945,1684,1025,"2C2C2C","9|0|2C2C2C,18|0|2C2C2C,0|4|D5D5D5,9|4|D6D6D6,19|4|D8D8D8,-1|9|2C2C2C,19|9|2C2C2C,9|15|D9D9D9,0|19|2C2C2C,15|19|2C2C2C",0.7//开始匹配
+                            If X > 0 Then 
+                                Exit For
+                            End If
+                            KeyPress "ESC", 1
+                            Delay 1000
+                            MoveTo W + 1160, H + 710
+                            Delay 100
+                            LeftClick 3
+                        Next
+                        Goto 重开
                             End If
                         Next
                     Else 
                         日志 "单格价值小于六万 没永恒之心 直接退出"
-                        KeyPress "ESC", 3
-                        Delay 1000
-                        MoveTo W + 1160, H + 710
-                        Delay 100
-                        LeftClick 3
-                        Delay 2000
-                        Goto 开始拍卖
+                        For 60
+                            Delay 1000
+                            多点找色 283,77,1709,98, "F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
+                            If X > 0 Then 
+                                Exit For
+                            End If
+                            多点找色 1398,945,1684,1025,"2C2C2C","9|0|2C2C2C,18|0|2C2C2C,0|4|D5D5D5,9|4|D6D6D6,19|4|D8D8D8,-1|9|2C2C2C,19|9|2C2C2C,9|15|D9D9D9,0|19|2C2C2C,15|19|2C2C2C",0.7//开始匹配
+                            If X > 0 Then 
+                                Exit For
+                            End If
+                            KeyPress "ESC", 1
+                            Delay 1000
+                            MoveTo W + 1160, H + 710
+                            Delay 100
+                            LeftClick 3
+                        Next
+                        Goto 重开
                     End If
                     当前估价=Form1.InputBox2.Text/1
                 End If
@@ -556,11 +636,13 @@ Sub 拍卖
             移动点击 1164,711,500
             /////
         End If
-        XY=Plugin.Color.FindMultiColor(W+283,H+77,W+1709,H+98,"F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5",1)//主页
-        ZB = InStr(XY,"|")
-        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        多点找色 283,77,1709,98, "F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
+        If X > 0 Then 
+        Delay 3000
+        多点找色 283,77,1709,98, "F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
         If X > 0 Then 
             Goto 重开
+        End If
         End If
     Next
 End Sub
