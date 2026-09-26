@@ -1,0 +1,165 @@
+Sub 打地鼠
+    日志 "大概50秒200星票"
+    日志 "清空商店大概6-7小时"
+    日志 ""
+    Do
+        Rem a
+        iState = Plugin.Window.GetWindowState(Hwnd, 1)
+        If iState = True Then 
+        Else 
+            日志 "不在游戏界面"
+            Delay 1000
+            Form1.ListBox1.RemoveItem Form1.ListBox1.ListIndex  
+            Goto a
+        End If
+        Delay 5
+        多点找色 1097,341,1293,483,"86DFFF","13|0|86DFFF,2|16|31CBFF,13|16|31CBFF,-2|29|08BEFF,8|30|08BEFF",0.9//S
+        If X > 0 Then 
+            移动点击 1459,981,1000
+        End If
+        多点找色 283, 77, 1709, 98, "F5F5F5", "-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1//主页
+        If X > 0 Then 
+            KeyPress "F", 1
+            Delay 1000
+        Else
+            多点找色 0,0,120,120,"E3E3E3","11|0|E3E2E3,-9|12|E3E3E3,-10|20|E3E3E3,-1|39|E3E2E3,11|40|E3E3E3",0.6//退出按钮
+            If X > 0 Then 
+                找色 708, 298, 710, 420, "382B37", 0, 0.6, X, Y
+                If X > 0 Then 
+                    MoveTo X, Y
+                    Delay 50
+                    LeftClick 1
+                    TracePrint 1
+                End If
+                找色 1000,373,1002,375,"171525",0,0.6,X,Y
+                If X > 0 Then 
+                    MoveTo X, Y
+                    Delay 50
+                    LeftClick 1
+                End If
+                找色 1202,297,1204,439,"382A36",0,0.6,X,Y
+                If X > 0 Then 
+                    MoveTo X, Y
+                    Delay 50
+                    LeftClick 1
+                End If
+                找色 484,406,486,508,"392934",0,0.6,X,Y
+                If X > 0 Then 
+                    MoveTo X, Y
+                    Delay 50
+                    LeftClick 1
+                End If
+                找色 1445,409,1447,511,"382A36",0,0.6,X,Y
+                If X > 0 Then 
+                    MoveTo X, Y
+                    Delay 50
+                    LeftClick 1
+                End If
+                找色 640,548,642,690,"413143",0,0.6,X,Y
+                If X > 0 Then 
+                    MoveTo X, Y
+                    Delay 50
+                    LeftClick 1
+                End If
+                找色 953,548 ,955,690 ,"3E3045",0,0.6,X,Y
+                If X > 0 Then 
+                    MoveTo X, Y
+                    Delay 50
+                    LeftClick 1
+                End If
+                找色 1294,550,1296,692,"372A3B",0,0.6,X,Y
+                If X > 0 Then 
+                    MoveTo X, Y
+                    Delay 50
+                    LeftClick 1
+                End If
+                多点找色 365,631,457,702,"F9F8FF","20|0|FBFAFF,7|6|F9F9FF,15|12|FCFBFF,0|18|FBFBFF,20|18|FBFBFF",0.9
+                ZB = InStr(XY,"|")
+                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                If X > 0 Then 
+                    KeyPress "ESC", 1
+                    Delay 1000
+                    移动点击 1000, 733, 500
+                    主页1 
+                    时间晚上 
+                    KeyPress "F", 1
+                End If
+            End If
+        End If
+        多点找色 551,494,1027,866,"34CBF9","3|0|34CBF9,-3|1|34CBF9",0.8//票
+        If X > 0 Then 
+            Form1.ListBox1.RemoveItem Form1.ListBox1.ListIndex  
+            移动点击 1166, 927, 1000
+            次数 = 次数 + 1
+            日志 "进行" & 次数&"次"
+            If 次数 > 3000 Then 
+                Exit Do
+            End If
+        End If
+        XY=Plugin.Color.FindMultiColor(W+127,H+241,W+211,H+289,"FFFFFF","4|2|FFFFFF,0|10|1D2016,6|10|A3A5A1,9|14|FFFFFF,32|17|FBFBFB,25|18|FBFBFB,31|18|FBFBFB",0.9)//通缉
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            进出试用1
+        End If
+        XY=Plugin.Color.FindMultiColor(W+125,H+228,W+196,H+302,"FFE700","5|1|FFE700,10|13|FFE700,7|15|FFE700,-6|20|FFE700,12|22|FFE700",0.9)//1星犯罪
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            进出试用1
+        End If
+    Loop
+End Sub
+Sub 飞镖
+    日志 "清空商店需要82000星票"
+    日志 "大概要挂机10个小时左右"
+    日志 ""
+    Do
+        Rem a
+        iState = Plugin.Window.GetWindowState(Hwnd, 1)
+        If iState = True Then 
+        Else 
+            日志 "不在游戏界面"
+            Delay 1000
+            Form1.ListBox1.RemoveItem Form1.ListBox1.ListIndex  
+            Goto a
+        End If
+        Delay 150
+        多点找色 1097,341,1293,483,"86DFFF","13|0|86DFFF,2|16|31CBFF,13|16|31CBFF,-2|29|08BEFF,8|30|08BEFF",0.9//S
+        If X > 0 Then 
+            移动点击 1459,981,1000
+        End If
+        多点找色 283, 77, 1709, 98, "F5F5F5", "-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1//主页
+        If X > 0 Then 
+            KeyPress "F", 1
+            Delay 1000
+        Else 
+            多点找色 0,0,120,120,"E3E3E3","11|0|E3E2E3,-9|12|E3E3E3,-10|20|E3E3E3,-1|39|E3E2E3,11|40|E3E3E3",0.5//退出按钮
+            If X > 0 Then 
+                LeftClick 1
+            End If
+        End If
+        多点找色 551,494,1027,866,"34CBF9","3|0|34CBF9,-3|1|34CBF9",0.8//票
+        If X > 0 Then 
+            Form1.ListBox1.RemoveItem Form1.ListBox1.ListIndex  
+            移动点击 1166, 927, 1000
+            次数 = 次数 + 1
+            日志 "进行" & 次数&"次"
+            If 次数 > 3000 Then 
+                Exit Do
+            End If
+        End If
+        XY=Plugin.Color.FindMultiColor(W+127,H+241,W+211,H+289,"FFFFFF","4|2|FFFFFF,0|10|1D2016,6|10|A3A5A1,9|14|FFFFFF,32|17|FBFBFB,25|18|FBFBFB,31|18|FBFBFB",0.9)//通缉
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            进出试用1
+        End If
+        XY=Plugin.Color.FindMultiColor(W+125,H+228,W+196,H+302,"FFE700","5|1|FFE700,10|13|FFE700,7|15|FFE700,-6|20|FFE700,12|22|FFE700",0.9)//1星犯罪
+        ZB = InStr(XY,"|")
+        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        If X > 0 Then 
+            进出试用1
+        End If
+    Loop
+End Sub

@@ -673,3 +673,14 @@ Sub 找方向
     Form1.ListBox1.AddItem "当前面向北"
     Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
 End Sub
+Sub 退出异象空间
+    For 66
+        多点找色 283, 77, 1709, 98, "F5F5F5", "-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
+        If X > 0 Then 
+        Else
+            KeyPress "ESC", 1
+            Delay 1500
+            移动点击 1163,710,3000
+        End If
+    Next
+End Sub
