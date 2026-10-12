@@ -1,12 +1,12 @@
 Sub 拍卖
-    Form1.ListBox1.AddItem "即可落槌"
-    Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+    日志 "即可落槌"
+    日志 "资产低于百万会自动领取低保"
     日志 "在低保领取完之前每4局出售白绿蓝藏品"
     日志 "资产超过百万或者低保领完之后"
-    日志 "每4局出售红色以下藏品"
+    日志 "每6局出售红色以下藏品"
     Rem 重开
     For 4
-        XY=Plugin.Color.FindMultiColor(W+1202,H+18,W+1422,H+120,"4681D7","7|0|C3D5F4,11|6|0065CE,4|7|028AE4,0|8|2591E2,14|12|8EA9C8,8|13|76D7F9,3|15|68C9EA",0.9)//主页金贝珠
+        多点找色 1202,18,1422,120,"4681D7","7|0|C3D5F4,11|6|0065CE,4|7|028AE4,0|8|2591E2,14|12|8EA9C8,8|13|76D7F9,3|15|68C9EA",0.9//主页金贝珠
         ZB = InStr(XY,"|")
         X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
         If X > 0 Then 
@@ -17,23 +17,16 @@ Sub 拍卖
             KeyPress "M", 1
             Delay 1000
             For 30
-                XY=Plugin.Color.FindMultiColor(W+1124,H+20,W+1492,H+124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
-                ZB = InStr(XY,"|")
-                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                多点找色 1124,20,1492,124,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9//都市活力
                 If X > 0 Then 
                     Exit For
                 Else 
                     Delay 200
                 End If
             Next
-            MoveTo W + 120, H + 970
-            Delay 100
-            LeftClick 1
-            Delay 1000
+            移动点击 120,970,1000
             For 30
-                XY=Plugin.Color.FindMultiColor(W+1254,H+126,W+1356,H+192,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9)//都市活力
-                ZB = InStr(XY,"|")
-                X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+                多点找色 1254,126,1356,192,"6CFFFF","-1|4|68FFFF,5|4|7FFFFF,0|9|3085D4",0.9//都市活力
                 If X > 0 Then 
                     Exit For
                 Else 
@@ -47,9 +40,7 @@ Sub 拍卖
                 MouseWheel -6
             Next
             Delay 500
-            XY=Plugin.Color.FindMultiColor(W+225,H+127,W+1671,H+1013,"93957F","27|3|959274,9|10|F9F9EB,13|15|EEF2D6,19|17|E6ECD2,29|19|DEE5CC,6|21|F7F3E2",0.9)
-            ZB = InStr(XY,"|")
-            X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+            多点找色 225,127,1671,1013,"93957F","27|3|959274,9|10|F9F9EB,13|15|EEF2D6,19|17|E6ECD2,29|19|DEE5CC,6|21|F7F3E2",0.9
             If X > 0 Then 
                 MoveTo X, Y
                 Delay 100
@@ -57,9 +48,7 @@ Sub 拍卖
             LeftClick 2
             Delay 200
             For 30
-                XY=Plugin.Color.FindMultiColor(W+1202,H+18,W+1422,H+120,"4681D7","7|0|C3D5F4,11|6|0065CE,4|7|028AE4,0|8|2591E2,14|12|8EA9C8,8|13|76D7F9,3|15|68C9EA",0.9)//主页金贝珠
-                ZB = InStr(XY,"|")
-                X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                多点找色 1202,18,1422,120,"4681D7","7|0|C3D5F4,11|6|0065CE,4|7|028AE4,0|8|2591E2,14|12|8EA9C8,8|13|76D7F9,3|15|68C9EA",0.9//主页金贝珠
                 If X > 0 Then 
                     Exit For
                 Else 
@@ -72,103 +61,49 @@ Sub 拍卖
     //开始匹配
     For 999999
         Delay 200
-        XY=Plugin.Color.FindMultiColor(W+1202,H+18,W+1422,H+120,"4681D7","7|0|C3D5F4,11|6|0065CE,4|7|028AE4,0|8|2591E2,14|12|8EA9C8,8|13|76D7F9,3|15|68C9EA",0.9)//主页金贝珠
-        ZB = InStr(XY,"|")
-        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        主循环次数 = 主循环次数 + 1
+        TracePrint "主循环次数"&主循环次数
+        If 主循环次数 > 666 Then 
+        移动点击 695,714,100
+            主循环次数=0
+            主页1 
+            Goto 重开
+        End If
+        多点找色 1202,18,1422,120,"4681D7","7|0|C3D5F4,11|6|0065CE,4|7|028AE4,0|8|2591E2,14|12|8EA9C8,8|13|76D7F9,3|15|68C9EA",0.9//主页金贝珠
         If X > 0 Then 
-            XY=Plugin.Color.FindMultiColor(W+1398,H+945,W+1684,H+1025,"2C2C2C","9|0|2C2C2C,18|0|2C2C2C,0|4|D5D5D5,9|4|D6D6D6,19|4|D8D8D8,-1|9|2C2C2C,19|9|2C2C2C,9|15|D9D9D9,0|19|2C2C2C,15|19|2C2C2C",0.7)
-            ZB = InStr(XY,"|")
-            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+            多点找色 1398,945,1684,1025,"2C2C2C","9|0|2C2C2C,18|0|2C2C2C,0|4|D5D5D5,9|4|D6D6D6,19|4|D8D8D8,-1|9|2C2C2C,19|9|2C2C2C,9|15|D9D9D9,0|19|2C2C2C,15|19|2C2C2C",0.7//开始匹配
             If X > 0 Then 
-                多点找色 1325, 42, 1374, 77, "FFFFFF", "1|0|FFFFFF,1|1|FFFFFF", 0.9
+                Delay 2000
+                多点找色 1398,945,1684,1025,"2C2C2C","9|0|2C2C2C,18|0|2C2C2C,0|4|D5D5D5,9|4|D6D6D6,19|4|D8D8D8,-1|9|2C2C2C,19|9|2C2C2C,9|15|D9D9D9,0|19|2C2C2C,15|19|2C2C2C",0.7//开始匹配
                 If X > 0 Then 
-                    资产过百万 = 1
-                Else 
-                    资产过百万 = 0
-                End If
-                Delay 1000
-                当前出价=0
-                /////领低保
-                If 低保领完了 = 1 Then  //低保领完后出售藏品,懒得多做检测 每5局出售一次
+                    当前出价 = 0
+                    已加心 = 0
+                    已经检查单格 = 0
+                    当前回合 = 0
+                    主循环次数=0
+                    藏品多=0
+                    总场次=总场次+1
+                    /////领低保,出售藏品
                     次数 = 次数 + 1
-                    If 次数 > 8 Then 
-                        Delay 1000
-                        Form1.ListBox1.AddItem "资产不足 切换会场"
-                        Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
-                        MoveTo W + 1761, H+608
-                        Delay 100
-                        LeftClick 1
-                        Delay 1500
-                        MoveTo W + 468, H+570
-                        Delay 100
-                        LeftClick 1
-                        Delay 1500
-                        次数=0
+                    TracePrint "次数"&次数
+                    多点找色 1325, 42, 1374, 77, "FFFFFF", "1|0|FFFFFF,1|1|FFFFFF", 0.9
+                    If X > 0 Then 
+                        资产过百万 = 1
+                    Else 
+                        资产过百万 = 0
                     End If
-                    If 次数 > 3 Then 
-                        If Form1.CheckBox57.Value = 1 Then 
-                            Delay 1000
-                            Form1.ListBox1.AddItem "出售藏品"
-                            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
-                            MoveTo W + 461, H+952
-                            Delay 100
-                            LeftClick 1
-                            Delay 900
-                            MoveTo W + 1680, H+952
-                            Delay 100
-                            LeftClick 1
-                            Delay 700
-                            MoveTo W + 1799, H+952
-                            Delay 100
-                            LeftClick 1
-                            Delay 700
-                            MoveTo W + 1311, H+870
-                            Delay 100
-                            LeftClick 1
-                            Delay 300
-                            MoveTo W + 1405, H+870
-                            Delay 100
-                            LeftClick 1
-                            Delay 300
-                            MoveTo W + 1503, H+870
-                            Delay 100
-                            LeftClick 1
-                            Delay 300
-                            MoveTo W + 1596, H+870
-                            Delay 100
-                            LeftClick 1
-                            Delay 300
-                            MoveTo W + 1690, H+870
-                            Delay 100
-                            LeftClick 1
-                            Delay 300
-                            MoveTo W + 1671, H+952
-                            Delay 100
-                            LeftClick 1
-                            Delay 2300
-                            LeftClick 1
-                            Delay 2300
-                            MoveTo W + 1834, H+61
-                            Delay 100
-                            LeftClick 1
-                            Delay 1000
-                        End If
-                    End If
-                Else 
+                    Delay 100
                     If 资产过百万 = 0 Then 
-                        If Form1.CheckBox56.Value = 1 Then 
-                            Form1.ListBox1.AddItem "领取低保"
-                            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                        If 低保领完了 = 1 Then 
+                        Else 
+                            日志 "领取低保"
                             MoveTo W + 1649, H +70
                             Delay 100
                             LeftClick 2
                             Delay 1500
-                            XY=Plugin.Color.FindMultiColor(W+1039,H+573,W+1063,H+602,"3F3F3F","6|0|3F3F3F,10|0|3F3F3F,0|4|3F3F3F,5|4|E8E8E8,11|4|E8E8E8,1|8|3F3F3F,6|8|3F3F3F,10|10|3F3F3F,-2|12|E8E8E8,5|12|E8E8E8,10|15|3F3F3F,1|16|3F3F3F,4|18|3F3F3F,-2|19|E8E8E8,12|19|E8E8E8",0.9)
-                            ZB = InStr(XY,"|")
-                            X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+                            多点找色 1039,573,1063,602,"3F3F3F","6|0|3F3F3F,10|0|3F3F3F,0|4|3F3F3F,5|4|E8E8E8,11|4|E8E8E8,1|8|3F3F3F,6|8|3F3F3F,10|10|3F3F3F,-2|12|E8E8E8,5|12|E8E8E8,10|15|3F3F3F,1|16|3F3F3F,4|18|3F3F3F,-2|19|E8E8E8,12|19|E8E8E8",0.9
                             If X > 0 Then 
-                                Form1.ListBox1.AddItem "低保领完了"
-                                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                                日志 "低保领完了"
                                 低保领完了 = 1
                             Else 
                                 低保领完了 = 0
@@ -180,135 +115,307 @@ Sub 拍卖
                             MoveTo W + 695, H +714
                             Delay 100
                             LeftClick 3
-                            Delay 1100
+                            For 9
+                                Delay 1000
+                                多点找色 1800, 47, 1870, 75, "C6C6C3", "7|0|C6C4C3,4|3|C6C3C3,7|7|C6C6C3", 0.9//界面X
+                                If X > 0 Then 
+                                    Exit For
+                                Else 
+                                    移动点击 695,714,100
+                                End If
+                            Next
+
                         End If
                     End If
-                    白绿蓝次数 = 白绿蓝次数 + 1
-                    If 白绿蓝次数 > 3 Then 
-                        白绿蓝次数 = 0
+                    If 次数 > 16 Then 
+                        Delay 1000
+                        日志 "资产不足 切换会场"
+                        MoveTo W + 1761, H+608
+                        Delay 100
+                        LeftClick 1
+                        Delay 1500
+                        MoveTo W + 468, H+570
+                        Delay 100
+                        LeftClick 1
+                        Delay 1500
+                        次数=0
+                    End If
+                    If 次数 = 6 Then 
                         If Form1.CheckBox57.Value = 1 Then 
-                            Form1.ListBox1.AddItem "出售藏品"
-                            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+                            Delay 1000
+                            日志 "出售藏品"
                             MoveTo W + 461, H+952
                             Delay 100
                             LeftClick 1
                             Delay 900
-                            MoveTo W + 1680, H+952
-                            Delay 100
-                            LeftClick 1
-                            Delay 700
-                            MoveTo W + 1799, H+952
-                            Delay 100
-                            LeftClick 1
-                            Delay 700
-                            MoveTo W + 1311, H+870
-                            Delay 100
-                            LeftClick 1
-                            Delay 300
-                            MoveTo W + 1405, H+870
-                            Delay 100
-                            LeftClick 1
-                            Delay 300
-                            MoveTo W + 1503, H+870
-                            Delay 100
-                            LeftClick 1
-                            Delay 300
-                            If 资产过百万=1
-                                MoveTo W + 1596, H+870
-                                Delay 100
-                                LeftClick 1
-                                Delay 300
-                                MoveTo W + 1690, H+870
-                                Delay 100
-                                LeftClick 1
-                                Delay 300
+                            If 即可截图 = 1 Then 
+                            Else 
+                            即可截图=1
+                            Call Plugin.Pic.PrintScreen(W + 0, H + 0, W + 1920, H + 1080, "C:\异环\即可仓库" & Year(NOW) & Right("0" & Month(Now), 2) & Right("0" & Day(Now), 2) & Right("0" & Hour(Now), 2) & Right("0" & Minute(Now), 2) & Right("0" & Second(Now), 2) &".jpg")
                             End If
-                            MoveTo W + 1671, H+952
-                            Delay 100
-                            LeftClick 1
-                            Delay 2300
-                            LeftClick 1
-                            Delay 2300
-                            MoveTo W + 1834, H+61
-                            Delay 100
-                            LeftClick 1
-                            Delay 1000
+                            If 低保领完了 = 1 or 资产过百万 = 1 Then 
+                                If Form1.CheckBox60.Value = 1 Then 
+                                    For 16
+                                        //最爱的披萨, U盘, 几何摆件, 混沌迷核, 吨吨锤, 家用游戏机, 古旧摆钟, 白龙王, 细颈连纹瓶, 薯条, 摇星, 一簇幽火, 鸣佩, 永生花环, 排球, 翡翠, 赛车模型, 酥酥酥, 他山之石, 九格小食
+                                        If Form1.CheckBox65.Value = 1 Then 
+                                            多点找色 1262, 264, 1828, 832,"9F9686","-39|4|AAA597,18|13|9F9584,-37|18|B4B09D,15|41|655147,-4|60|6B554A",0.8//手提箱
+                                            If X > 0 Then 
+                                                移动点击 X - W, Y - H, 800
+                                                移动点击 960, 734, 1500
+                                                移动点击 960, 734, 1000
+                                            End If
+                                            多点找色 1262, 264, 1828, 832,"403539","45|10|CFDDE7,-2|17|94D2F7,19|24|B0CEE1,-16|29|483C3E,4|34|9CCEE7",0.8//门禁卡
+                                            If X > 0 Then 
+                                                移动点击 X - W, Y - H, 800
+                                                移动点击 960, 734, 1500
+                                                移动点击 960, 734, 1000
+                                            End If
+                                            多点找色 1262, 264, 1828, 832,"3E3B40","-43|22|575457,18|27|64453A,35|34|735994,-21|49|848284,5|49|231944",0.8//便携屏
+                                            If X > 0 Then 
+                                                移动点击 X - W, Y - H, 800
+                                                移动点击 960, 734, 1500
+                                                移动点击 960, 734, 1000
+                                            End If
+                                            多点找色 1262, 264, 1828, 832,"332D32","21|0|312C31,50|0|312A2D,73|0|2B262B,196|5|301CAB,173|6|96DFFD",0.8//权柄
+                                            If X > 0 Then 
+                                                移动点击 X - W, Y - H, 800
+                                                移动点击 960, 734, 1500
+                                                移动点击 960, 734, 1000
+                                            End If
+                                            多点找色 1262, 264, 1828, 832,"220969","20|0|220969,10|5|FFEBDF,5|15|F7B38D,13|18|ECC4C6,-1|27|290D7B,21|27|290D7B",0.8//泪滴
+                                            If X > 0 Then 
+                                                移动点击 X - W, Y - H, 800
+                                                移动点击 960, 734, 1500
+                                                移动点击 960, 734, 1000
+                                            End If
+                                            多点找色 1262, 264, 1828, 832,"30A2ED","9|9|227FDE,-18|23|3838DA,7|24|220969,-22|31|E3EAE8,-5|32|2923DC",0.8//辣条
+                                            If X > 0 Then 
+                                                移动点击 X - W, Y - H, 800
+                                                移动点击 960, 734, 1500
+                                                移动点击 960, 734, 1000
+                                            End If
+                                        End If
+                                        多点找色 1262, 264, 1828, 832, "EFFF00", "30|0|FF0052,16|1|F7FB1D,21|3|CA04F6,-13|18|FF5001", 0.8//最爱的披萨
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262, 264, 1828, 832,"845ECE","53|6|C3B1F7,22|47|B58EDC,50|52|A57ED6,50|53|A47CD5,97|65|9C68BB,100|126|9B4DBA",0.8//猪
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262, 264, 1828, 832,"DE9A9C","12|42|FFFFBD,82|44|AD6531,80|97|2A39FA,-1|108|202DFF,26|130|1713F0",0.8//鲸
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"220969","6|5|373850,27|7|262323,39|7|98773A,15|11|211D1E,-11|16|B8EDFF",0.8//U盘
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"7BDBF8","1|7|208DDD,-7|11|3CADD9,7|13|85C2D0,3|32|492437,-8|34|622B1F",0.8//几何摆件
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"30108C","-24|7|B7F7FB,-3|7|B0FCFF,-25|22|2E89B5,1|25|1F578E,-26|35|260C73",0.8//混沌迷核
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"80AAC8","11|10|A1F3F7,-18|21|BDB739,34|45|478DE1,-22|79|262C2C,-39|102|327ABD",0.8//吨吨锤
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"453532","-17|17|68564D,58|25|5A4542,-9|82|4F3E3C,33|91|312323,-5|104|FFFEFD",0.8//家用游戏机
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"2C4D8C","27|21|FFFFFF,14|33|FFFFFF,35|71|10234F,19|82|76B7D0,19|99|7DE1F1",0.8//古旧摆钟
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"012EBD","8|4|FFDCA5,15|6|1E04D1,11|17|FFD794,13|30|F7DF94,15|43|F8DE9E",0.8//白龙王
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"FFFFFF","-1|14|F0E0D3,7|29|EFE0A5,12|38|7C2001,4|49|E5C377,-7|57|C6A247",0.8//细颈连纹瓶
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"3DCBF2","0|1|3CCCF2,42|3|2F78DD,2|16|40D3F6,32|33|5CA4DF,3|92|6537B5",0.8//薯条
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"438AD3","-38|38|335BAF,-30|39|436ABD,-17|57|395DB5,-46|59|294091,7|62|C5BCC5",0.8//摇星
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"FFDF98","21|1|D4905C,10|11|FFAE59,32|51|EBD87E,4|55|95B6CD,13|65|606877",0.8//一簇幽火
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"D9EDC5","5|6|C8EE8F,29|6|C5E5A3,-4|9|88B849,26|18|97CC49,18|22|8BB761",0.8//鸣佩
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"7391B5","31|23|7387DD,-4|37|6BB42B,18|43|D1BAEF,-14|49|51BBE8,10|53|7D8DF7",0.8//永生花环
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"7BEFEF","-13|20|5AE3E7,4|22|E78B75,41|31|50CDCC,29|41|B1A8A5,16|44|A74D42",0.8//排球
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"77F1AF","3|14|2BB956,3|30|269D3C,0|75|4A7125,12|76|526921,7|91|525E1E",0.8//翡翠
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"FFFFFF","72|0|FFFFFF,73|10|171464,-12|17|4D45C0,89|26|5A5552,-12|53|4F4EB3",0.8//赛车模型
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"39A9F7","5|6|2762CE,5|7|04299B,-13|13|A9F8FD,-5|17|2BB5F7,9|18|00D7AA",0.8//酥酥酥
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"FFA2DC","9|7|DAB7DD,-6|19|C661A8,-1|19|E9A3C7,6|21|FFFEFF,1|36|EFAAD5",0.8//他山之石
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"82D8FF","29|2|26BA71,-19|8|2147F8,43|13|0F81F6,-5|19|63D1C7,30|22|C2EFFE",0.8//九格小食
+                                        If X > 0 Then 
+                                            移动点击 X - W, Y - H, 800
+                                            移动点击 960, 734, 1500
+                                            移动点击 960, 734, 1000
+                                        End If
+                                        多点找色 1262,264,1828,832,"0D1013","0|70|020405,-1|132|030305,-1|191|030408,-1|247|030408,-1|303|040406,-3|358|05080D,-1|418|0A0F15,-3|466|0C0C0E,-3|507|090B0D",0.9
+                                        If X > 0 Then 
+                                            Exit For
+                                        End If
+                                        MoveTo W + 1553, H + 563
+                                        Delay 100
+                                        MouseWheel - 6
+                                        Delay 500
+                                    Next
+                                End If
+                            End If
+                            移动点击 1680, 952, 700
+                            移动点击 1799, 952, 700
+                            移动点击 1311, 870, 300
+                            移动点击 1405, 870, 300
+                            移动点击 1503, 870, 300
+                            If 低保领完了 = 1 or 资产过百万 = 1 Then 
+                                移动点击 1596, 870, 300
+                                移动点击 1690, 870, 300
+                            End If
+                            移动点击 1671, 952, 2300
+                            移动点击 1671, 952, 2300
+                            移动点击 1834, 61, 1000
                         End If
                     End If
-                End If
-                /////
-                Form1.ListBox1.AddItem "开始匹配"
-                Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
-                多点找色 1336, 597, 1439, 641, "E4E1E1", "40|0|E4E1E1,25|1|E2E0E0,41|6|DCDADA,24|8|D9D7D7,4|9|D8D6D6,15|9|D8D6D6,-2|15|D0CECE,23|16|CECCCC", 0.8//珊瑚
-                If X > 0 Then 
-                    Delay 100
+                    /////
+                    日志 "开始匹配"
                     多点找色 1336, 597, 1439, 641, "E4E1E1", "40|0|E4E1E1,25|1|E2E0E0,41|6|DCDADA,24|8|D9D7D7,4|9|D8D6D6,15|9|D8D6D6,-2|15|D0CECE,23|16|CECCCC", 0.8//珊瑚
                     If X > 0 Then 
-                        If Form1.InputBox2.Text / 1 > 400000 Then 
-                            Form1.InputBox2.Text=220000
+                        Delay 100
+                        多点找色 1336, 597, 1439, 641, "E4E1E1", "40|0|E4E1E1,25|1|E2E0E0,41|6|DCDADA,24|8|D9D7D7,4|9|D8D6D6,15|9|D8D6D6,-2|15|D0CECE,23|16|CECCCC", 0.8//珊瑚
+                        If X > 0 Then 
+                            If Form1.InputBox2.Text / 1 > 400000 Then 
+                                Form1.InputBox2.Text=220000
+                            End If
                         End If
                     End If
-                End If
-                多点找色 1336, 597, 1439, 641, "E4E1E1","26|0|E4E1E1,40|1|E2E0E0,5|4|DEDCDC,32|5|DDDBDB,15|10|D6D4D4,24|11|D5D3D3,38|11|D5D3D3,3|14|D1CFCF,31|14|D1CFCF,8|15|D0CECE", 0.8//珊瑚
-                If X > 0 Then 
-                    TracePrint "海贝"
-                    Delay 100
                     多点找色 1336, 597, 1439, 641, "E4E1E1","26|0|E4E1E1,40|1|E2E0E0,5|4|DEDCDC,32|5|DDDBDB,15|10|D6D4D4,24|11|D5D3D3,38|11|D5D3D3,3|14|D1CFCF,31|14|D1CFCF,8|15|D0CECE", 0.8//珊瑚
                     If X > 0 Then 
-                        If Form1.InputBox2.Text / 1 > 200000 Then 
-                            Form1.InputBox2.Text=90000
+                        TracePrint "海贝"
+                        Delay 100
+                        多点找色 1336, 597, 1439, 641, "E4E1E1","26|0|E4E1E1,40|1|E2E0E0,5|4|DEDCDC,32|5|DDDBDB,15|10|D6D4D4,24|11|D5D3D3,38|11|D5D3D3,3|14|D1CFCF,31|14|D1CFCF,8|15|D0CECE", 0.8//珊瑚
+                        If X > 0 Then 
+                            If Form1.InputBox2.Text / 1 > 200000 Then 
+                                Form1.InputBox2.Text=90000
+                            End If
                         End If
                     End If
-                End If
-                If Form1.CheckBox60.Value = 1 Then 
-                 MoveTo W + 1525, H + 968
-                 Delay 500
-                多点找色 1187, 730, 1620, 947, "5297DA", "20|4|5292D6,13|8|4D8DD1,9|15|4A85C8,23|18|4783C6", 0.9
-                If X > 0 Then 
-                Else 
-                	日志 "永恒之心模式必须使用至尊仪器组 请换上后再启动"
-                	Exit Sub
-                End If
-                End If
-                If Form1.仪器1.Value = 1 Or Form1.仪器2.Value = 1 Or Form1.仪器3.Value = 1 Or Form1.仪器4.Value = 1 Or Form1.仪器5.Value = 1 or Form1.仪器4132.Value = 1 Then
-                    Dim 已使用(5) : 已使用(1) = 0 : 已使用(2) = 0 : 已使用(3) = 0 : 已使用(4) = 0 : 已使用(5) = 0
-                    移动点击 1405, 848, 2000
-                    多点找色 636,931,818,989,"D0D0D0","12|0|D0D0D0,38|2|2C2C2C,13|3|2C2C2C,-3|4|2C2C2C,63|4|2C2C2C,87|7|2C2C2C,-1|8|D8D8D8,13|9|D2D2D2",0.8
-                    If X > 0 Then 
-                        移动点击 746,962, 1500
-                        移动点击 1166, 711, 1500
-                    Else 
-                        KeyPress "ESC", 1
-                        Delay 1500
+                    //                If Form1.仪器1.Value = 1 Or Form1.仪器2.Value = 1 Or Form1.仪器3.Value = 1 Or Form1.仪器4.Value = 1 Or Form1.仪器5.Value = 1 or Form1.仪器4132.Value = 1 Then
+                    //                    Dim 已使用(5) : 已使用(1) = 0 : 已使用(2) = 0 : 已使用(3) = 0 : 已使用(4) = 0 : 已使用(5) = 0
+                    If Form1.InputBox15.Text <> "" And Form1.InputBox15.Text <> "0" Then
+                        移动点击 1405, 848, 2000
+                        多点找色 636,931,818,989,"D0D0D0","12|0|D0D0D0,38|2|2C2C2C,13|3|2C2C2C,-3|4|2C2C2C,63|4|2C2C2C,87|7|2C2C2C,-1|8|D8D8D8,13|9|D2D2D2",0.8
+                        If X > 0 Then 
+                            移动点击 746,962, 1500
+                            移动点击 1166, 711, 1500
+                        Else 
+                            KeyPress "ESC", 1
+                            Delay 1500
+                        End If
                     End If
+                    MoveTo W + 1525, H +968
+                    Delay 100
+                    LeftClick 2
+                    Delay 1100
+                    MoveTo W + 1160, H +714
+                    Delay 100
+                    LeftClick 2
+                    Delay 6000
                 End If
-                MoveTo W + 1525, H +968
-                Delay 100
-                
-                LeftClick 2
-                Delay 1100
-                MoveTo W + 1160, H +714
-                Delay 100
-                LeftClick 2
-                Delay 6000
             End If
         End If
-        XY=Plugin.Color.FindMultiColor(W+300,H+50,W+1624,H+868,"080C08","9|1|101010,20|1|6B6D6B,24|1|080C08,5|5|F7F7F7,23|11|4A45EF,3|14|5A51F7",0.9)//TIPS
-        ZB = InStr(XY,"|")
-        X = Clng(Left(XY, ZB - 1)) : Y = Clng(Right(XY, Len(XY) - ZB))
+        多点找色 300,50,1624,868,"080C08","9|1|101010,20|1|6B6D6B,24|1|080C08,5|5|F7F7F7,23|11|4A45EF,3|14|5A51F7",0.9//TIPS
         If X > 0 Then 
             KeyPress "ESC", 1
             Delay 1500
         End If 
         //跳过
-        XY=Plugin.Color.FindMultiColor(W+1383,H+986,W+1473,H+1039,"2C2C2C","29|0|2C2C2C,44|2|2C2C2C,3|3|C9C9C9,12|3|2C2C2C,17|7|2C2C2C,30|8|2C2C2C,37|8|2C2C2C,4|11|2C2C2C,40|12|D9D9D9,0|18|2C2C2C,28|18|2C2C2C,13|19|D5D5D5,46|20|2C2C2C",0.9)
-        ZB = InStr(XY,"|")
-        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        多点找色 1383,986,1473,1039,"2C2C2C","29|0|2C2C2C,44|2|2C2C2C,3|3|C9C9C9,12|3|2C2C2C,17|7|2C2C2C,30|8|2C2C2C,37|8|2C2C2C,4|11|2C2C2C,40|12|D9D9D9,0|18|2C2C2C,28|18|2C2C2C,13|19|D5D5D5,46|20|2C2C2C",0.9
         If X > 0 Then 
-            已使用(1) = 0 : 已使用(2) = 0 : 已使用(3) = 0 : 已使用(4) = 0 : 已使用(5) = 0
-            当前出价=0
-            Form1.ListBox1.AddItem "结算 开始下一局"
-            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
+            主循环次数=0
+            已加心 = 0
+            已经检查单格 = 0
+            当前回合 = 0
+            藏品多 = 0
+            If 次数 > 5 Then 
+                次数=0
+            End If
+            日志 "结算 开始下一局"
             MoveTo X, Y
             Delay 100
             LeftClick 2
@@ -317,27 +424,30 @@ Sub 拍卖
             日志 "实际价值" & 实际价值
             If 实际价值+1>10000000
                 If Form1.CheckBox59.Value = 1 Then //截图
-                    Call Plugin.Pic.PrintScreen(W + 0, H + 0, W + 1920, H + 1080, "C:\异环\即可落槌" & Month(Now) & Day(Now) & Hour(Now) & Minute(Now) & Second(Now) & ".jpg")
+                    Call Plugin.Pic.PrintScreen(W + 0, H + 0, W + 1920, H + 1080, "C:\异环\即可千万" & Year(NOW) & Right("0" & Month(Now), 2) & Right("0" & Day(Now), 2) & Right("0" & Hour(Now), 2) & Right("0" & Minute(Now), 2) & Right("0" & Second(Now), 2) &".jpg")
                 End If
             End If
             多点找色 1644, 812, 1781, 946, "BBBBBB", "-22|2|B5B6B5,1|10|A5A6A5,-24|16|9A9A9A,-3|17|979797", 0.8//出售
             If X > 0 Then 
-            If 实际价值+1<10000000
-                If Form1.CheckBox59.Value = 1 Then //截图
-                    Call Plugin.Pic.PrintScreen(W + 0, H + 0, W + 1920, H + 1080, "C:\异环\即可落槌" & Month(Now) & Day(Now) & Hour(Now) & Minute(Now) & Second(Now) & ".jpg")
+                当前盈利 = 实际价值 - 当前出价
+                总盈利 = 总盈利 + 当前盈利
+                日志 "本局盈利"&当前盈利&"总盈利" & 总盈利
+                If 实际价值+1<10000000
+                    If Form1.CheckBox59.Value = 1 Then //截图
+                        Call Plugin.Pic.PrintScreen(W + 0, H + 0, W + 1920, H + 1080, "C:\异环\即可落槌" & Year(NOW) & Right("0" & Month(Now), 2) & Right("0" & Day(Now), 2) & Right("0" & Hour(Now), 2) & Right("0" & Minute(Now), 2) & Right("0" & Second(Now), 2) &".jpg")
+                    End If
                 End If
-            End If
-                If Form1.CheckBox56.Value = 1 Then //低保 取消橙色
-                    移动点击 1741,808,1000
-                End If
-                TracePrint Form1.InputBox13.Text / 1
-                TracePrint 实际价值
-                If 实际价值+1 < Form1.InputBox13.Text/1 Then  //红色也选
-                    移动点击 1836, 808, 1000
-                    
+                If 资产过百万 = 0 Then //低保 取消橙色
+                    移动点击 1741, 808, 1000
+                Else 
+                    If 实际价值+1 < Form1.InputBox13.Text/1 Then  //红色也选
+                        移动点击 1836, 808, 1000
+                    End If 
                 End If
                 移动点击 1722, 883, 2500
-                移动点击 1751,1004,1500
+                移动点击 1751, 1004, 1500
+            Else 
+                日志 "总盈利" & 总盈利
             End If
             Delay 1000
             MoveTo W+1750, H+1010
@@ -346,217 +456,238 @@ Sub 拍卖
             Delay 1100
             LeftClick 2
             Delay 1100
+            当前出价 = 0
         End If
         //出价
-        XY=Plugin.Color.FindMultiColor(W+1696,H+983,W+1775,H+1028,"2C2C2C","-39|1|2C2C2C,-26|2|D3D3D3,-35|3|D4D4D4,-21|3|323232,0|5|D3D3D3,5|5|2C2C2C,-12|7|2C2C2C,-26|13|D2D2D2,-3|13|2C2C2C,-35|14|D7D7D7,-21|18|2C2C2C,4|18|2C2C2C,-30|19|2C2C2C",0.8)
-        ZB = InStr(XY,"|")
-        X = Clng(Left(XY, ZB - 1)): Y = Clng(Right(XY, Len(XY) - ZB))
+        多点找色 1696,983,1775,1028,"2C2C2C","-39|1|2C2C2C,-26|2|D3D3D3,-35|3|D4D4D4,-21|3|323232,0|5|D3D3D3,5|5|2C2C2C,-12|7|2C2C2C,-26|13|D2D2D2,-3|13|2C2C2C,-35|14|D7D7D7,-21|18|2C2C2C,4|18|2C2C2C,-30|19|2C2C2C",0.8
         If X > 0 Then 
-            If Form1.仪器4132.Value = 1 Then 
-            	                移动点击 410, 1006, 1000
-                //////////////
-                ' 已使用标记：0=未用，1=已用
-
-                If  已使用(4) = 0 Then
-                    已使用(4) = 1
-                    移动点击 400, 700, 500
-                    移动点击 410, 968, 500
-                    Goto 仪器选择完成1
-                End If
-                If  已使用(1) = 0 Then
-                    已使用(1) = 1
-                    移动点击 400, 300, 500
-                    移动点击 410, 968, 500
-                    Goto 仪器选择完成1
-                End If
-                If  已使用(3) = 0 Then
-                    已使用(3) = 1
-                    移动点击 400, 440, 500
-                    移动点击 410, 968, 500
-                    Goto 仪器选择完成1
-                End If
-                If  已使用(2) = 0 Then
-                    已使用(2) = 1
-                    移动点击 400, 300, 500
-                    移动点击 410, 968, 500
-                    Goto 仪器选择完成1
-                End If
-
-                
-                Rem 仪器选择完成1
-                移动点击 691,153,500
+            主循环次数 = 0
+            If 次数 > 5 Then 
+                次数=0
             End If
-            If Form1.仪器1.Value = 1 Or Form1.仪器2.Value = 1 Or Form1.仪器3.Value = 1 Or Form1.仪器4.Value = 1 Or Form1.仪器5.Value = 1 Then
-                移动点击 410, 1006, 1000
-                //////////////
-                ' 已使用标记：0=未用，1=已用
-                If Form1.仪器5.Value = 1 And 已使用(5) = 0 Then
-                    已使用(5) = 1
-                    移动点击 400, 830, 500
-                    移动点击 410, 968, 500
-                    Goto 仪器选择完成
-                End If
-                If Form1.仪器4.Value = 1 And 已使用(4) = 0 Then
-                    已使用(4) = 1
-                    移动点击 400, 700, 500
-                    移动点击 410, 968, 500
-                    Goto 仪器选择完成
-                End If
-                If Form1.仪器3.Value = 1 And 已使用(3) = 0 Then
-                    已使用(3) = 1
-                    移动点击 400, 570, 500
-                    移动点击 410, 968, 500
-                    Goto 仪器选择完成
-                End If
-                If Form1.仪器2.Value = 1 And 已使用(2) = 0 Then
-                    已使用(2) = 1
-                    移动点击 400, 440, 500
-                    移动点击 410, 968, 500
-                    Goto 仪器选择完成
-                End If
-                If Form1.仪器1.Value = 1 And 已使用(1) = 0 Then
-                    已使用(1) = 1
-                    移动点击 400, 300, 500
-                    移动点击 410, 968, 500
-                    Goto 仪器选择完成
-                End If
-                
-                Rem 仪器选择完成
-                移动点击 691,153,500
-                //////////////////
-                
+            当前回合 = 当前回合 + 1
+            日志 "第"&总场次&"场,第"&当前回合&"回合--"&time
+            If 当前回合 = Form1.ComboBox12.ListIndex - 4 and 10>Form1.ComboBox12.ListIndex > 5 Then 
+                日志 "第"&当前回合&"回合 没拍下退出"
+                Goto 退出重开
             End If
-            Delay Plugin.Plug365New.RndStart(5500, 6500)
+            If Form1.InputBox15.Text <> "0" And 当前回合 <= Len(Form1.InputBox15.Text) Then 
+                n = CInt(Mid(Form1.InputBox15.Text, 当前回合, 1))
+                ' 计算剩余（把前几轮已用的从12345里删掉）
+                剩余 = "12345"
+                For k = 1 To 当前回合 - 1
+                    剩余 = Replace(剩余, Mid(Form1.InputBox15.Text, k, 1), "")
+                Next
+                pos = InStr(剩余, CStr(n))
+                If pos > 0 Then 
+                    移动点击 410, 1006, 1000
+                    If pos = 1 Then 移动点击 400, 300, 500
+                    If pos = 2 Then 移动点击 400, 440, 500
+                    If pos = 3 Then 移动点击 400, 570, 500
+                    If pos = 4 Then 移动点击 400, 700, 500
+                    If pos = 5 Then 移动点击 400, 830, 500
+                    移动点击 410, 968, 500
+                    移动点击 691, 153, 500
+                End If
+            End If
+            Delay Plugin.Plug365New.RndStart(6000, 7000)
             当前估价 = 即可落槌识别(W + 1483, H + 138, W + 1828, H + 196, 0.9)
-            If 当前估价 > 10000000 Then //超过1000万两次验证
-            	Delay 1000
-            	当前估价 = 即可落槌识别(W + 1483, H + 138, W + 1828, H + 196, 0.9)
-            	If 当前估价 > 30000000 Then 
-            		当前估价 = 30000000
-            	End If
+            多点找色EX 1590, 139, 1824, 159, "4FA2FF", "1|0|4FA2FF", 0.9, 0//数字结尾坐标
+            If X - W < 1750 and 当前估价 > 1000000 Then //判断数字长度 防止识别错误
+                当前估价=Form1.InputBox2.Text / 1	
+            End If
+            If X - W < 1771 and 当前估价 > 10000000 Then 
+                当前估价=Form1.InputBox2.Text / 1
+            End If
+            If 当前估价 > 4000000 Then //超过1000万两次验证
+                Delay 2000
+                当前估价 = 即可落槌识别(W + 1483, H + 138, W + 1828, H + 196, 0.9)
+                If 当前估价 > 30000000 Then 
+                    当前估价 = 30000000
+                End If
+            End If
+            If 当前估价 > 5000000 Then 
+                Call Plugin.Media.Play("C:\WINDOWS\Media\Alarm04.wav")
+                Delay Plugin.Plug365New.RndStart(3000, 4000)
+                Call Plugin.Media.Play("C:\WINDOWS\Media\Alarm04.wav")
             End If
             ////////////////////判断是否使用了单格均价
-            多点找色 623, 244, 1263, 878, "8CF742", "17|0|63F300,0|15|6EE510,16|15|5DCB02", 0.9//单格绿色
-            If X > 0 Then 
-                坐标Y = Y-H
-                多点找色EX 1023,坐标Y+10,1132,坐标Y+50,"ACACAC","1|0|858585,3|1|8D8D8D,-1|2|ADADAD,3|2|5D5D5D,-1|3|AEAEAE,1|4|868686,2|4|9C9C9C",0.9,0  //数字超过5位数
-                If X - W > 1100 Then 
-                    If 当前估价 < 1310000 Then 
-                        日志 "单格价值超过6万 估价等于131万"
-                        当前估价=1310000	
-                    End If
-                Else 
-                    If X - W > 1090 Then 
-                        For i=1 to 2
-                            多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","6|0|-AEAEAE,-4|1|-AEAEAE,5|2|-AEAEAE,-5|3|-AEAEAE,-1|4|AEAEAE,3|6|AEAEAE,-3|8|AEAEAE,1|9|-AEAEAE,5|9|AEAEAE,-2|11|AEAEAE,1|13|AEAEAE" , 0.9//6
-                            If X > 0 Then 
-                                If 当前估价 < 1310000 Then 
-                                    日志 "单格价值超过6万 估价等于131万"
-                                    当前估价=1310000	
-                                End If
-                                Exit For
-                            End If
-                            多点找色 1023,坐标Y+10, 1043,坐标Y+50, "AEAEAE","4|0|AEAEAE,8|0|AEAEAE,0|1|AEAEAE,2|4|-AEAEAE,6|5|AEAEAE,10|5|-AEAEAE,0|8|-AEAEAE,4|9|AEAEAE,9|9|-AEAEAE,2|12|AEAEAE,7|13|-AEAEAE", 0.9//7
-                            If X > 0 Then 
-                                If 当前估价 < 1310000 Then 
-                                    日志 "单格价值超过6万 估价等于131万"
-                                    当前估价=1310000	
-                                End If
-                                Exit For
-                            End If
-                            多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","6|0|-AEAEAE,-4|2|AEAEAE,0|3|-AEAEAE,4|3|AEAEAE,-5|6|-AEAEAE,0|6|AEAEAE,5|6|-AEAEAE,0|9|-AEAEAE,-4|10|AEAEAE,4|10|AEAEAE,0|13|AEAEAE" , 0.9//8
-                            If X > 0 Then 
-                                If 当前估价 < 1310000 Then 
-                                    日志 "单格价值超过6万 估价等于131万"
-                                    当前估价=1310000	
-                                End If
-                                Exit For
-                            End If
-                            多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","4|1|AEAEAE,1|3|-AEAEAE,-2|4|AEAEAE,3|5|-AEAEAE,6|5|AEAEAE,0|7|AEAEAE,4|9|AEAEAE,7|9|-AEAEAE,-2|11|-AEAEAE,2|12|AEAEAE,6|13|-AEAEAE" , 0.9//9
-                            If X > 0 Then 
-                                If 当前估价 < 1310000 Then 
-                                    日志 "单格价值超过6万 估价等于131万"
-                                    当前估价=1310000	
-                                End If
-                                Exit For
-                            End If
-                        Next
-                    End If
-                End If
-            End If
+            //            If 已经检查单格 = 0 Then 
+            //            Delay 1500
+            //                多点找色 623, 244, 1263, 878, "8CF742", "17|0|63F300,0|15|6EE510,16|15|5DCB02", 0.9//单格绿色
+            //                If X > 0 Then 
+            //                    已经检查单格=1
+            //                    坐标Y = Y-H
+            //                    多点找色EX 1023,坐标Y+10,1132,坐标Y+50,"ACACAC","1|0|858585,3|1|8D8D8D,-1|2|ADADAD,3|2|5D5D5D,-1|3|AEAEAE,1|4|868686,2|4|9C9C9C",0.9,0  //数字超过5位数
+            //                    If X - W > 1100 Then 
+            //                        If 当前估价 < 1310000 Then 
+            //                            日志 "单格价值超过6万 估价等于131万+"&Form1.InputBox14.Text / 1
+            //                            当前估价 = 1310000 + Form1.InputBox14.Text / 1
+            //                            已加心=1 	
+            //                        End If
+            //                    Else 
+            //                        If X - W > 1090 Then 
+            //                            For i=1 to 2
+            //                                多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","6|0|-AEAEAE,-4|1|-AEAEAE,5|2|-AEAEAE,-5|3|-AEAEAE,-1|4|AEAEAE,3|6|AEAEAE,-3|8|AEAEAE,1|9|-AEAEAE,5|9|AEAEAE,-2|11|AEAEAE,1|13|AEAEAE" , 0.9//6
+            //                                If X > 0 Then 
+            //                                    If 当前估价 < 1310000 Then 
+            //                                        日志 "单格价值超过6万 估价等于131万+"&Form1.InputBox14.Text / 1
+            //                                        当前估价 = 1310000 + Form1.InputBox14.Text / 1
+            //                                        已加心=1 
+            //                                    End If
+            //                                    Exit For
+            //                                End If
+            //                                多点找色 1023,坐标Y+10, 1043,坐标Y+50, "AEAEAE","4|0|AEAEAE,8|0|AEAEAE,0|1|AEAEAE,2|4|-AEAEAE,6|5|AEAEAE,10|5|-AEAEAE,0|8|-AEAEAE,4|9|AEAEAE,9|9|-AEAEAE,2|12|AEAEAE,7|13|-AEAEAE", 0.9//7
+            //                                If X > 0 Then 
+            //                                    If 当前估价 < 1310000 Then 
+            //                                        日志 "单格价值超过6万 估价等于131万+"&Form1.InputBox14.Text / 1
+            //                                        当前估价 = 1310000 + Form1.InputBox14.Text / 1
+            //                                        已加心=1 
+            //                                    End If
+            //                                    Exit For
+            //                                End If
+            //                                多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","6|0|-AEAEAE,-4|2|AEAEAE,0|3|-AEAEAE,4|3|AEAEAE,-5|6|-AEAEAE,0|6|AEAEAE,5|6|-AEAEAE,0|9|-AEAEAE,-4|10|AEAEAE,4|10|AEAEAE,0|13|AEAEAE" , 0.9//8
+            //                                If X > 0 Then 
+            //                                    If 当前估价 < 1310000 Then 
+            //                                        日志 "单格价值超过6万 估价等于131万+"&Form1.InputBox14.Text / 1
+            //                                        当前估价 = 1310000 + Form1.InputBox14.Text / 1
+            //                                        已加心=1 
+            //                                    End If
+            //                                    Exit For
+            //                                End If
+            //                                多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","4|1|AEAEAE,1|3|-AEAEAE,-2|4|AEAEAE,3|5|-AEAEAE,6|5|AEAEAE,0|7|AEAEAE,4|9|AEAEAE,7|9|-AEAEAE,-2|11|-AEAEAE,2|12|AEAEAE,6|13|-AEAEAE" , 0.9//9
+            //                                If X > 0 Then 
+            //                                    If 当前估价 < 1310000 Then 
+            //                                        日志 "单格价值超过6万 估价等于131万+"&Form1.InputBox14.Text / 1
+            //                                        当前估价 = 1310000 + Form1.InputBox14.Text / 1
+            //                                        已加心=1 
+            //                                    End If
+            //                                    Exit For
+            //                                End If
+            //                            Next
+            //                        End If
+            //                    End If
+            //                End If
+            //            End If
             ////////////////////////
             日志 "当前估价" & 当前估价
-            If Form1.CheckBox60.Value = 1 Then   //永恒之心模式 开局估价低于6万之间退出.高于按预设出价,后面每轮加价
-                多点找色 623, 244, 1263, 878, "8CF742", "17|0|63F300,0|15|6EE510,16|15|5DCB02", 0.9 //单格绿色
-                坐标Y = Y-H
-                多点找色EX 1023,坐标Y+10,1132,坐标Y+50,"ACACAC","1|0|858585,3|1|8D8D8D,-1|2|ADADAD,3|2|5D5D5D,-1|3|AEAEAE,1|4|868686,2|4|9C9C9C",0.9,0  //数字超过5位数
-                If X - W > 1100 Then 
-                    日志 "单格价值超过10W"
+            If 当前回合 = Form1.ComboBox12.ListIndex Then 
+                If 当前估价 < Form1.InputBox2.Text / 1 Then 
+                    日志 "第"&当前回合&"回合 估价低于预设退出"
+                    Goto 退出重开	
+                End If
+            End If
+            If 当前回合 = 3 Then 
+                MoveTo W + 1621, H + 495
+                For 12
+                    Delay 15
+                    MouseWheel -2
+                Next
+                For 2
+                    Delay 500
+                    多点找色 1315, 210, 1887, 778, "5E5E5E", "3|4|525252,0|8|5E5E5E,3|12|525252", 0.7//灰色
+                    If X > 0 Then Exit For
+                    多点找色 1315, 210, 1887, 778, "5033C1", "3|5|37149D,0|9|4E2FBF,3|13|37149D", 0.7//红色
+                    If X > 0 Then Exit For
+                    多点找色 1315, 210, 1887, 778, "407EB8", "2|3|316A9C,0|7|407DB7,3|10|2E6494", 0.7//橙色
+                    If X > 0 Then Exit For
+                    多点找色 1315, 210, 1887, 778, "9D4088", "2|5|863073,0|8|983B83,3|12|7E2D6D", 0.7//紫色
+                    If X > 0 Then Exit For
+                    多点找色 1315, 210, 1887, 778, "A8792C", "3|4|865E16,0|8|A7782A,4|11|7E5814", 0.7//蓝色
+                    If X > 0 Then Exit For
+                    多点找色 1315, 210, 1887, 778, "1C8345", "3|6|166F3A,0|11|1C8345,3|16|166F3A", 0.7//绿色
+                    If X > 0 Then Exit For
+                Next
+                If X < 0 Then 
+                    TracePrint "藏品少"
+                    藏品多=0
                 Else 
-                    If X - W > 1090 Then 
-                        For i=1 to 2
-                            多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","6|0|-AEAEAE,-4|1|-AEAEAE,5|2|-AEAEAE,-5|3|-AEAEAE,-1|4|AEAEAE,3|6|AEAEAE,-3|8|AEAEAE,1|9|-AEAEAE,5|9|AEAEAE,-2|11|AEAEAE,1|13|AEAEAE" , 0.9//6
-                            If X > 0 Then 
-                                日志 "单格价值超过6W"
-                                Exit For
-                            End If
-                            多点找色 1023,坐标Y+10, 1043,坐标Y+50, "AEAEAE","4|0|AEAEAE,8|0|AEAEAE,0|1|AEAEAE,2|4|-AEAEAE,6|5|AEAEAE,10|5|-AEAEAE,0|8|-AEAEAE,4|9|AEAEAE,9|9|-AEAEAE,2|12|AEAEAE,7|13|-AEAEAE", 0.9//7
-                            If X > 0 Then 
-                                日志 "单格价值超过7W"
-                                Exit For
-                            End If
-                            多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","6|0|-AEAEAE,-4|2|AEAEAE,0|3|-AEAEAE,4|3|AEAEAE,-5|6|-AEAEAE,0|6|AEAEAE,5|6|-AEAEAE,0|9|-AEAEAE,-4|10|AEAEAE,4|10|AEAEAE,0|13|AEAEAE" , 0.9//8
-                            If X > 0 Then 
-                                日志 "单格价值超过8W"
-                                Exit For
-                            End If
-                            多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","4|1|AEAEAE,1|3|-AEAEAE,-2|4|AEAEAE,3|5|-AEAEAE,6|5|AEAEAE,0|7|AEAEAE,4|9|AEAEAE,7|9|-AEAEAE,-2|11|-AEAEAE,2|12|AEAEAE,6|13|-AEAEAE" , 0.9//9
-                            If X > 0 Then 
-                                日志 "单格价值超过9W"
-                                Exit For
-                            End If
-                            If i = 2 Then 
-                                日志 "单格价值小于六万 没永恒之心 直接退出"
-                        For 60
-                            Delay 1000
-                            多点找色 283,77,1709,98, "F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
-                            If X > 0 Then 
-                                Exit For
-                            End If
-                            多点找色 1398,945,1684,1025,"2C2C2C","9|0|2C2C2C,18|0|2C2C2C,0|4|D5D5D5,9|4|D6D6D6,19|4|D8D8D8,-1|9|2C2C2C,19|9|2C2C2C,9|15|D9D9D9,0|19|2C2C2C,15|19|2C2C2C",0.7//开始匹配
-                            If X > 0 Then 
-                                Exit For
-                            End If
-                            KeyPress "ESC", 1
-                            Delay 1000
-                            MoveTo W + 1160, H + 710
-                            Delay 100
-                            LeftClick 3
-                        Next
-                        Goto 重开
-                            End If
-                        Next
+                    藏品多=1
+                    TracePrint "藏品多 不执行退出"
+                End If
+                For 15
+                    Delay 15
+                    MouseWheel 2
+                Next
+            End If
+            If Form1.Chec222kBox60.Value = 1 Then //永恒之心模式 开局估价低于6万之间退出.高于按预设出价,后面每轮加价
+                If 当前回合 = 1 Then 
+                    Delay 1500
+                    多点找色 623, 244, 1263, 878, "8CF742", "17|0|63F300,0|15|6EE510,16|15|5DCB02", 0.9 //单格绿色
+                    坐标Y = Y-H
+                    多点找色EX 1023,坐标Y+10,1132,坐标Y+50,"ACACAC","1|0|858585,3|1|8D8D8D,-1|2|ADADAD,3|2|5D5D5D,-1|3|AEAEAE,1|4|868686,2|4|9C9C9C",0.9,0  //数字超过5位数
+                    If X - W > 1100 Then 
+                        日志 "单格价值超过10W"
                     Else 
-                        日志 "单格价值小于六万 没永恒之心 直接退出"
-                        For 60
-                            Delay 1000
-                            多点找色 283,77,1709,98, "F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
-                            If X > 0 Then 
-                                Exit For
-                            End If
-                            多点找色 1398,945,1684,1025,"2C2C2C","9|0|2C2C2C,18|0|2C2C2C,0|4|D5D5D5,9|4|D6D6D6,19|4|D8D8D8,-1|9|2C2C2C,19|9|2C2C2C,9|15|D9D9D9,0|19|2C2C2C,15|19|2C2C2C",0.7//开始匹配
-                            If X > 0 Then 
-                                Exit For
-                            End If
-                            KeyPress "ESC", 1
-                            Delay 1000
-                            MoveTo W + 1160, H + 710
-                            Delay 100
-                            LeftClick 3
-                        Next
-                        Goto 重开
+                        If X - W > 1090 Then 
+                            For i=1 to 2
+                                多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","6|0|-AEAEAE,-4|1|-AEAEAE,5|2|-AEAEAE,-5|3|-AEAEAE,-1|4|AEAEAE,3|6|AEAEAE,-3|8|AEAEAE,1|9|-AEAEAE,5|9|AEAEAE,-2|11|AEAEAE,1|13|AEAEAE" , 0.9//6
+                                If X > 0 Then 
+                                    日志 "单格价值超过6W"
+                                    Exit For
+                                End If
+                                多点找色 1023,坐标Y+10, 1043,坐标Y+50, "AEAEAE","4|0|AEAEAE,8|0|AEAEAE,0|1|AEAEAE,2|4|-AEAEAE,6|5|AEAEAE,10|5|-AEAEAE,0|8|-AEAEAE,4|9|AEAEAE,9|9|-AEAEAE,2|12|AEAEAE,7|13|-AEAEAE", 0.9//7
+                                If X > 0 Then 
+                                    日志 "单格价值超过7W"
+                                    Exit For
+                                End If
+                                多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","6|0|-AEAEAE,-4|2|AEAEAE,0|3|-AEAEAE,4|3|AEAEAE,-5|6|-AEAEAE,0|6|AEAEAE,5|6|-AEAEAE,0|9|-AEAEAE,-4|10|AEAEAE,4|10|AEAEAE,0|13|AEAEAE" , 0.9//8
+                                If X > 0 Then 
+                                    日志 "单格价值超过8W"
+                                    Exit For
+                                End If
+                                多点找色 1023,坐标Y+10, 1043,坐标Y+50,"AEAEAE","4|1|AEAEAE,1|3|-AEAEAE,-2|4|AEAEAE,3|5|-AEAEAE,6|5|AEAEAE,0|7|AEAEAE,4|9|AEAEAE,7|9|-AEAEAE,-2|11|-AEAEAE,2|12|AEAEAE,6|13|-AEAEAE" , 0.9//9
+                                If X > 0 Then 
+                                    日志 "单格价值超过9W"
+                                    Exit For
+                                End If
+                                If i = 2 Then 
+                                    日志 "单格价值小于六万 没永恒之心 直接退出"
+                                    For 60
+                                        Delay 1000
+                                        多点找色 283,77,1709,98, "F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
+                                        If X > 0 Then 
+                                            Exit For
+                                        End If
+                                        多点找色 1398,945,1684,1025,"2C2C2C","9|0|2C2C2C,18|0|2C2C2C,0|4|D5D5D5,9|4|D6D6D6,19|4|D8D8D8,-1|9|2C2C2C,19|9|2C2C2C,9|15|D9D9D9,0|19|2C2C2C,15|19|2C2C2C",0.7//开始匹配
+                                        If X > 0 Then 
+                                            Exit For
+                                        End If
+                                        KeyPress "ESC", 1
+                                        Delay 1000
+                                        MoveTo W + 1160, H + 710
+                                        Delay 100
+                                        LeftClick 3
+                                    Next
+                                    Goto 重开
+                                End If
+                            Next
+                        Else 
+                            日志 "单格价值小于六万 没永恒之心 直接退出"
+                            Rem 退出重开
+                            移动点击 69, 984, 800
+                            移动点击 501,884, 500
+                            移动点击 673,571, 200
+                            For 60
+                                Delay 1000
+                                多点找色 283,77,1709,98, "F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
+                                If X > 0 Then 
+                                    Exit For
+                                End If
+                                多点找色 1398,945,1684,1025,"2C2C2C","9|0|2C2C2C,18|0|2C2C2C,0|4|D5D5D5,9|4|D6D6D6,19|4|D8D8D8,-1|9|2C2C2C,19|9|2C2C2C,9|15|D9D9D9,0|19|2C2C2C,15|19|2C2C2C",0.7//开始匹配
+                                If X > 0 Then 
+                                    Exit For
+                                End If
+                                KeyPress "ESC", 1
+                                Delay 1000
+                                MoveTo W + 1160, H + 710
+                                Delay 100
+                                LeftClick 3
+                            Next
+                            Goto 重开
+                        End If
+                        当前估价=Form1.InputBox2.Text/1
                     End If
-                    当前估价=Form1.InputBox2.Text/1
                 End If
             End If
             If 当前估价 < 1000000 Then 
@@ -574,13 +705,16 @@ Sub 拍卖
             Else 
                 出价=666
             End If  
-            
+            Delay Plugin.Plug365New.RndStart(500, 700)
 
-            Delay Plugin.Plug365New.RndStart(1500, 2500)
-            If 次数 > 4 Then 
-                次数=0
+            移动点击 1748, 1008, 100
+            Rem 清空重输入
+            重输次数 = 重输次数 + 1
+            If 重输次数 > 2 Then
+                重输次数 = 0
+                日志 "连续多次输入异常，放弃本次出价"
+                Goto 退出重开
             End If
-            移动点击 1748,1008,100
             Delay 1100
             移动点击 977,962,500
             /////////////////
@@ -608,27 +742,53 @@ Sub 拍卖
                     日志 "估价高于当前价，使用估价"
                 End If
             End If
-            If Form1.CheckBox60.Value = 1 Then //不在永恒之心模式发现心
-            Else
+            If 当前回合 = Form1.ComboBox12.ListIndex - 9 and Form1.ComboBox12.ListIndex > 10 Then 
+                当前出价 = 估价
+            End If
+            If 已加心 = 0 Then
                 多点找色 1302, 196, 1891, 787, "290D7B", "31|0|220A69,17|2|FFFFFF,6|6|FFFFFF,19|8|FFFFE7,11|11|FF988B,23|16|FFFF7A,4|24|220969,31|24|220A69", 0.8
                 If X > 0 Then 
-                    当前出价=当前出价+Form1.InputBox14.Text/1
+                    已加心 = 1
+                    当前出价 = 当前出价 + Form1.InputBox14.Text / 1
+                    日志 "发现永恒之心+"&Form1.InputBox14.Text / 1
                 End If
             End If
-            当前出价 = (当前出价 \ 1000) * 1000 + 520
+            当前出价 = (当前出价 \ 1000) * 1000 + 0
             ' 输出并点击输入
-            Form1.ListBox1.AddItem "出价" & 当前出价
-            Form1.ListBox1.ListIndex = Form1.ListBox1.ListCount - 1
-            For i = 0 To Len(当前出价)-1
-                n = Mid(当前出价, i+1, 1)
+            日志 "出价" & 当前出价
+            For i = 1 To Len(当前出价)
+                If 月卡界面 = 1 Then 
+                    Goto 退出重开
+                End If
+                n = Mid(当前出价, i, 1)
                 x = W + numX(n)
                 y = H + numY(n)
                 MoveTo x, y
                 LeftClick 1
-                Delay 150
+                Delay 250
+                多点找色 1239, 789, 1392, 853, "798A5D", "0|1|798A5D,1|1|798A5D", 0.8//绿色
+                If X > 0 and i <> 6 Then 
+                    日志 "出现意外 重新输入"
+                    Goto 清空重输入
+                End If
+                多点找色 1239, 789, 1392, 853, "8A4376", "0|1|8A4376,1|1|8A4376", 0.8//紫色
+                If X > 0 and i <> 7 Then 
+                    日志 "出现意外 重新输入"
+                    Goto 清空重输入
+                End If
+                多点找色 1239, 789, 1392, 853, "323DA7", "0|1|323DA7,1|1|323DA7", 0.8//红色
+                If X > 0 and i <> 8 Then 
+                    日志 "出现意外 重新输入"
+                    Goto 清空重输入
+                End If
             Next
+            重输次数 = 0
             ' 每轮结束后都加随机值
-            当前出价 = 当前出价 + Plugin.Plug365New.RndStart(当前出价 / 60, 当前出价 / 50)
+            If 已加心 = 1 or 藏品多=1 Then 
+                当前出价 = 当前出价 + Plugin.Plug365New.RndStart(当前出价 / 30, 当前出价 / 25)
+            Else 
+                当前出价 = 当前出价 + Plugin.Plug365New.RndStart(当前出价 / 60, 当前出价 / 50)
+            End If
             MoveTo W+1320, H+962
             Delay 100
             LeftClick 1
@@ -638,63 +798,11 @@ Sub 拍卖
         End If
         多点找色 283,77,1709,98, "F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
         If X > 0 Then 
-        Delay 3000
-        多点找色 283,77,1709,98, "F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
-        If X > 0 Then 
-            Goto 重开
-        End If
+            Delay 3000
+            多点找色 283,77,1709,98, "F5F5F5","-1|0|-F5F5F5,6|0|F5F5F5,7|0|-F5F5F5,0|6|F5F5F5,5|6|F5F5F5,5|7|-F5F5F5,-1|11|F5F5F5", 1
+            If X > 0 Then 
+                Goto 重开
+            End If
         End If
     Next
 End Sub
-Function 即可落槌识别(x1, y1, x2, y2, Sim)
-    Dim Result, CurrentX, TempXY, ZB, FoundX
-    Dim MinX, MinNum, i, FeatureArr, FirstColor, OffsetStr
-    Dim NumFeatures(9)
-    NumFeatures(1) = "4FA2FF|-3|2|4FA2FF,2|2|4FA2FF,4|2|-4FA2FF,1|6|4FA2FF,-4|7|-4FA2FF,-3|9|-4FA2FF,4|9|-4FA2FF,1|11|4FA2FF,-4|13|-4FA2FF,3|14|4FA2FF,1|16|4FA2FF,-4|17|-4FA2FF,4|17|-4FA2FF"
-        NumFeatures(2) = "4FA2FF|8|2|-4FA2FF,-3|3|4FA2FF,5|4|4FA2FF,0|6|-4FA2FF,-4|7|-4FA2FF,5|7|4FA2FF,-4|11|-4FA2FF,3|11|4FA2FF,7|12|-4FA2FF,-1|14|4FA2FF,-4|17|4FA2FF,2|17|4FA2FF,7|17|4FA2FF"
-    NumFeatures(3) = "4FA2FF|4|0|4FA2FF,9|0|4FA2FF,0|4|-4FA2FF,10|5|-4FA2FF,-1|7|-4FA2FF,4|7|4FA2FF,0|10|-4FA2FF,9|10|4FA2FF,4|12|-4FA2FF,1|15|4FA2FF,8|15|4FA2FF,-1|17|-4FA2FF,11|17|-4FA2FF"
-    NumFeatures(4) = "4FA2FF|-4|1|-4FA2FF,3|1|4FA2FF,6|2|-4FA2FF,-7|5|-4FA2FF,-3|6|4FA2FF,3|6|4FA2FF,6|9|-4FA2FF,-5|13|4FA2FF,4|13|4FA2FF,6|13|4FA2FF,3|16|4FA2FF,-7|17|-4FA2FF,-1|17|-4FA2FF"
-    NumFeatures(5) = "4FA2FF|8|0|4FA2FF,4|4|-4FA2FF,9|4|-4FA2FF,0|6|4FA2FF,5|7|4FA2FF,9|10|4FA2FF,4|11|-4FA2FF,-2|12|-4FA2FF,1|15|4FA2FF,9|15|4FA2FF,5|16|4FA2FF,11|17|-4FA2FF,-1|18|-4FA2FF"
-    NumFeatures(6) = "4FA2FF|-5|1|-4FA2FF,3|3|-4FA2FF,-2|4|4FA2FF,6|4|-4FA2FF,-5|9|4FA2FF,5|9|4FA2FF,-1|11|-4FA2FF,1|12|-4FA2FF,5|14|4FA2FF,-4|15|4FA2FF,-7|17|-4FA2FF,-1|17|4FA2FF,7|17|-4FA2FF"
-    NumFeatures(7) = "4FA2FF|6|0|4FA2FF,10|0|4FA2FF,0|2|4FA2FF,6|2|4FA2FF,11|2|4FA2FF,0|4|-4FA2FF,4|6|-4FA2FF,1|8|-4FA2FF,7|9|4FA2FF,1|12|-4FA2FF,11|12|-4FA2FF,3|17|4FA2FF,9|17|-4FA2FF"
-    NumFeatures(8) = "4FA2FF|-4|3|4FA2FF,5|3|4FA2FF,0|4|-4FA2FF,-7|8|-4FA2FF,0|8|4FA2FF,7|8|-4FA2FF,0|12|-4FA2FF,-5|13|4FA2FF,6|14|4FA2FF,3|16|4FA2FF,0|17|4FA2FF,8|17|-4FA2FF,-6|18|-4FA2FF"
-    NumFeatures(9) = "4FA2FF|5|0|4FA2FF,7|4|4FA2FF,-2|5|4FA2FF,4|5|-4FA2FF,1|9|4FA2FF,7|9|4FA2FF,-4|11|-4FA2FF,10|12|-4FA2FF,-1|13|-4FA2FF,5|14|4FA2FF,-3|15|-4FA2FF,3|16|4FA2FF,7|17|-4FA2FF"
-    NumFeatures(0) = "4FA2FF|-7|1|-4FA2FF,6|1|-4FA2FF,-4|4|4FA2FF,4|4|4FA2FF,0|5|-4FA2FF,0|9|-4FA2FF,5|9|4FA2FF,-5|10|4FA2FF,0|13|-4FA2FF,-4|15|4FA2FF,4|15|4FA2FF,-6|18|-4FA2FF,6|18|-4FA2FF"
-    Result = ""
-    CurrentX = x1 ' 记录当前查找的起始X坐标
-    Do
-        MinX = x2 + 1 ' 初始化为区域最右侧之外，用于寻找最小的X坐标
-        MinNum = -1   ' 记录最靠左的数字是几
-        ' 遍历0-9的特征，在当前行寻找“最靠左”的数字
-        For i = 0 To 9
-            FeatureArr = Split(NumFeatures(i), "|")
-            FirstColor = FeatureArr(0)
-            OffsetStr = Replace(NumFeatures(i), FirstColor & "|", "")
-            ' 在当前X坐标到区域右侧之间进行多点找色
-            TempXY = Plugin.Color.FindMultiColor(CurrentX, y1, x2, y2, FirstColor, OffsetStr, Sim)
-            ' 如果找到了，解析坐标
-            If TempXY <> "-1|-1" Then
-                ZB = InStr(TempXY, "|")
-                FoundX = Clng(Left(TempXY, ZB - 1))
-                ' 【核心修复】比较坐标，只保留X坐标最小的那个数字
-                If FoundX < MinX Then
-                    MinX = FoundX
-                    MinNum = i
-                End If
-            End If
-        Next
-        //        MoveTo FoundX, H + 37
-        ' 如果这一轮找到了最靠左的数字，则拼接到结果中，并移动起始坐标
-        If MinNum <> -1 Then
-            Result = Result & MinNum
-            CurrentX = MinX + 4 ' 假设数字宽度约为15像素，向右移动
-        Else
-            Exit Do ' 如果没找到任何数字，说明这一行结束了，退出循环
-        End If
-    Loop
-    If Result = "" Then
-    即可落槌识别 = 0
-Else
-    即可落槌识别 = CLng(Result)
-End If
-End Function
