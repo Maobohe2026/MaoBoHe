@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>zaoyo 插件帮助</title>
+<style>
+.req { color:#d60000; font-weight:bold; }
+body { font-size:12px; font-family:Verdana,"宋体"; margin:8px; }
+h1 { font-size:16px; color:#006939; border-bottom:2px solid #006939; padding-bottom:4px; }
+h2 { font-size:14px; color:#006939; border-bottom:1px dashed #9C9A9C; margin-top:26px; padding-bottom:3px; }
+.t { background:#fff; margin:8px 0 26px 0; width:100%; border-collapse:collapse; }
+.t th { color:#7B797B; background:#DEDFDE; line-height:22px; text-align:left; width:80px; padding-left:6px; vertical-align:top; }
+.t td { padding:5px 6px; vertical-align:top; }
+.e { background:#F2F2F8; font-family:Consolas,"宋体"; white-space:pre; padding:6px; }
+code { color:#B00000; }
+.toc { background:#F7F9F2; border:1px solid #DDE7CE; padding:8px 12px; }
+.toc a { color:#006939; text-decoration:none; margin-right:14px; white-space:nowrap; }
+.note { background:#FFFBE6; border-left:3px solid #E6A23C; padding:6px 8px; margin:8px 0; }
+</style>
+</head>
+<body>
+
+<h1>zaoyo 早柚插件 v2.8.0</h1>
+
+<p>按键精灵原生插件（32 位 ActiveX DLL）。找图用灰度 ZNCC，抗游戏渲染色差；多点找色兼容 BBGGRR 并支持负色点；扇形测角、箭头朝向、相对鼠标移动；<b>音效识别</b>（异环闪避/反击提示音）。</p>
+
+<div class="note">
+<b>怎么调用（只有这一种写法）</b><br />
+<code>Plugin.zaoyo.命令(参数...)</code><br />
+例：<code>Plugin.zaoyo.FindColorMultiPos(0,0,1920,1080,"28A2ED","87|2|28A2ED",0.90,0,"FF0000",1)</code><br />
+<b>参数个数必须写全</b>（写少了返回空）。
+</div>
+
+<a name="Find"></a><a name="FindAll"></a><a name="FindAllPos"></a><a name="Version"></a>
+<h2>命令一览</h2>
+<table class="t">
+<tr><th>命令</th><td>说明</td></tr>
+<tr><th>Find</th><td>找图 → <code>x|y|相似度</code>，找不到 <code>-1|-1</code></td></tr>
+<tr><th>FindAll</th><td>多图同时找（全部命中才算成功）</td></tr>
+<tr><th>FindAllPos</th><td>找一张图的所有位置 → <code>数量;x|y|相似度;...</code></td></tr>
+<tr><th>FindColorMulti</th><td>多点找色（颜色 BBGGRR，支持负色点）</td></tr>
+<tr><th>FindColorMultiPos</th><td>多点找色的所有位置</td></tr>
+<tr><th>DrawBox</th><td>单独画一个正方形框（中心X,中心Y,边长,颜色）→ <code>ok|左|上|右|下</code>，1.5 秒后消失</td></tr>
+<tr><th>GetSectorAngle</th><td>扇形（视野锥）朝向 → <code>角度|集中度|覆盖</code></td></tr>
+<tr><th>GetArrowAngle</th><td>箭头（角色朝向）→ <code>角度|像素数|长度</code></td></tr>
+<tr><th>MoveMouseR</th><td>相对移动鼠标，单位=鼠标计数</td></tr>
+<tr><th>MoveMouseP</th><td>相对移动鼠标，单位=屏幕像素</td></tr>
+<tr><th>SoundStart</th><td>开始监听游戏音效（无参数，阈值已内置）</td></tr>
+<tr><th>SoundWait</th><td>等音效命中 → <code>2=闪避 / 3=反击 / 0=超时 / -1=未启动</code></td></tr>
+<tr><th>SoundScore</th><td>当前分数 → <code>闪避分|反击分</code></td></tr>
+<tr><th>SoundStop</th><td>停止监听</td></tr>
+<tr><th>Version</th><td>版本号 → <code>2.8.0</code></td></tr>
+</table>
+
+<h2>参数约定</h2>
+<table class="t">
+<tr><th>相似度</th><td>0~1，必填（找图常用 0.88，找色 0.90~0.95）</td></tr>
+<tr><th>绘制开关</th><td>1=画框（1.5 秒后自动消失）/ 0=不画</td></tr>
+<tr><th>颜色</th><td>方框颜色 <code>RRGGBB</code>，默认 FF0000，<b>不能用 000000</b></td></tr>
+<tr><th>方向</th><td>1=左上→右下 / -1=右下→左上 / 2=右上→左下 / -2=左下→右上 / 3=按分数优先</td></tr>
+<tr><th>找色颜色</th><td><b>BBGGRR</b>（取色器原文：红=0000FF 绿=00FF00 蓝=FF0000）</td></tr>
+<tr><th>偏色点</th><td><code>dx|dy|颜色</code>，逗号分隔；颜色前加 <code>-</code> 表示"该点不能是这个颜色"</td></tr>
+</table>
+
+<a name="Find"></a><h2>找图</h2>
+<div class="e">pos = Plugin.zaoyo.Find(0, 0, 1920, 1080, "C:\qm\a.bmp", 0.88, 0, "FF0000", 1)
+pos = Plugin.zaoyo.Find(0, 0, 1920, 1080, "C:\qm\a.bmp", 0.88, 1, "00FF00", -1)   ' 画框 + 反向找
+all = Plugin.zaoyo.FindAll(0, 0, 1920, 1080, "a.bmp|b.bmp", 0.88, 0, "FF0000", 1)
+allPos = Plugin.zaoyo.FindAllPos(0, 0, 1920, 1080, "a.bmp", 0.88, 0, "FF0000", 1)
+
+xy = Split(pos, "|")
+If pos &lt;&gt; "-1|-1" Then MoveTo Clng(xy(0)), Clng(xy(1))</div>
+<p>图片可以写完整路径、<code>a.bmp|b.bmp</code>、通配符 <code>C:\pic\*.bmp</code>。</p>
+
+<a name="FindColorMulti"></a><a name="FindColorMultiPos"></a><h2>多点找色</h2>
+<div class="e">pos = Plugin.zaoyo.FindColorMulti(0, 0, 1920, 1080, "28A2ED", "87|2|28A2ED,156|4|28A2ED", 0.90, 0, "FF0000", 1)
+pos = Plugin.zaoyo.FindColorMulti(0, 0, 1920, 1080, "28A2ED", "87|2|28A2ED,7|11|-FFFFFF", 0.90, 0, "FF0000", 1)  ' 负色点
+allPos = Plugin.zaoyo.FindColorMultiPos(0, 0, 1920, 1080, "28A2ED", "87|2|28A2ED", 0.95, 0, "FF0000", 1)</div>
+
+<a name="DrawBox"></a><h2>画方框</h2>
+<div class="e">r = Plugin.zaoyo.DrawBox(960, 540, 200, "FF0000")   ' 以 (960,540) 为中心、边长 200 的红框 → ok|860|440|1060|640
+r = Plugin.zaoyo.DrawBox(960, 540, 200, "00FF00")   ' 绿框
+r = Plugin.zaoyo.DrawBox(100, 100, 60, "FFFF00")     ' 小方框</div>
+<p>以（中心X,中心Y）为中心画一个边长为「边长」的正方形，1.5 秒后自动消失。颜色是 RRGGBB，<b>不能是 000000</b>（黑色是透明色键）。多个框可以同时存在，各自按自己的 1.5 秒倒计时消失，不影响正在进行的找图找色。</p>
+
+<a name="GetSectorAngle"></a><a name="GetArrowAngle"></a><h2>测角</h2>
+<div class="e">Plugin.zaoyo.GetSectorAngle(1146, 480, 30, 80, 50, 0, 0, "FF0000", 0)   ' → 123.4|0.870|0.412
+Plugin.zaoyo.GetArrowAngle(1021, 260, 22, 0, 0, "FF0000")                 ' → 355.2|210|26.2</div>
+<p>角度 0=正上、顺时针 0~360；集中度 &gt;0.8 可靠；箭头像素数 200~240、长度 25~29 为正常。</p>
+
+<a name="MoveMouseR"></a><a name="MoveMouseP"></a><h2>相对移动鼠标（锁鼠标游戏转视角）</h2>
+<div class="e">Plugin.zaoyo.MoveMouseP(200, 0, 1, 8, 0)      ' 向右 200 像素
+Call Plugin.zaoyo.MoveMouseP(200, 0, 20, 8, 0)     ' 分 20 步、每步 8ms
+Call Plugin.zaoyo.MoveMouseR(200, 0, 1, 8, 0)      ' 按鼠标计数</div>
+<p>按键精灵的 MoveTo 是绝对定位，锁鼠标的游戏只读相对增量，所以要用这两个命令。</p>
+
+<a name="SoundStart"></a><a name="SoundWait"></a><a name="SoundScore"></a><a name="SoundStop"></a><h2>音效识别（异环闪避 / 反击）</h2>
+<div class="note">
+原理：采集系统输出（WASAPI 环回）→ 1kHz 高通 → 与内置模板做归一化互相关。<br />
+<b>阈值已内置</b>：闪避 0.35、反击 0.25，<b>不需要传参数</b>。<br />
+前提：游戏声音走 <b>默认播放设备</b>，不要用独占模式。
+</div>
+<div class="e">r = Plugin.zaoyo.SoundStart()        ' → ok|48000|2
+If Left(r, 2) &lt;&gt; "ok" Then MsgBox "音效采集启动失败: " &amp; r
+
+Do
+    k = Plugin.zaoyo.SoundWait(3000, 800)  ' 最多等 3 秒
+    If k = 2 Then
+        RightClick 1                  ' 闪避（自己写动作）
+    ElseIf k = 3 Then
+        LeftClick 1                   ' 反击（自己写动作）
+    End If
+Loop
+
+Call Plugin.zaoyo.SoundStop()</div>
+<table class="t">
+<tr><th>SoundStart()</th><td>无参数。返回 <code>ok|设备采样率|声道</code>，失败为 <code>fail|错误码</code></td></tr>
+<tr><th>SoundWait(超时毫秒,有效期毫秒)</th><td><code>2</code>=闪避、<code>3</code>=反击、<code>0</code>=超时、<code>-1</code>=没启动<br />超时写 <code>0</code> = 立即返回（非阻塞轮询）；有效期写 <code>0</code> = 事件不过期，常用 <code>800</code></td></tr>
+<tr><th>SoundScore()</th><td>调试用：当前两路分数，例如 <code>0.031|0.045</code>；实战底噪一般 0.02~0.07</td></tr>
+<tr><th>SoundStop()</th><td>停止采集，释放设备</td></tr>
+</table>
+<p>冷却：闪避 0.5 秒、反击 1.2 秒内不会重复报同一路。</p>
+
+</body>
+</html>

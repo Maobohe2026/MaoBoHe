@@ -1,0 +1,10 @@
+file=E:\Documents\deepseek-harness\default-workspace\qmfindpic-single\dist\zaoyo.dll size=217088
+  IsDebuggerPresent          YES
+  CheckHost                  no
+  VMProtect                  YES
+  OutputDebugStringA         no
+  NtQueryInformationProcess  no
+  msvcrt                     no
+  MFC42                      YES
+  mscoree                    no
+imports: QMPlugin.dll, EA, 3À££ÃSUVW|$ÿt=t$þ@|4jjÿà"èÄít!µ, DllCanUnloadNow, QmSelfTestSector, êY½¥+©¼O?<õ]í<e9=³>B=ãõ=	ß;5d¼0[

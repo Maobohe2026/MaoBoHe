@@ -1,0 +1,7 @@
+#include <windows.h>
+
+/* 内置音效模板（float32 小端，32000Hz 单声道，未归一化原始数据）
+   301 = 闪避 10924 点 (0.341s)
+   302 = 反击 16000 点 (0.500s) */
+301 RCDATA "snd\\dodge.bin"
+302 RCDATA "snd\\counter.bin"

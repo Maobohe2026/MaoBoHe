@@ -1,0 +1,62 @@
+// QMPlugin.odl : type library source for QMPlugin.dll
+
+[ uuid(C7CC9058-59A4-4CE1-ACB3-4E2C049E4C31), version(1.0) ]
+library QMPlugin
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for CQMPlugin
+	
+	[ uuid(1E7051CE-6430-4BA9-A965-3EAC6D1AC422) ]
+	dispinterface IQMPlugin
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CQMPlugin)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CQMPlugin)
+			[id(1)] BSTR Find(long lLeft, long lTop, long lRight, long lBottom, BSTR sImg, double dSim, long lDraw, BSTR sColor, long lDirection);
+			[id(2)] BSTR FindAll(long lLeft, long lTop, long lRight, long lBottom, BSTR sList, double dSim, long lDraw, BSTR sColor, long lDirection);
+			[id(3)] BSTR FindAllPos(long lLeft, long lTop, long lRight, long lBottom, BSTR sImg, double dSim, long lDraw, BSTR sColor, long lDirection);
+			[id(4)] BSTR FindColorMulti(long lLeft, long lTop, long lRight, long lBottom, BSTR sMain, BSTR sPoints, double dSim, long lDraw, BSTR sColor, long lDirection);
+			[id(5)] BSTR FindColorMultiPos(long lLeft, long lTop, long lRight, long lBottom, BSTR sMain, BSTR sPoints, double dSim, long lDraw, BSTR sColor, long lDirection);
+			[id(6)] BSTR GetSectorAngle(long lCenterX, long lCenterY, long lRadiusIn, long lRadiusOut, long lSensitivity, long lCalibrate, long lDraw, BSTR sColor, long lMethod);
+			[id(7)] BSTR GetArrowAngle(long lCenterX, long lCenterY, long lRadius, double dBaseAngle, long lDraw, BSTR sColor);
+			[id(8)] BSTR MoveMouseR(long lDx, long lDy, long lSteps, long lDelay, long lMethod);
+			[id(9)] BSTR MoveMouseP(long lDx, long lDy, long lSteps, long lDelay, long lMethod);
+			[id(10)] BSTR Version();
+			[id(11)] BSTR SoundStart();
+			[id(12)] BSTR SoundStop();
+			[id(13)] BSTR SoundWait(long lTimeout, long lMaxAge);
+			[id(14)] BSTR SoundScore();
+			[id(15)] BSTR DrawBox(long lCenterX, long lCenterY, long lSize, BSTR sColor);
+			//}}AFX_ODL_METHOD
+
+	};
+
+	[ uuid(EE1035BA-1025-4cde-AD4C-A04B3878BF00) ]
+	dispinterface IQMPluginStandard
+	{
+		properties:
+		methods:
+			[id(1)] BSTR Get_Plugin_Description(BSTR bstrItemName);
+			[id(2)] BSTR Get_Plugin_Interpret_Template(BSTR bstrItemName);
+	};
+
+	//  Class information for CQMPlugin
+	[ uuid(9A3B7C21-4D5E-4F60-8A71-B2C3D4E5F607) ]
+	coclass zaoyo
+	{
+		[default] dispinterface IQMPlugin;
+		dispinterface IQMPluginStandard;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

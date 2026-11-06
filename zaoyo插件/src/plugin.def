@@ -1,0 +1,6 @@
+LIBRARY zaoyo
+EXPORTS
+    DllCanUnloadNow
+    DllGetClassObject
+    DllRegisterServer
+    DllUnregisterServer
